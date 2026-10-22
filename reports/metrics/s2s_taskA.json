@@ -1,0 +1,3037 @@
+{
+  "name": "s2s_taskA",
+  "metrics": {
+    "attention": {
+      "test_in_em": {
+        "mean": 0.9995833333333334,
+        "sd": 0.0007216878364870169,
+        "n": 3,
+        "values": [
+          1.0,
+          1.0,
+          0.99875
+        ]
+      },
+      "test_out_em": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "n": 3,
+        "values": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "test_in_char_acc": {
+        "mean": 0.9999166666666666,
+        "sd": 0.00014433756729745464,
+        "n": 3,
+        "values": [
+          1.0,
+          1.0,
+          0.9997499999999999
+        ]
+      },
+      "em_by_digits": {
+        "1": {
+          "mean": 0.9983333333333334,
+          "sd": 0.0028867513459481316,
+          "n": 3,
+          "values": [
+            1.0,
+            1.0,
+            0.995
+          ]
+        },
+        "2": {
+          "mean": 1.0,
+          "sd": 0.0,
+          "n": 3,
+          "values": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "3": {
+          "mean": 1.0,
+          "sd": 0.0,
+          "n": 3,
+          "values": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "4": {
+          "mean": 1.0,
+          "sd": 0.0,
+          "n": 3,
+          "values": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "5": {
+          "mean": 0.0,
+          "sd": 0.0,
+          "n": 3,
+          "values": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "6": {
+          "mean": 0.0,
+          "sd": 0.0,
+          "n": 3,
+          "values": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "7": {
+          "mean": 0.0,
+          "sd": 0.0,
+          "n": 3,
+          "values": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "failures_seed0": [
+      {
+        "src": "sixty thousand eight hundred eighty nine dollars and thirty cents",
+        "gold": "$60,889.30",
+        "pred": "$6,889.30",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty nine thousand nine hundred ninety six dollars and fifty six cents",
+        "gold": "$89,996.56",
+        "pred": "$9,996.56",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty four thousand three hundred fifty seven dollars and fourteen cents",
+        "gold": "$34,357.14",
+        "pred": "$4,357.14",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty seven thousand seven hundred fifty six dollars and thirty three cents",
+        "gold": "$87,756.33",
+        "pred": "$7,756.33",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventeen thousand two hundred twenty six dollars and thirty one cents",
+        "gold": "$17,226.31",
+        "pred": "$1,226.31",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ninety four thousand four hundred fifty six dollars and eighty eight cents",
+        "gold": "$94,456.88",
+        "pred": "$4,456.88",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty thousand six hundred eighty five dollars and thirty one cents",
+        "gold": "$50,685.31",
+        "pred": "$5,685.31",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty six thousand three hundred eleven dollars and sixteen cents",
+        "gold": "$36,311.16",
+        "pred": "$6,311.16",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "sixty four thousand one hundred twenty nine dollars and fifty nine cents",
+        "gold": "$64,129.59",
+        "pred": "$4,129.59",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fourteen thousand six hundred ninety nine dollars and thirty four cents",
+        "gold": "$14,699.34",
+        "pred": "$1,699.34",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty four thousand two hundred sixty seven dollars and seventy four cents",
+        "gold": "$34,267.74",
+        "pred": "$4,267.74",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty nine thousand six hundred eighty five dollars and twenty seven cents",
+        "gold": "$59,685.27",
+        "pred": "$9,685.27",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "sixty nine thousand three hundred seventeen dollars and one cent",
+        "gold": "$69,317.01",
+        "pred": "$9,317.01",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty seven thousand six hundred thirty seven dollars and fifty three cents",
+        "gold": "$27,637.53",
+        "pred": "$7,637.53",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fourteen thousand thirty four dollars and fifty eight cents",
+        "gold": "$14,034.58",
+        "pred": "$1,034.58",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty three thousand eight hundred seventy five dollars and thirty three cents",
+        "gold": "$83,875.33",
+        "pred": "$3,875.33",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy thousand two hundred thirty nine dollars and ninety cents",
+        "gold": "$70,239.90",
+        "pred": "$7,239.90",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy two thousand six hundred forty five dollars and ninety one cents",
+        "gold": "$72,645.91",
+        "pred": "$2,645.91",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty three thousand nine hundred sixty eight dollars and five cents",
+        "gold": "$33,968.05",
+        "pred": "$3,968.05",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty thousand four hundred eighteen dollars and seventy three cents",
+        "gold": "$20,418.73",
+        "pred": "$2,418.73",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "sixty four thousand four hundred nine dollars and ninety one cents",
+        "gold": "$64,409.91",
+        "pred": "$4,409.91",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty three thousand six hundred ninety three dollars and thirty eight cents",
+        "gold": "$83,693.38",
+        "pred": "$3,693.38",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty four thousand five hundred forty three dollars and sixteen cents",
+        "gold": "$24,543.16",
+        "pred": "$4,543.16",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty thousand four hundred twenty eight dollars and thirty four cents",
+        "gold": "$20,428.34",
+        "pred": "$2,428.34",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "sixty thousand eight hundred fifty three dollars and twenty two cents",
+        "gold": "$60,853.22",
+        "pred": "$6,853.22",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty thousand three hundred twelve dollars and forty eight cents",
+        "gold": "$30,312.48",
+        "pred": "$3,312.48",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty four thousand four hundred fifty one dollars and nine cents",
+        "gold": "$34,451.09",
+        "pred": "$4,451.09",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty nine thousand one hundred twenty dollars and eleven cents",
+        "gold": "$89,120.11",
+        "pred": "$9,120.11",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty nine thousand eight hundred seventy two dollars and sixty four cents",
+        "gold": "$29,872.64",
+        "pred": "$9,872.64",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ninety one thousand five hundred forty six dollars and seventy nine cents",
+        "gold": "$91,546.79",
+        "pred": "$1,546.79",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty six thousand seven hundred twenty one dollars and eighty one cents",
+        "gold": "$26,721.81",
+        "pred": "$6,721.81",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty nine thousand nine hundred thirty three dollars and eleven cents",
+        "gold": "$59,933.11",
+        "pred": "$9,933.11",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ninety three thousand five hundred seventy seven dollars and eighty one cents",
+        "gold": "$93,577.81",
+        "pred": "$3,577.81",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty eight thousand nine hundred seventy six dollars and four cents",
+        "gold": "$88,976.04",
+        "pred": "$8,976.04",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty thousand three hundred seventy three dollars and forty nine cents",
+        "gold": "$80,373.49",
+        "pred": "$8,373.49",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "forty six thousand six hundred ninety four dollars and forty six cents",
+        "gold": "$46,694.46",
+        "pred": "$6,694.46",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty three thousand five hundred ninety six dollars and ninety one cents",
+        "gold": "$83,596.91",
+        "pred": "$3,596.91",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy thousand four hundred eight dollars and sixty three cents",
+        "gold": "$70,408.63",
+        "pred": "$7,408.63",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty seven thousand seven hundred twenty five dollars and eighty three cents",
+        "gold": "$57,725.83",
+        "pred": "$7,725.83",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ten thousand three hundred eighty one dollars and fifteen cents",
+        "gold": "$10,381.15",
+        "pred": "$1,381.15",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ninety four thousand two hundred twenty dollars and thirty four cents",
+        "gold": "$94,220.34",
+        "pred": "$4,220.34",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ninety nine thousand forty four dollars and twenty eight cents",
+        "gold": "$99,044.28",
+        "pred": "$9,044.28",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ninety eight thousand five hundred sixty three dollars and forty four cents",
+        "gold": "$98,563.44",
+        "pred": "$8,563.44",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty two thousand ninety nine dollars and six cents",
+        "gold": "$52,099.06",
+        "pred": "$2,099.06",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty eight thousand eight hundred fifteen dollars and ninety four cents",
+        "gold": "$58,815.94",
+        "pred": "$8,815.94",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy one thousand three hundred nineteen dollars and ninety nine cents",
+        "gold": "$71,319.99",
+        "pred": "$1,319.99",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "forty one thousand eight hundred thirty nine dollars and sixty six cents",
+        "gold": "$41,839.66",
+        "pred": "$1,839.66",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty two thousand four hundred sixty two dollars and eighty eight cents",
+        "gold": "$82,462.88",
+        "pred": "$2,462.88",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty one thousand four hundred seventy three dollars and fourteen cents",
+        "gold": "$21,473.14",
+        "pred": "$1,473.14",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "forty two thousand thirty nine dollars and ninety four cents",
+        "gold": "$42,039.94",
+        "pred": "$2,039.94",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty four thousand seven hundred fifteen dollars and nineteen cents",
+        "gold": "$84,715.19",
+        "pred": "$4,715.19",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty six thousand six hundred ninety nine dollars and ninety five cents",
+        "gold": "$26,699.95",
+        "pred": "$6,699.95",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "forty six thousand one hundred nine dollars and ninety cents",
+        "gold": "$46,109.90",
+        "pred": "$6,109.90",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty two thousand two hundred seven dollars and sixty two cents",
+        "gold": "$52,207.62",
+        "pred": "$2,207.62",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty eight thousand seven hundred ninety three dollars and seven cents",
+        "gold": "$28,793.07",
+        "pred": "$8,793.07",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy seven thousand eight hundred thirteen dollars and thirty two cents",
+        "gold": "$77,813.32",
+        "pred": "$7,813.32",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "sixty five thousand two hundred sixty six dollars and eighteen cents",
+        "gold": "$65,266.18",
+        "pred": "$5,266.18",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "sixty five thousand two hundred seventy dollars and forty eight cents",
+        "gold": "$65,270.48",
+        "pred": "$5,270.48",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ninety nine thousand one hundred thirty six dollars and thirty seven cents",
+        "gold": "$99,136.37",
+        "pred": "$9,136.37",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "sixty two thousand nine hundred ninety four dollars and twenty nine cents",
+        "gold": "$62,994.29",
+        "pred": "$2,994.29",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ninety nine thousand two hundred fifty dollars and sixty six cents",
+        "gold": "$99,250.66",
+        "pred": "$9,250.66",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty nine thousand forty six dollars and twenty four cents",
+        "gold": "$29,046.24",
+        "pred": "$9,046.24",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "sixty three thousand two hundred twenty nine dollars and thirty seven cents",
+        "gold": "$63,229.37",
+        "pred": "$3,229.37",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "forty five thousand two hundred twenty one dollars and ninety four cents",
+        "gold": "$45,221.94",
+        "pred": "$5,221.94",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy four thousand seventy eight dollars and fifty nine cents",
+        "gold": "$74,078.59",
+        "pred": "$4,078.59",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ninety seven thousand five hundred two dollars and eighty five cents",
+        "gold": "$97,502.85",
+        "pred": "$7,502.85",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ninety eight thousand six hundred fifty dollars and ninety cents",
+        "gold": "$98,650.90",
+        "pred": "$8,650.90",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy seven thousand three hundred thirty seven dollars and thirty one cents",
+        "gold": "$77,337.31",
+        "pred": "$7,337.31",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy three thousand five hundred ninety eight dollars and twenty one cents",
+        "gold": "$73,598.21",
+        "pred": "$3,598.21",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty six thousand two hundred seventy dollars and nine cents",
+        "gold": "$56,270.09",
+        "pred": "$6,270.09",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty seven thousand one hundred eighty five dollars and eighty eight cents",
+        "gold": "$57,185.88",
+        "pred": "$7,185.88",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ninety nine thousand seven hundred fifty nine dollars and fifty eight cents",
+        "gold": "$99,759.58",
+        "pred": "$9,759.58",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "forty seven thousand seven hundred ninety four dollars and nine cents",
+        "gold": "$47,794.09",
+        "pred": "$7,794.09",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ninety five thousand nine hundred five dollars and fifty six cents",
+        "gold": "$95,905.56",
+        "pred": "$5,905.56",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty eight thousand two hundred thirty one dollars and seventy four cents",
+        "gold": "$88,231.74",
+        "pred": "$8,231.74",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty thousand fifty five dollars and thirteen cents",
+        "gold": "$30,055.13",
+        "pred": "$3,055.13",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty eight thousand seven hundred forty three dollars and forty eight cents",
+        "gold": "$88,743.48",
+        "pred": "$8,743.48",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy one thousand sixty six dollars and forty eight cents",
+        "gold": "$71,066.48",
+        "pred": "$1,066.48",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty three thousand six hundred sixty one dollars and one cent",
+        "gold": "$33,661.01",
+        "pred": "$3,661.01",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty five thousand seven hundred thirty eight dollars and seventy one cents",
+        "gold": "$85,738.71",
+        "pred": "$5,738.71",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty seven thousand five hundred eleven dollars and eighty one cents",
+        "gold": "$57,511.81",
+        "pred": "$7,511.81",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty three thousand two hundred ninety dollars and twenty two cents",
+        "gold": "$53,290.22",
+        "pred": "$3,290.22",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty thousand one hundred twenty nine dollars and seventy seven cents",
+        "gold": "$50,129.77",
+        "pred": "$5,129.77",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty three thousand seventy four dollars and eighty eight cents",
+        "gold": "$53,074.88",
+        "pred": "$3,074.88",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty five thousand five hundred eighty four dollars and eighty cents",
+        "gold": "$85,584.80",
+        "pred": "$5,584.80",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "nineteen thousand fifty two dollars and seventy six cents",
+        "gold": "$19,052.76",
+        "pred": "$1,052.76",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ten thousand eight hundred eighty eight dollars and ninety cents",
+        "gold": "$10,888.90",
+        "pred": "$1,888.90",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty nine thousand five hundred thirty five dollars and sixty seven cents",
+        "gold": "$29,535.67",
+        "pred": "$9,535.67",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty four thousand five hundred five dollars and thirty two cents",
+        "gold": "$54,505.32",
+        "pred": "$4,505.32",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty six thousand one hundred eighty nine dollars and eighty two cents",
+        "gold": "$36,189.82",
+        "pred": "$6,189.82",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty thousand nine hundred four dollars and ninety two cents",
+        "gold": "$30,904.92",
+        "pred": "$3,904.92",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventeen thousand fourteen dollars and seventeen cents",
+        "gold": "$17,014.17",
+        "pred": "$1,014.17",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ninety five thousand six hundred fifty two dollars and forty six cents",
+        "gold": "$95,652.46",
+        "pred": "$5,652.46",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty thousand one hundred five dollars and eighty three cents",
+        "gold": "$30,105.83",
+        "pred": "$3,105.83",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty one thousand three hundred eighty dollars and three cents",
+        "gold": "$51,380.03",
+        "pred": "$1,380.03",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty six thousand four hundred nineteen dollars and fifteen cents",
+        "gold": "$86,419.15",
+        "pred": "$6,419.15",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ninety three thousand three hundred thirty nine dollars and ninety three cents",
+        "gold": "$93,339.93",
+        "pred": "$3,339.93",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty nine thousand twenty dollars and thirty one cents",
+        "gold": "$39,020.31",
+        "pred": "$9,020.31",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighteen thousand three hundred ninety dollars and twelve cents",
+        "gold": "$18,390.12",
+        "pred": "$1,390.12",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "sixty thousand eight hundred fifty five dollars and eighty eight cents",
+        "gold": "$60,855.88",
+        "pred": "$6,855.88",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty seven thousand five hundred eighty three dollars and forty cents",
+        "gold": "$87,583.40",
+        "pred": "$7,583.40",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty one thousand seven hundred twenty eight dollars and fifty three cents",
+        "gold": "$51,728.53",
+        "pred": "$1,728.53",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty nine thousand two hundred nine dollars and thirty cents",
+        "gold": "$89,209.30",
+        "pred": "$9,209.30",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty nine thousand five hundred thirty nine dollars and thirty seven cents",
+        "gold": "$29,539.37",
+        "pred": "$9,539.37",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty two thousand eight hundred twenty seven dollars and forty four cents",
+        "gold": "$32,827.44",
+        "pred": "$2,827.44",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy six thousand seventy one dollars and sixty five cents",
+        "gold": "$76,071.65",
+        "pred": "$6,071.65",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "forty thousand eight hundred eighty four dollars",
+        "gold": "$40,884.00",
+        "pred": "$4,884.00",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "sixty thousand two hundred fifty five dollars and fifty six cents",
+        "gold": "$60,255.56",
+        "pred": "$6,255.56",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty one thousand three hundred eighty nine dollars and ninety five cents",
+        "gold": "$31,389.95",
+        "pred": "$1,389.95",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirteen thousand two hundred thirty six dollars and eighty one cents",
+        "gold": "$13,236.81",
+        "pred": "$1,236.81",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty nine thousand nine hundred forty three dollars and forty five cents",
+        "gold": "$29,943.45",
+        "pred": "$9,943.45",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty eight thousand eight hundred twenty five dollars and ninety seven cents",
+        "gold": "$88,825.97",
+        "pred": "$8,825.97",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty five thousand nine hundred three dollars and seventy three cents",
+        "gold": "$35,903.73",
+        "pred": "$5,903.73",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy one thousand three hundred seventy seven dollars and eighty four cents",
+        "gold": "$71,377.84",
+        "pred": "$1,377.84",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "sixteen thousand five hundred seventy two dollars and four cents",
+        "gold": "$16,572.04",
+        "pred": "$6,572.04",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fourteen thousand six hundred thirty five dollars",
+        "gold": "$14,635.00",
+        "pred": "$4,635.00",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty one thousand five hundred seventy eight dollars and thirty one cents",
+        "gold": "$51,578.31",
+        "pred": "$1,578.31",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty one thousand ninety seven dollars and eleven cents",
+        "gold": "$81,097.11",
+        "pred": "$1,097.11",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy six thousand six hundred seventeen dollars and ninety nine cents",
+        "gold": "$76,617.99",
+        "pred": "$6,617.99",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty four thousand nine hundred fifty five dollars and ninety five cents",
+        "gold": "$54,955.95",
+        "pred": "$4,955.95",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ninety three thousand six hundred forty one dollars and seventy nine cents",
+        "gold": "$93,641.79",
+        "pred": "$3,641.79",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ninety two thousand two hundred fifty six dollars and seventy five cents",
+        "gold": "$92,256.75",
+        "pred": "$2,256.75",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty two thousand eight hundred three dollars and ninety six cents",
+        "gold": "$82,803.96",
+        "pred": "$2,803.96",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy thousand one hundred fourteen dollars and twenty cents",
+        "gold": "$70,114.20",
+        "pred": "$7,114.20",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty eight thousand four hundred eighty seven dollars and twenty one cents",
+        "gold": "$58,487.21",
+        "pred": "$8,487.21",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty five thousand five hundred sixty one dollars and forty cents",
+        "gold": "$55,561.40",
+        "pred": "$5,561.40",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy six thousand two hundred thirty one dollars and ninety seven cents",
+        "gold": "$76,231.97",
+        "pred": "$6,231.97",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty thousand one hundred forty seven dollars and sixty six cents",
+        "gold": "$80,147.66",
+        "pred": "$8,147.66",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ninety one thousand six hundred ninety nine dollars and fourteen cents",
+        "gold": "$91,699.14",
+        "pred": "$1,699.14",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ninety eight thousand fifty four dollars and eighty eight cents",
+        "gold": "$98,054.88",
+        "pred": "$8,054.88",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy nine thousand eight hundred twenty nine dollars and thirty seven cents",
+        "gold": "$79,829.37",
+        "pred": "$9,829.37",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty two thousand nine hundred eighteen dollars and fifty six cents",
+        "gold": "$82,918.56",
+        "pred": "$2,918.56",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty five thousand eight hundred seventy three dollars and forty cents",
+        "gold": "$35,873.40",
+        "pred": "$5,873.40",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty two thousand three hundred seven dollars and fifty three cents",
+        "gold": "$32,307.53",
+        "pred": "$2,307.53",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty eight thousand two hundred fifty five dollars and eighty six cents",
+        "gold": "$28,255.86",
+        "pred": "$8,255.86",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "sixty eight thousand nine hundred twenty three dollars and fifteen cents",
+        "gold": "$68,923.15",
+        "pred": "$8,923.15",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "forty three thousand one hundred eighty five dollars and seventy three cents",
+        "gold": "$43,185.73",
+        "pred": "$3,185.73",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty eight thousand three hundred sixty nine dollars and seventy three cents",
+        "gold": "$38,369.73",
+        "pred": "$8,369.73",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty nine thousand four hundred ninety three dollars and thirteen cents",
+        "gold": "$39,493.13",
+        "pred": "$9,493.13",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eleven thousand three hundred seventy four dollars and fifty five cents",
+        "gold": "$11,374.55",
+        "pred": "$1,374.55",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ninety five thousand six dollars and eighty two cents",
+        "gold": "$95,006.82",
+        "pred": "$9,006.82",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "forty eight thousand two hundred thirty eight dollars and eighty one cents",
+        "gold": "$48,238.81",
+        "pred": "$8,238.81",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twelve thousand three hundred thirty five dollars and twenty five cents",
+        "gold": "$12,335.25",
+        "pred": "$1,335.25",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty seven thousand two hundred seventy eight dollars and twenty four cents",
+        "gold": "$87,278.24",
+        "pred": "$7,278.24",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty six thousand twenty eight dollars and thirty nine cents",
+        "gold": "$36,028.39",
+        "pred": "$6,028.39",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy seven thousand five hundred fifteen dollars and eighty one cents",
+        "gold": "$77,515.81",
+        "pred": "$7,515.81",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty two thousand five hundred three dollars and forty five cents",
+        "gold": "$32,503.45",
+        "pred": "$2,503.45",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fourteen thousand ninety nine dollars and three cents",
+        "gold": "$14,099.03",
+        "pred": "$1,099.03",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty seven thousand three hundred thirty dollars and eighty three cents",
+        "gold": "$57,330.83",
+        "pred": "$7,330.83",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy eight thousand two hundred three dollars and eighteen cents",
+        "gold": "$78,203.18",
+        "pred": "$8,203.18",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty three thousand nine hundred twenty five dollars and seventy seven cents",
+        "gold": "$53,925.77",
+        "pred": "$3,925.77",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty two thousand four hundred seventy five dollars and twenty two cents",
+        "gold": "$22,475.22",
+        "pred": "$2,475.22",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty two thousand one hundred fifty five dollars and five cents",
+        "gold": "$52,155.05",
+        "pred": "$2,155.05",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy three thousand five hundred dollars and seventy four cents",
+        "gold": "$73,500.74",
+        "pred": "$3,500.74",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty eight thousand six hundred ninety seven dollars and twenty eight cents",
+        "gold": "$28,697.28",
+        "pred": "$8,697.28",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty two thousand nine hundred seventy six dollars and two cents",
+        "gold": "$82,976.02",
+        "pred": "$2,976.02",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ninety one thousand five hundred nine dollars and eighty six cents",
+        "gold": "$91,509.86",
+        "pred": "$1,509.86",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy eight thousand three hundred thirty four dollars and fifty seven cents",
+        "gold": "$78,334.57",
+        "pred": "$8,334.57",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty seven thousand three hundred seventy nine dollars and twenty nine cents",
+        "gold": "$57,379.29",
+        "pred": "$7,379.29",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ninety thousand four hundred thirty two dollars and forty four cents",
+        "gold": "$90,432.44",
+        "pred": "$9,432.44",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "sixty nine thousand one hundred ninety four dollars and fifty four cents",
+        "gold": "$69,194.54",
+        "pred": "$9,194.54",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty one thousand one hundred seventy dollars and ninety eight cents",
+        "gold": "$21,170.98",
+        "pred": "$1,170.98",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ninety one thousand five hundred fifteen dollars and seventy two cents",
+        "gold": "$91,515.72",
+        "pred": "$1,515.72",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy four thousand four hundred thirty six dollars and five cents",
+        "gold": "$74,436.05",
+        "pred": "$4,436.05",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "forty one thousand fifteen dollars and forty cents",
+        "gold": "$41,015.40",
+        "pred": "$1,015.40",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "sixteen thousand fifty nine dollars and eighty eight cents",
+        "gold": "$16,059.88",
+        "pred": "$1,059.88",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "forty thousand six hundred seven dollars and fifty seven cents",
+        "gold": "$40,607.57",
+        "pred": "$4,607.57",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty five thousand nine hundred sixty dollars and ninety five cents",
+        "gold": "$25,960.95",
+        "pred": "$5,960.95",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "forty six thousand thirty five dollars and fifty two cents",
+        "gold": "$46,035.52",
+        "pred": "$6,035.52",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty five thousand three hundred thirty seven dollars and thirty six cents",
+        "gold": "$35,337.36",
+        "pred": "$5,337.36",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty thousand one hundred seventy two dollars and nine cents",
+        "gold": "$50,172.09",
+        "pred": "$5,172.09",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifteen thousand seventy four dollars and sixty cents",
+        "gold": "$15,074.60",
+        "pred": "$1,074.60",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty one thousand nineteen dollars and sixty four cents",
+        "gold": "$31,019.64",
+        "pred": "$1,019.64",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ninety five thousand three hundred seventeen dollars and twenty cents",
+        "gold": "$95,317.20",
+        "pred": "$5,317.20",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "forty four thousand one hundred eighty six dollars and thirty nine cents",
+        "gold": "$44,186.39",
+        "pred": "$4,186.39",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty eight thousand two hundred ninety five dollars and sixty one cents",
+        "gold": "$28,295.61",
+        "pred": "$8,295.61",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "forty three thousand eight hundred sixty six dollars and twenty four cents",
+        "gold": "$43,866.24",
+        "pred": "$3,866.24",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty thousand four hundred fifty four dollars and sixty four cents",
+        "gold": "$80,454.64",
+        "pred": "$8,454.64",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ninety five thousand four hundred thirty two dollars and seventy two cents",
+        "gold": "$95,432.72",
+        "pred": "$5,432.72",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "sixty four thousand one hundred fifteen dollars and forty eight cents",
+        "gold": "$64,115.48",
+        "pred": "$4,115.48",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty nine thousand nine hundred eighty six dollars and forty three cents",
+        "gold": "$89,986.43",
+        "pred": "$9,986.43",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty seven thousand nine hundred sixty four dollars and seventy seven cents",
+        "gold": "$37,964.77",
+        "pred": "$7,964.77",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twelve thousand one hundred thirty five dollars and seventy eight cents",
+        "gold": "$12,135.78",
+        "pred": "$1,135.78",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty five thousand five hundred twenty nine dollars and forty two cents",
+        "gold": "$85,529.42",
+        "pred": "$5,529.42",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty four thousand two hundred twenty one dollars and ten cents",
+        "gold": "$24,221.10",
+        "pred": "$4,221.10",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "forty five thousand one hundred forty four dollars and eighty six cents",
+        "gold": "$45,144.86",
+        "pred": "$5,144.86",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy nine thousand one hundred nine dollars and seventy cents",
+        "gold": "$79,109.70",
+        "pred": "$9,109.70",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty four thousand seven hundred twenty two dollars and ninety eight cents",
+        "gold": "$84,722.98",
+        "pred": "$4,722.98",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty six thousand eight hundred sixty dollars and fifty seven cents",
+        "gold": "$86,860.57",
+        "pred": "$6,860.57",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty two thousand two hundred twenty nine dollars and fifty three cents",
+        "gold": "$82,229.53",
+        "pred": "$2,229.53",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty eight thousand seven hundred twenty one dollars and twenty six cents",
+        "gold": "$88,721.26",
+        "pred": "$8,721.26",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fourteen thousand three hundred ninety two dollars and eight cents",
+        "gold": "$14,392.08",
+        "pred": "$4,392.08",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty three thousand two hundred twenty three dollars and sixty seven cents",
+        "gold": "$33,223.67",
+        "pred": "$3,223.67",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty two thousand two hundred sixty seven dollars and fifty cents",
+        "gold": "$82,267.50",
+        "pred": "$2,267.50",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy nine thousand one hundred fifty nine dollars and seventy three cents",
+        "gold": "$79,159.73",
+        "pred": "$9,159.73",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty six thousand five hundred forty five dollars and eight cents",
+        "gold": "$56,545.08",
+        "pred": "$6,545.08",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "forty thousand two hundred forty four dollars and two cents",
+        "gold": "$40,244.02",
+        "pred": "$4,244.02",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty five thousand eighty eight dollars and fifty eight cents",
+        "gold": "$35,088.58",
+        "pred": "$3,088.58",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ninety eight thousand three hundred eighteen dollars and twenty three cents",
+        "gold": "$98,318.23",
+        "pred": "$8,318.23",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "forty three thousand six hundred eighty one dollars and twenty one cents",
+        "gold": "$43,681.21",
+        "pred": "$3,681.21",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "sixty four thousand five hundred twenty one dollars and seventy three cents",
+        "gold": "$64,521.73",
+        "pred": "$4,521.73",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "sixteen thousand four hundred twenty nine dollars and eighteen cents",
+        "gold": "$16,429.18",
+        "pred": "$6,429.18",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty nine thousand three hundred eighty two dollars and eighty six cents",
+        "gold": "$89,382.86",
+        "pred": "$9,382.86",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighteen thousand six hundred ninety nine dollars and fifty one cents",
+        "gold": "$18,699.51",
+        "pred": "$1,699.51",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty four thousand three hundred eighty three dollars and seventy four cents",
+        "gold": "$84,383.74",
+        "pred": "$4,383.74",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty nine thousand six hundred one dollars and ninety six cents",
+        "gold": "$29,601.96",
+        "pred": "$9,601.96",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "sixty eight thousand six hundred ninety five dollars and forty one cents",
+        "gold": "$68,695.41",
+        "pred": "$8,695.41",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty one thousand four hundred sixteen dollars and twenty eight cents",
+        "gold": "$51,416.28",
+        "pred": "$1,416.28",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "sixty four thousand eight hundred eighty seven dollars and one cent",
+        "gold": "$64,887.01",
+        "pred": "$4,887.01",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty thousand six hundred fifty nine dollars and sixty six cents",
+        "gold": "$50,659.66",
+        "pred": "$5,659.66",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty seven thousand three hundred fifteen dollars and thirty five cents",
+        "gold": "$27,315.35",
+        "pred": "$7,315.35",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "forty three thousand nine hundred twenty three dollars and eighty seven cents",
+        "gold": "$43,923.87",
+        "pred": "$3,923.87",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty thousand six hundred forty nine dollars and thirty eight cents",
+        "gold": "$30,649.38",
+        "pred": "$3,649.38",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty seven thousand two hundred seventy six dollars and nine cents",
+        "gold": "$27,276.09",
+        "pred": "$7,276.09",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty four thousand nine hundred seventy eight dollars and forty three cents",
+        "gold": "$24,978.43",
+        "pred": "$4,978.43",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty eight thousand nine hundred seventeen dollars and thirty eight cents",
+        "gold": "$58,917.38",
+        "pred": "$8,917.38",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy thousand six hundred nineteen dollars and seventy one cents",
+        "gold": "$70,619.71",
+        "pred": "$7,619.71",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ninety thousand six hundred thirty seven dollars and ninety five cents",
+        "gold": "$90,637.95",
+        "pred": "$9,637.95",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "forty four thousand two hundred forty four dollars and fifty eight cents",
+        "gold": "$44,244.58",
+        "pred": "$4,244.58",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "sixteen thousand six hundred sixty seven dollars and twenty cents",
+        "gold": "$16,667.20",
+        "pred": "$6,667.20",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty one thousand thirty dollars and ninety two cents",
+        "gold": "$81,030.92",
+        "pred": "$1,030.92",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy eight thousand eight hundred four dollars and twenty eight cents",
+        "gold": "$78,804.28",
+        "pred": "$8,804.28",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "sixty six thousand one hundred ninety eight dollars and fifty four cents",
+        "gold": "$66,198.54",
+        "pred": "$6,198.54",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "sixty eight thousand seven hundred nineteen dollars and fifteen cents",
+        "gold": "$68,719.15",
+        "pred": "$8,719.15",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty five thousand six hundred twenty four dollars and forty six cents",
+        "gold": "$55,624.46",
+        "pred": "$5,624.46",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "sixty four thousand seven hundred twenty three dollars and seventy six cents",
+        "gold": "$64,723.76",
+        "pred": "$4,723.76",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy eight thousand five hundred thirty three dollars and two cents",
+        "gold": "$78,533.02",
+        "pred": "$8,533.02",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eleven thousand five hundred nine dollars and six cents",
+        "gold": "$11,509.06",
+        "pred": "$1,509.06",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ninety two thousand five hundred sixteen dollars and sixty five cents",
+        "gold": "$92,516.65",
+        "pred": "$2,516.65",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy seven thousand three hundred seventy nine dollars and twenty two cents",
+        "gold": "$77,379.22",
+        "pred": "$7,379.22",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty thousand eighty seven dollars and thirty six cents",
+        "gold": "$80,087.36",
+        "pred": "$8,087.36",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty five thousand one hundred sixty two dollars and twenty five cents",
+        "gold": "$55,162.25",
+        "pred": "$5,162.25",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty four thousand fifty four dollars and twenty eight cents",
+        "gold": "$24,054.28",
+        "pred": "$4,054.28",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy seven thousand five hundred thirty six dollars and thirty six cents",
+        "gold": "$77,536.36",
+        "pred": "$7,536.36",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "sixty four thousand one hundred thirty five dollars and forty two cents",
+        "gold": "$64,135.42",
+        "pred": "$4,135.42",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy two thousand six hundred thirty three dollars and seventy seven cents",
+        "gold": "$72,633.77",
+        "pred": "$2,633.77",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifteen thousand four hundred twenty nine dollars and five cents",
+        "gold": "$15,429.05",
+        "pred": "$5,429.05",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ninety two thousand six hundred sixty eight dollars and ninety seven cents",
+        "gold": "$92,668.97",
+        "pred": "$2,668.97",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty nine thousand eight hundred seventy four dollars and fifty three cents",
+        "gold": "$29,874.53",
+        "pred": "$9,874.53",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty one thousand two hundred forty nine dollars and sixteen cents",
+        "gold": "$81,249.16",
+        "pred": "$1,249.16",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "nineteen thousand eight hundred fourteen dollars and twenty seven cents",
+        "gold": "$19,814.27",
+        "pred": "$9,814.27",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy one thousand four hundred sixty two dollars and ninety five cents",
+        "gold": "$71,462.95",
+        "pred": "$1,462.95",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "sixteen thousand seven hundred ninety six dollars and eighty six cents",
+        "gold": "$16,796.86",
+        "pred": "$6,796.86",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "forty two thousand four hundred thirty eight dollars and forty three cents",
+        "gold": "$42,438.43",
+        "pred": "$2,438.43",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy eight thousand four hundred thirty dollars and seven cents",
+        "gold": "$78,430.07",
+        "pred": "$8,430.07",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "sixty six thousand sixty seven dollars and ninety nine cents",
+        "gold": "$66,067.99",
+        "pred": "$6,067.99",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy eight thousand nine hundred fifty dollars and forty four cents",
+        "gold": "$78,950.44",
+        "pred": "$8,950.44",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighteen thousand one hundred ninety three dollars and ninety three cents",
+        "gold": "$18,193.93",
+        "pred": "$1,193.93",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy two thousand seven hundred sixty nine dollars and twenty two cents",
+        "gold": "$72,769.22",
+        "pred": "$2,769.22",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "sixty eight thousand nine hundred eight dollars and seventy eight cents",
+        "gold": "$68,908.78",
+        "pred": "$8,908.78",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty one thousand five hundred eighty four dollars and sixty six cents",
+        "gold": "$81,584.66",
+        "pred": "$1,584.66",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty one thousand three hundred thirteen dollars and thirty four cents",
+        "gold": "$21,313.34",
+        "pred": "$1,313.34",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ninety five thousand two hundred thirty dollars and sixty one cents",
+        "gold": "$95,230.61",
+        "pred": "$5,230.61",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy six thousand four hundred eighty dollars and two cents",
+        "gold": "$76,480.02",
+        "pred": "$6,480.02",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fourteen thousand eighteen dollars and thirty cents",
+        "gold": "$14,018.30",
+        "pred": "$1,018.30",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty five thousand one hundred fifty two dollars and forty two cents",
+        "gold": "$55,152.42",
+        "pred": "$5,152.42",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty four thousand nine hundred sixty one dollars and eighteen cents",
+        "gold": "$84,961.18",
+        "pred": "$4,961.18",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty two thousand seven hundred seventy nine dollars and ninety nine cents",
+        "gold": "$22,779.99",
+        "pred": "$2,779.99",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy nine thousand one hundred ten dollars and forty five cents",
+        "gold": "$79,110.45",
+        "pred": "$9,110.45",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy thousand six hundred ninety one dollars and eighty five cents",
+        "gold": "$70,691.85",
+        "pred": "$7,691.85",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty thousand six hundred fifty seven dollars and eighty three cents",
+        "gold": "$20,657.83",
+        "pred": "$2,657.83",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty six thousand six hundred sixty nine dollars and eleven cents",
+        "gold": "$36,669.11",
+        "pred": "$6,669.11",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "sixty eight thousand nine hundred twenty eight dollars and thirty one cents",
+        "gold": "$68,928.31",
+        "pred": "$8,928.31",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ninety thousand nine hundred eighteen dollars and eighty six cents",
+        "gold": "$90,918.86",
+        "pred": "$9,918.86",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty eight thousand ninety six dollars and sixty one cents",
+        "gold": "$28,096.61",
+        "pred": "$8,096.61",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty one thousand two hundred seventy seven dollars and twelve cents",
+        "gold": "$31,277.12",
+        "pred": "$1,277.12",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty thousand four hundred sixty six dollars and sixty five cents",
+        "gold": "$30,466.65",
+        "pred": "$3,466.65",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty one thousand nine hundred eighty four dollars",
+        "gold": "$81,984.00",
+        "pred": "$1,984.00",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty eight thousand nine hundred ninety five dollars and seventy cents",
+        "gold": "$38,995.70",
+        "pred": "$8,995.70",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty nine thousand six hundred seventy five dollars and two cents",
+        "gold": "$29,675.02",
+        "pred": "$9,675.02",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy two thousand one hundred twenty nine dollars and eight cents",
+        "gold": "$72,129.08",
+        "pred": "$2,129.08",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty two thousand eight hundred eighty two dollars and eighty seven cents",
+        "gold": "$52,882.87",
+        "pred": "$2,882.87",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy six thousand seven hundred seventy two dollars and seventy four cents",
+        "gold": "$76,772.74",
+        "pred": "$6,772.74",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "forty nine thousand seven hundred forty three dollars and fifty eight cents",
+        "gold": "$49,743.58",
+        "pred": "$9,743.58",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "forty seven thousand seven hundred five dollars and ten cents",
+        "gold": "$47,705.10",
+        "pred": "$7,705.10",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty three thousand six hundred forty six dollars and thirty one cents",
+        "gold": "$23,646.31",
+        "pred": "$3,646.31",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "forty eight thousand three hundred ninety six dollars and fifty six cents",
+        "gold": "$48,396.56",
+        "pred": "$8,396.56",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty seven thousand four hundred twenty three dollars and forty six cents",
+        "gold": "$37,423.46",
+        "pred": "$7,423.46",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty three thousand sixty two dollars and sixteen cents",
+        "gold": "$53,062.16",
+        "pred": "$3,062.16",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "forty six thousand nine hundred fifty three dollars and twelve cents",
+        "gold": "$46,953.12",
+        "pred": "$6,953.12",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "forty six thousand thirty nine dollars and thirty six cents",
+        "gold": "$46,039.36",
+        "pred": "$6,039.36",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty six thousand three hundred ninety nine dollars",
+        "gold": "$36,399.00",
+        "pred": "$6,399.00",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy two thousand thirty one dollars and eighty five cents",
+        "gold": "$72,031.85",
+        "pred": "$2,031.85",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ninety five thousand eight hundred twenty dollars and fifty seven cents",
+        "gold": "$95,820.57",
+        "pred": "$5,820.57",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighty one thousand five hundred one dollars and forty nine cents",
+        "gold": "$81,501.49",
+        "pred": "$1,501.49",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty nine thousand two hundred eighty six dollars and thirty nine cents",
+        "gold": "$39,286.39",
+        "pred": "$9,286.39",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty six thousand two hundred eighty six dollars and twenty seven cents",
+        "gold": "$56,286.27",
+        "pred": "$6,286.27",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy nine thousand seventy six dollars and six cents",
+        "gold": "$79,076.06",
+        "pred": "$9,076.06",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seventy four thousand one hundred sixty one dollars and eighty two cents",
+        "gold": "$74,161.82",
+        "pred": "$4,161.82",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eighteen thousand nine hundred eighty nine dollars and ninety four cents",
+        "gold": "$18,989.94",
+        "pred": "$1,989.94",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "sixty one thousand eight hundred ninety dollars and sixty one cents",
+        "gold": "$61,890.61",
+        "pred": "$1,890.61",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ninety seven thousand seven hundred fifty four dollars and ninety seven cents",
+        "gold": "$97,754.97",
+        "pred": "$7,754.97",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "fifty two thousand eleven dollars and eighty three cents",
+        "gold": "$52,011.83",
+        "pred": "$2,011.83",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "forty four thousand fifteen dollars and sixteen cents",
+        "gold": "$44,015.16",
+        "pred": "$4,015.16",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "ninety two thousand five hundred fifty six dollars and eighty one cents",
+        "gold": "$92,556.81",
+        "pred": "$2,556.81",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "forty six thousand twenty eight dollars and eighteen cents",
+        "gold": "$46,028.18",
+        "pred": "$6,028.18",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "sixty eight thousand five hundred fifty seven dollars and thirty five cents",
+        "gold": "$68,557.35",
+        "pred": "$8,557.35",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "thirty five thousand sixty two dollars and thirty eight cents",
+        "gold": "$35,062.38",
+        "pred": "$5,062.38",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty seven thousand sixty nine dollars and ninety six cents",
+        "gold": "$27,069.96",
+        "pred": "$7,069.96",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "twenty seven thousand three hundred sixty seven dollars and sixty three cents",
+        "gold": "$27,367.63",
+        "pred": "$7,367.63",
+        "digits": 5,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "five hundred sixty six thousand four hundred fifty one dollars and forty seven cents",
+        "gold": "$566,451.47",
+        "pred": "$6,451.47",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seven hundred eleven thousand seven hundred eighty six dollars and seventeen cents",
+        "gold": "$711,786.17",
+        "pred": "$7,786.17",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "nine hundred two thousand one hundred seventy four dollars and seven cents",
+        "gold": "$902,174.07",
+        "pred": "$9,174.07",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "nine hundred twenty three thousand fifty one dollars and forty eight cents",
+        "gold": "$923,051.48",
+        "pred": "$9,051.48",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "six hundred fifty six thousand two hundred thirty three dollars and thirty two cents",
+        "gold": "$656,233.32",
+        "pred": "$6,233.32",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seven hundred seven thousand two hundred forty nine dollars and seventy seven cents",
+        "gold": "$707,249.77",
+        "pred": "$7,249.77",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eight hundred eighty four thousand one hundred fifty seven dollars and thirty seven cents",
+        "gold": "$884,157.37",
+        "pred": "$8,157.37",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "nine hundred thousand one hundred fifty seven dollars and eighty one cents",
+        "gold": "$900,157.81",
+        "pred": "$9,157.81",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eight hundred twenty one thousand eighty nine dollars and fifty four cents",
+        "gold": "$821,089.54",
+        "pred": "$8,089.54",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eight hundred ninety thousand five hundred eighty nine dollars and sixty four cents",
+        "gold": "$890,589.64",
+        "pred": "$8,589.64",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "nine hundred thirteen thousand two hundred ninety five dollars and forty four cents",
+        "gold": "$913,295.44",
+        "pred": "$1,295.44",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "nine hundred forty thousand three hundred thirty four dollars and seventy cents",
+        "gold": "$940,334.70",
+        "pred": "$9,334.70",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "three hundred eighty one thousand five hundred eighty seven dollars and twenty six cents",
+        "gold": "$381,587.26",
+        "pred": "$8,587.26",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "five hundred twenty five thousand eight hundred thirty seven dollars and eighty eight cents",
+        "gold": "$525,837.88",
+        "pred": "$5,837.88",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "five hundred forty one thousand five hundred thirteen dollars and sixty two cents",
+        "gold": "$541,513.62",
+        "pred": "$1,513.62",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "one hundred seventy five thousand eight hundred eighty dollars and twenty four cents",
+        "gold": "$175,880.24",
+        "pred": "$1,880.24",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "six hundred forty seven thousand nine hundred fifteen dollars and six cents",
+        "gold": "$647,915.06",
+        "pred": "$7,915.06",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "three hundred eighty five thousand one hundred sixty one dollars and ten cents",
+        "gold": "$385,161.10",
+        "pred": "$3,161.10",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "five hundred ninety two thousand eight hundred eighty five dollars and sixty eight cents",
+        "gold": "$592,885.68",
+        "pred": "$9,885.68",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "four hundred seventy eight thousand eight hundred forty two dollars and seventy cents",
+        "gold": "$478,842.70",
+        "pred": "$7,842.70",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "one hundred sixty one thousand seventy seven dollars and sixty five cents",
+        "gold": "$161,077.65",
+        "pred": "$1,077.65",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "three hundred sixty five thousand seven hundred ninety dollars and seventy nine cents",
+        "gold": "$365,790.79",
+        "pred": "$3,790.79",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "three hundred five thousand five hundred five dollars and fifty three cents",
+        "gold": "$305,505.53",
+        "pred": "$3,505.53",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "two hundred eighty thousand seven hundred fifty dollars and forty five cents",
+        "gold": "$280,750.45",
+        "pred": "$2,750.45",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "nine hundred ninety four thousand three hundred ninety dollars and forty seven cents",
+        "gold": "$994,390.47",
+        "pred": "$9,390.47",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eight hundred fifty seven thousand eight hundred forty nine dollars and twenty six cents",
+        "gold": "$857,849.26",
+        "pred": "$8,849.26",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "three hundred forty two thousand six hundred four dollars and twenty two cents",
+        "gold": "$342,604.22",
+        "pred": "$4,604.22",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seven hundred forty eight thousand one hundred forty seven dollars and ninety eight cents",
+        "gold": "$748,147.98",
+        "pred": "$4,147.98",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "one hundred sixty one thousand four hundred six dollars and sixty seven cents",
+        "gold": "$161,406.67",
+        "pred": "$1,406.67",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "three hundred twenty four thousand two hundred one dollars and ninety two cents",
+        "gold": "$324,201.92",
+        "pred": "$4,201.92",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "three hundred sixteen thousand two hundred ninety one dollars and twenty seven cents",
+        "gold": "$316,291.27",
+        "pred": "$3,291.27",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eight hundred ninety two thousand four hundred forty three dollars and sixty eight cents",
+        "gold": "$892,443.68",
+        "pred": "$9,443.68",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "three hundred sixty six thousand four hundred fifty nine dollars and thirty four cents",
+        "gold": "$366,459.34",
+        "pred": "$6,459.34",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "six hundred fourteen thousand eight hundred thirty eight dollars and forty eight cents",
+        "gold": "$614,838.48",
+        "pred": "$6,838.48",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "one hundred eighteen thousand seven hundred forty dollars and seventy two cents",
+        "gold": "$118,740.72",
+        "pred": "$1,740.72",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "six hundred thirty one thousand nine hundred fifty seven dollars and three cents",
+        "gold": "$631,957.03",
+        "pred": "$6,957.03",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seven hundred ninety six thousand eight hundred twenty nine dollars and fifty two cents",
+        "gold": "$796,829.52",
+        "pred": "$9,829.52",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "one hundred forty nine thousand nine hundred sixty one dollars and sixty eight cents",
+        "gold": "$149,961.68",
+        "pred": "$9,961.68",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "two hundred twenty seven thousand three hundred twelve dollars and twenty four cents",
+        "gold": "$227,312.24",
+        "pred": "$2,312.24",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "one hundred thousand four hundred sixty six dollars and eighteen cents",
+        "gold": "$100,466.18",
+        "pred": "$1,466.18",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "two hundred forty eight thousand two hundred eighty dollars and three cents",
+        "gold": "$248,280.03",
+        "pred": "$2,280.03",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "six hundred thirty nine thousand seventeen dollars and fifty seven cents",
+        "gold": "$639,017.57",
+        "pred": "$6,017.57",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "nine hundred two thousand eight hundred ninety four dollars and twenty cents",
+        "gold": "$902,894.20",
+        "pred": "$9,894.20",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "three hundred sixty six thousand four hundred ninety seven dollars and five cents",
+        "gold": "$366,497.05",
+        "pred": "$6,497.05",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "two hundred seventy five thousand two hundred thirty one dollars and eighty eight cents",
+        "gold": "$275,231.88",
+        "pred": "$2,231.88",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "three hundred three thousand seven hundred eighty five dollars and twenty two cents",
+        "gold": "$303,785.22",
+        "pred": "$3,785.22",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "five hundred forty seven thousand five hundred twenty seven dollars and fifty eight cents",
+        "gold": "$547,527.58",
+        "pred": "$7,527.58",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "nine hundred eighty six thousand three hundred fifteen dollars and eighty two cents",
+        "gold": "$986,315.82",
+        "pred": "$6,315.82",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "one hundred fifty seven thousand one hundred forty nine dollars and eighty seven cents",
+        "gold": "$157,149.87",
+        "pred": "$1,149.87",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "two hundred forty thousand three hundred thirty nine dollars and fifteen cents",
+        "gold": "$240,339.15",
+        "pred": "$2,339.15",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "four hundred thirty nine thousand six hundred sixty five dollars and fifteen cents",
+        "gold": "$439,665.15",
+        "pred": "$9,665.15",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "nine hundred forty three thousand six hundred eighty dollars and ninety six cents",
+        "gold": "$943,680.96",
+        "pred": "$4,680.96",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eight hundred forty five thousand four hundred three dollars and ninety nine cents",
+        "gold": "$845,403.99",
+        "pred": "$8,403.99",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eight hundred twenty six thousand four hundred sixteen dollars and ninety one cents",
+        "gold": "$826,416.91",
+        "pred": "$8,416.91",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "three hundred thirty thousand four hundred nineteen dollars and ten cents",
+        "gold": "$330,419.10",
+        "pred": "$3,419.10",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eight hundred seventy one thousand seven hundred fifty five dollars and fifty three cents",
+        "gold": "$871,755.53",
+        "pred": "$7,755.53",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "one hundred eighty two thousand five hundred twenty seven dollars and thirty seven cents",
+        "gold": "$182,527.37",
+        "pred": "$1,527.37",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "two hundred fifty seven thousand one hundred six dollars and forty one cents",
+        "gold": "$257,106.41",
+        "pred": "$2,106.41",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eight hundred eleven thousand three hundred fifty six dollars and eighty six cents",
+        "gold": "$811,356.86",
+        "pred": "$8,356.86",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "six hundred eighty four thousand eight hundred seventy dollars and twenty six cents",
+        "gold": "$684,870.26",
+        "pred": "$4,870.26",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "three hundred fifty thousand two hundred seventy nine dollars and sixty cents",
+        "gold": "$350,279.60",
+        "pred": "$3,279.60",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "five hundred thirty two thousand two hundred forty dollars and ninety nine cents",
+        "gold": "$532,240.99",
+        "pred": "$2,240.99",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "six hundred eighty six thousand three hundred ninety one dollars",
+        "gold": "$686,391.00",
+        "pred": "$6,391.00",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "nine hundred ninety three thousand five hundred ninety nine dollars and fifty nine cents",
+        "gold": "$993,599.59",
+        "pred": "$9,599.59",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "nine hundred thousand six hundred nineteen dollars and fourteen cents",
+        "gold": "$900,619.14",
+        "pred": "$9,619.14",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "five hundred nineteen thousand six hundred eighty one dollars and seventy two cents",
+        "gold": "$519,681.72",
+        "pred": "$1,681.72",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eight hundred sixty eight thousand seven hundred eighty one dollars and thirty five cents",
+        "gold": "$868,781.35",
+        "pred": "$8,781.35",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seven hundred ninety nine thousand eight hundred thirty six dollars and forty four cents",
+        "gold": "$799,836.44",
+        "pred": "$9,836.44",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "six hundred eighteen thousand five hundred forty five dollars and thirty seven cents",
+        "gold": "$618,545.37",
+        "pred": "$6,545.37",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "one hundred twenty nine thousand five hundred fifty one dollars and thirty eight cents",
+        "gold": "$129,551.38",
+        "pred": "$1,551.38",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "two hundred forty thousand nine hundred two dollars and eighty three cents",
+        "gold": "$240,902.83",
+        "pred": "$2,902.83",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eight hundred sixty two thousand eight hundred eleven dollars and fifty seven cents",
+        "gold": "$862,811.57",
+        "pred": "$8,811.57",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eight hundred forty thousand nine hundred ninety five dollars and eighty cents",
+        "gold": "$840,995.80",
+        "pred": "$8,995.80",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "six hundred eighty eight thousand twenty seven dollars and four cents",
+        "gold": "$688,027.04",
+        "pred": "$8,827.04",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "four hundred sixty five thousand four hundred seventy dollars and thirty one cents",
+        "gold": "$465,470.31",
+        "pred": "$4,470.31",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "five hundred twenty eight thousand ninety seven dollars and forty five cents",
+        "gold": "$528,097.45",
+        "pred": "$2,897.45",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "four hundred ninety six thousand three hundred sixty one dollars and seventy eight cents",
+        "gold": "$496,361.78",
+        "pred": "$6,361.78",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "nine hundred ninety two thousand eight hundred fifty four dollars and twenty three cents",
+        "gold": "$992,854.23",
+        "pred": "$9,854.23",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "five hundred eighty nine thousand eighty four dollars and eleven cents",
+        "gold": "$589,084.11",
+        "pred": "$5,084.11",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "two hundred four thousand seven hundred seventy six dollars and ninety seven cents",
+        "gold": "$204,776.97",
+        "pred": "$2,776.97",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "three hundred seventy one thousand six hundred eighty six dollars and twenty four cents",
+        "gold": "$371,686.24",
+        "pred": "$7,686.24",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seven hundred sixty one thousand forty one dollars and seventy eight cents",
+        "gold": "$761,041.78",
+        "pred": "$7,041.78",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "three hundred fifteen thousand forty four dollars and eighty seven cents",
+        "gold": "$315,044.87",
+        "pred": "$1,044.87",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "one hundred twenty eight thousand five hundred eighty eight dollars and fifty three cents",
+        "gold": "$128,588.53",
+        "pred": "$1,588.53",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "one hundred fifteen thousand nine hundred thirty five dollars and four cents",
+        "gold": "$115,935.04",
+        "pred": "$1,935.04",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "five hundred forty six thousand one hundred seventy four dollars and fifty five cents",
+        "gold": "$546,174.55",
+        "pred": "$4,174.55",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "eight hundred thirty six thousand three hundred seventy nine dollars and ninety six cents",
+        "gold": "$836,379.96",
+        "pred": "$8,379.96",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seven hundred seventy one thousand thirty seven dollars and three cents",
+        "gold": "$771,037.03",
+        "pred": "$7,037.03",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seven hundred forty four thousand one hundred fourteen dollars and forty three cents",
+        "gold": "$744,114.43",
+        "pred": "$4,114.43",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "five hundred eighty five thousand six hundred seventy four dollars and ninety cents",
+        "gold": "$585,674.90",
+        "pred": "$5,674.90",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "three hundred thirty three thousand two hundred forty dollars and eighty one cents",
+        "gold": "$333,240.81",
+        "pred": "$3,240.81",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "one hundred four thousand one hundred thirty six dollars and seventeen cents",
+        "gold": "$104,136.17",
+        "pred": "$1,136.17",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "four hundred eighty three thousand five hundred sixty seven dollars and twenty two cents",
+        "gold": "$483,567.22",
+        "pred": "$4,567.22",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "two hundred eighty four thousand eight hundred twenty five dollars and thirteen cents",
+        "gold": "$284,825.13",
+        "pred": "$2,825.13",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "five hundred sixty four thousand thirty one dollars and sixty seven cents",
+        "gold": "$564,031.67",
+        "pred": "$5,031.67",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "five hundred ninety thousand nine hundred dollars and fifty three cents",
+        "gold": "$590,900.53",
+        "pred": "$9,900.53",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "seven hundred seventeen thousand eight hundred forty five dollars and ten cents",
+        "gold": "$717,845.10",
+        "pred": "$7,845.10",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "two hundred forty five thousand four hundred sixty three dollars and eighty nine cents",
+        "gold": "$245,463.89",
+        "pred": "$2,463.89",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "three hundred forty two thousand eight hundred fifty two dollars and sixty four cents",
+        "gold": "$342,852.64",
+        "pred": "$4,852.64",
+        "digits": 6,
+        "src_has_unseen_word": false
+      },
+      {
+        "src": "one hundred ninety seven thousand one hundred eighty four dollars and fifty four cents",
+        "gold": "$197,184.54",
+        "pred": "$1,184.54",
+        "digits": 6,
+        "src_has_unseen_word": false
+      }
+    ],
+    "no_attention": {
+      "test_in_em": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "n": 3,
+        "values": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "test_out_em": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "n": 3,
+        "values": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "test_in_char_acc": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "n": 3,
+        "values": [
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "em_by_digits": {
+        "1": {
+          "mean": 1.0,
+          "sd": 0.0,
+          "n": 3,
+          "values": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "2": {
+          "mean": 1.0,
+          "sd": 0.0,
+          "n": 3,
+          "values": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "3": {
+          "mean": 1.0,
+          "sd": 0.0,
+          "n": 3,
+          "values": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "4": {
+          "mean": 1.0,
+          "sd": 0.0,
+          "n": 3,
+          "values": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        "5": {
+          "mean": 0.0,
+          "sd": 0.0,
+          "n": 3,
+          "values": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "6": {
+          "mean": 0.0,
+          "sd": 0.0,
+          "n": 3,
+          "values": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "7": {
+          "mean": 0.0,
+          "sd": 0.0,
+          "n": 3,
+          "values": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    }
+  },
+  "config": {
+    "epochs": 12,
+    "train_digits": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "extrap_digits": [
+      5,
+      6,
+      7
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ]
+  },
+  "config_hash": "ee3b84cef80e",
+  "git_sha": "7d4c565",
+  "written_at": "2026-10-22T15:24:53+00:00"
+}

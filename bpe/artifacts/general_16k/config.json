@@ -1,0 +1,20 @@
+{
+  "corpus": "general",
+  "corpus_hash": "03ba9d751987b1dcf421cc4d2d84e64e23d222384602c353a02e2933b8dccb5f",
+  "n_docs": 268176,
+  "n_merges": 15737,
+  "vocab_size_requested": 16000,
+  "trainer": "incremental",
+  "pattern_version": "gpt2-v1",
+  "train_seconds": 47.9,
+  "specials": [
+    "<pad>",
+    "<bos>",
+    "<eos>",
+    "<unk>",
+    "<REDACTED>",
+    "<DATE>",
+    "<AMT>"
+  ],
+  "vocab_size": 16000
+}

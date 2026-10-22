@@ -1,0 +1,20 @@
+{
+  "corpus": "cfpb-train",
+  "corpus_hash": "2cee8bcf4a6d6ba18280e8287d0118de47134808b9ac79b0e234a3dfbdd1bb99",
+  "n_docs": 150000,
+  "n_merges": 7737,
+  "vocab_size_requested": 8000,
+  "trainer": "incremental",
+  "pattern_version": "gpt2-v1",
+  "train_seconds": 25.1,
+  "specials": [
+    "<pad>",
+    "<bos>",
+    "<eos>",
+    "<unk>",
+    "<REDACTED>",
+    "<DATE>",
+    "<AMT>"
+  ],
+  "vocab_size": 8000
+}

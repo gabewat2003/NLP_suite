@@ -1,0 +1,845 @@
+{
+  "name": "bpe_compare",
+  "metrics": {
+    "sweep": [
+      {
+        "vocab_size": 1000,
+        "trained_on": "cfpb",
+        "term_fertility": 3.46,
+        "fertility_cfpb": 1.8310493695119014,
+        "bytes_per_token_cfpb": 3.118395982844919,
+        "fertility_general": 2.4692785515910876,
+        "bytes_per_token_general": 2.163256159775537
+      },
+      {
+        "vocab_size": 1000,
+        "trained_on": "general",
+        "term_fertility": 4.18,
+        "fertility_cfpb": 2.1530690301393896,
+        "bytes_per_token_cfpb": 2.6519990387428374,
+        "fertility_general": 2.0987470584494052,
+        "bytes_per_token_general": 2.5451766640604956
+      },
+      {
+        "vocab_size": 2000,
+        "trained_on": "cfpb",
+        "term_fertility": 2.24,
+        "fertility_cfpb": 1.4781988206852295,
+        "bytes_per_token_cfpb": 3.8627665767110764,
+        "fertility_general": 2.084487693188323,
+        "bytes_per_token_general": 2.5625874666406303
+      },
+      {
+        "vocab_size": 2000,
+        "trained_on": "general",
+        "term_fertility": 3.62,
+        "fertility_cfpb": 1.8622354243770793,
+        "bytes_per_token_cfpb": 3.0661735479479546,
+        "fertility_general": 1.7599270707456167,
+        "bytes_per_token_general": 3.0351723805623148
+      },
+      {
+        "vocab_size": 4000,
+        "trained_on": "cfpb",
+        "term_fertility": 1.38,
+        "fertility_cfpb": 1.298186362945354,
+        "bytes_per_token_cfpb": 4.398395454811127,
+        "fertility_general": 1.834386991456253,
+        "bytes_per_token_general": 2.911971171737578
+      },
+      {
+        "vocab_size": 4000,
+        "trained_on": "general",
+        "term_fertility": 3.08,
+        "fertility_cfpb": 1.6349322559944466,
+        "bytes_per_token_cfpb": 3.4924609122740495,
+        "fertility_general": 1.5189213254467977,
+        "bytes_per_token_general": 3.516760182005974
+      },
+      {
+        "vocab_size": 8000,
+        "trained_on": "cfpb",
+        "term_fertility": 1.16,
+        "fertility_cfpb": 1.205716030797255,
+        "bytes_per_token_cfpb": 4.735722883688505,
+        "fertility_general": 1.645873349021603,
+        "bytes_per_token_general": 3.245500050235592
+      },
+      {
+        "vocab_size": 8000,
+        "trained_on": "general",
+        "term_fertility": 2.74,
+        "fertility_cfpb": 1.4839686646136958,
+        "bytes_per_token_cfpb": 3.847747687962829,
+        "fertility_general": 1.3341050266064576,
+        "bytes_per_token_general": 4.003944165114638
+      },
+      {
+        "vocab_size": 16000,
+        "trained_on": "cfpb",
+        "term_fertility": 1.04,
+        "fertility_cfpb": 1.1633723613067444,
+        "bytes_per_token_cfpb": 4.90809064078419,
+        "fertility_general": 1.4912378892916958,
+        "bytes_per_token_general": 3.582045544368654
+      },
+      {
+        "vocab_size": 16000,
+        "trained_on": "general",
+        "term_fertility": 2.14,
+        "fertility_cfpb": 1.3526856115795096,
+        "bytes_per_token_cfpb": 4.221185580298464,
+        "fertility_general": 1.2065254722381225,
+        "bytes_per_token_general": 4.427326368022829
+      }
+    ],
+    "gpt2": {
+      "vocab_size": 50257,
+      "fertility_cfpb": 1.239517672904954,
+      "bytes_per_token_cfpb": 4.606579739113145,
+      "fertility_general": 1.1529055099747716,
+      "bytes_per_token_general": 4.633234892812616,
+      "term_fertility": 1.58
+    },
+    "terms_8k": [
+      {
+        "term": "forbearance",
+        "cfpb": [
+          "\u2581forbearance"
+        ],
+        "general": [
+          "\u2581for",
+          "b",
+          "ear",
+          "ance"
+        ],
+        "gpt2": [
+          "\u2581forb",
+          "earance"
+        ]
+      },
+      {
+        "term": "garnishment",
+        "cfpb": [
+          "\u2581garnishment"
+        ],
+        "general": [
+          "\u2581g",
+          "arn",
+          "ish",
+          "ment"
+        ],
+        "gpt2": [
+          "\u2581garn",
+          "ishment"
+        ]
+      },
+      {
+        "term": "garnish",
+        "cfpb": [
+          "\u2581garnish"
+        ],
+        "general": [
+          "\u2581g",
+          "arn",
+          "ish"
+        ],
+        "gpt2": [
+          "\u2581garn",
+          "ish"
+        ]
+      },
+      {
+        "term": "repossession",
+        "cfpb": [
+          "\u2581repossession"
+        ],
+        "general": [
+          "\u2581rep",
+          "oss",
+          "ession"
+        ],
+        "gpt2": [
+          "\u2581rep",
+          "ossession"
+        ]
+      },
+      {
+        "term": "repossess",
+        "cfpb": [
+          "\u2581reposs",
+          "ess"
+        ],
+        "general": [
+          "\u2581rep",
+          "oss",
+          "ess"
+        ],
+        "gpt2": [
+          "\u2581rep",
+          "oss",
+          "ess"
+        ]
+      },
+      {
+        "term": "amortization",
+        "cfpb": [
+          "\u2581am",
+          "ort",
+          "ization"
+        ],
+        "general": [
+          "\u2581am",
+          "ort",
+          "ization"
+        ],
+        "gpt2": [
+          "\u2581am",
+          "ort",
+          "ization"
+        ]
+      },
+      {
+        "term": "delinquent",
+        "cfpb": [
+          "\u2581delinquent"
+        ],
+        "general": [
+          "\u2581del",
+          "in",
+          "qu",
+          "ent"
+        ],
+        "gpt2": [
+          "\u2581delinquent"
+        ]
+      },
+      {
+        "term": "delinquency",
+        "cfpb": [
+          "\u2581delinquency"
+        ],
+        "general": [
+          "\u2581del",
+          "in",
+          "qu",
+          "ency"
+        ],
+        "gpt2": [
+          "\u2581delinqu",
+          "ency"
+        ]
+      },
+      {
+        "term": "chargeback",
+        "cfpb": [
+          "\u2581chargeback"
+        ],
+        "general": [
+          "\u2581charge",
+          "back"
+        ],
+        "gpt2": [
+          "\u2581charge",
+          "back"
+        ]
+      },
+      {
+        "term": "charge-off",
+        "cfpb": [
+          "\u2581charge",
+          "-",
+          "off"
+        ],
+        "general": [
+          "\u2581charge",
+          "-",
+          "off"
+        ],
+        "gpt2": [
+          "\u2581charge",
+          "-",
+          "off"
+        ]
+      },
+      {
+        "term": "escrow",
+        "cfpb": [
+          "\u2581escrow"
+        ],
+        "general": [
+          "\u2581esc",
+          "row"
+        ],
+        "gpt2": [
+          "\u2581esc",
+          "row"
+        ]
+      },
+      {
+        "term": "autopay",
+        "cfpb": [
+          "\u2581autopay"
+        ],
+        "general": [
+          "\u2581aut",
+          "op",
+          "ay"
+        ],
+        "gpt2": [
+          "\u2581autop",
+          "ay"
+        ]
+      },
+      {
+        "term": "Experian",
+        "cfpb": [
+          "\u2581Experian"
+        ],
+        "general": [
+          "\u2581Ex",
+          "per",
+          "ian"
+        ],
+        "gpt2": [
+          "\u2581Exper",
+          "ian"
+        ]
+      },
+      {
+        "term": "Equifax",
+        "cfpb": [
+          "\u2581Equifax"
+        ],
+        "general": [
+          "\u2581E",
+          "qu",
+          "if",
+          "ax"
+        ],
+        "gpt2": [
+          "\u2581Equ",
+          "ifax"
+        ]
+      },
+      {
+        "term": "TransUnion",
+        "cfpb": [
+          "\u2581TransUnion"
+        ],
+        "general": [
+          "\u2581Trans",
+          "U",
+          "n",
+          "ion"
+        ],
+        "gpt2": [
+          "\u2581Trans",
+          "Union"
+        ]
+      },
+      {
+        "term": "reinvestigation",
+        "cfpb": [
+          "\u2581reinvestigation"
+        ],
+        "general": [
+          "\u2581rein",
+          "vest",
+          "ig",
+          "ation"
+        ],
+        "gpt2": [
+          "\u2581reinvest",
+          "igation"
+        ]
+      },
+      {
+        "term": "FCRA",
+        "cfpb": [
+          "\u2581FCRA"
+        ],
+        "general": [
+          "\u2581F",
+          "C",
+          "RA"
+        ],
+        "gpt2": [
+          "\u2581FC",
+          "RA"
+        ]
+      },
+      {
+        "term": "FDCPA",
+        "cfpb": [
+          "\u2581FDCPA"
+        ],
+        "general": [
+          "\u2581F",
+          "D",
+          "C",
+          "PA"
+        ],
+        "gpt2": [
+          "\u2581F",
+          "DC",
+          "PA"
+        ]
+      },
+      {
+        "term": "validation",
+        "cfpb": [
+          "\u2581validation"
+        ],
+        "general": [
+          "\u2581val",
+          "id",
+          "ation"
+        ],
+        "gpt2": [
+          "\u2581validation"
+        ]
+      },
+      {
+        "term": "usury",
+        "cfpb": [
+          "\u2581us",
+          "ury"
+        ],
+        "general": [
+          "\u2581us",
+          "ury"
+        ],
+        "gpt2": [
+          "\u2581us",
+          "ury"
+        ]
+      },
+      {
+        "term": "APR",
+        "cfpb": [
+          "\u2581APR"
+        ],
+        "general": [
+          "\u2581A",
+          "P",
+          "R"
+        ],
+        "gpt2": [
+          "\u2581APR"
+        ]
+      },
+      {
+        "term": "foreclosure",
+        "cfpb": [
+          "\u2581foreclosure"
+        ],
+        "general": [
+          "\u2581fore",
+          "cl",
+          "osure"
+        ],
+        "gpt2": [
+          "\u2581foreclosure"
+        ]
+      },
+      {
+        "term": "refinance",
+        "cfpb": [
+          "\u2581refinance"
+        ],
+        "general": [
+          "\u2581ref",
+          "in",
+          "ance"
+        ],
+        "gpt2": [
+          "\u2581ref",
+          "inance"
+        ]
+      },
+      {
+        "term": "overdraft",
+        "cfpb": [
+          "\u2581overdraft"
+        ],
+        "general": [
+          "\u2581over",
+          "d",
+          "raft"
+        ],
+        "gpt2": [
+          "\u2581overd",
+          "raft"
+        ]
+      },
+      {
+        "term": "collections",
+        "cfpb": [
+          "\u2581collections"
+        ],
+        "general": [
+          "\u2581collect",
+          "ions"
+        ],
+        "gpt2": [
+          "\u2581collections"
+        ]
+      },
+      {
+        "term": "collector",
+        "cfpb": [
+          "\u2581collector"
+        ],
+        "general": [
+          "\u2581collect",
+          "or"
+        ],
+        "gpt2": [
+          "\u2581collector"
+        ]
+      },
+      {
+        "term": "creditor",
+        "cfpb": [
+          "\u2581creditor"
+        ],
+        "general": [
+          "\u2581cred",
+          "itor"
+        ],
+        "gpt2": [
+          "\u2581creditor"
+        ]
+      },
+      {
+        "term": "furnisher",
+        "cfpb": [
+          "\u2581furnisher"
+        ],
+        "general": [
+          "\u2581f",
+          "urn",
+          "isher"
+        ],
+        "gpt2": [
+          "\u2581furn",
+          "isher"
+        ]
+      },
+      {
+        "term": "lien",
+        "cfpb": [
+          "\u2581lien"
+        ],
+        "general": [
+          "\u2581l",
+          "ien"
+        ],
+        "gpt2": [
+          "\u2581l",
+          "ien"
+        ]
+      },
+      {
+        "term": "levy",
+        "cfpb": [
+          "\u2581le",
+          "v",
+          "y"
+        ],
+        "general": [
+          "\u2581le",
+          "v",
+          "y"
+        ],
+        "gpt2": [
+          "\u2581levy"
+        ]
+      },
+      {
+        "term": "bankruptcy",
+        "cfpb": [
+          "\u2581bankruptcy"
+        ],
+        "general": [
+          "\u2581bank",
+          "rupt",
+          "cy"
+        ],
+        "gpt2": [
+          "\u2581bankruptcy"
+        ]
+      },
+      {
+        "term": "settlement",
+        "cfpb": [
+          "\u2581settlement"
+        ],
+        "general": [
+          "\u2581settlement"
+        ],
+        "gpt2": [
+          "\u2581settlement"
+        ]
+      },
+      {
+        "term": "arbitration",
+        "cfpb": [
+          "\u2581arbitration"
+        ],
+        "general": [
+          "\u2581ar",
+          "bit",
+          "ration"
+        ],
+        "gpt2": [
+          "\u2581arbitration"
+        ]
+      },
+      {
+        "term": "servicer",
+        "cfpb": [
+          "\u2581servicer"
+        ],
+        "general": [
+          "\u2581serv",
+          "icer"
+        ],
+        "gpt2": [
+          "\u2581serv",
+          "icer"
+        ]
+      },
+      {
+        "term": "deferment",
+        "cfpb": [
+          "\u2581deferment"
+        ],
+        "general": [
+          "\u2581de",
+          "fer",
+          "ment"
+        ],
+        "gpt2": [
+          "\u2581defer",
+          "ment"
+        ]
+      },
+      {
+        "term": "forgiveness",
+        "cfpb": [
+          "\u2581forgiveness"
+        ],
+        "general": [
+          "\u2581for",
+          "g",
+          "iven",
+          "ess"
+        ],
+        "gpt2": [
+          "\u2581forgiveness"
+        ]
+      },
+      {
+        "term": "principal",
+        "cfpb": [
+          "\u2581principal"
+        ],
+        "general": [
+          "\u2581principal"
+        ],
+        "gpt2": [
+          "\u2581principal"
+        ]
+      },
+      {
+        "term": "interest",
+        "cfpb": [
+          "\u2581interest"
+        ],
+        "general": [
+          "\u2581interest"
+        ],
+        "gpt2": [
+          "\u2581interest"
+        ]
+      },
+      {
+        "term": "balance",
+        "cfpb": [
+          "\u2581balance"
+        ],
+        "general": [
+          "\u2581bal",
+          "ance"
+        ],
+        "gpt2": [
+          "\u2581balance"
+        ]
+      },
+      {
+        "term": "dispute",
+        "cfpb": [
+          "\u2581dispute"
+        ],
+        "general": [
+          "\u2581disp",
+          "ute"
+        ],
+        "gpt2": [
+          "\u2581dispute"
+        ]
+      },
+      {
+        "term": "charge",
+        "cfpb": [
+          "\u2581charge"
+        ],
+        "general": [
+          "\u2581charge"
+        ],
+        "gpt2": [
+          "\u2581charge"
+        ]
+      },
+      {
+        "term": "fraud",
+        "cfpb": [
+          "\u2581fraud"
+        ],
+        "general": [
+          "\u2581f",
+          "ra",
+          "ud"
+        ],
+        "gpt2": [
+          "\u2581fraud"
+        ]
+      },
+      {
+        "term": "identity",
+        "cfpb": [
+          "\u2581identity"
+        ],
+        "general": [
+          "\u2581identity"
+        ],
+        "gpt2": [
+          "\u2581identity"
+        ]
+      },
+      {
+        "term": "unauthorized",
+        "cfpb": [
+          "\u2581unauthorized"
+        ],
+        "general": [
+          "\u2581un",
+          "aut",
+          "hor",
+          "ized"
+        ],
+        "gpt2": [
+          "\u2581unauthorized"
+        ]
+      },
+      {
+        "term": "inquiry",
+        "cfpb": [
+          "\u2581inquiry"
+        ],
+        "general": [
+          "\u2581in",
+          "qu",
+          "ir",
+          "y"
+        ],
+        "gpt2": [
+          "\u2581inquiry"
+        ]
+      },
+      {
+        "term": "tradeline",
+        "cfpb": [
+          "\u2581tradeline"
+        ],
+        "general": [
+          "\u2581trad",
+          "eline"
+        ],
+        "gpt2": [
+          "\u2581trad",
+          "eline"
+        ]
+      },
+      {
+        "term": "mortgage",
+        "cfpb": [
+          "\u2581mortgage"
+        ],
+        "general": [
+          "\u2581mort",
+          "g",
+          "age"
+        ],
+        "gpt2": [
+          "\u2581mortgage"
+        ]
+      },
+      {
+        "term": "lender",
+        "cfpb": [
+          "\u2581lender"
+        ],
+        "general": [
+          "\u2581le",
+          "nder"
+        ],
+        "gpt2": [
+          "\u2581lender"
+        ]
+      },
+      {
+        "term": "payoff",
+        "cfpb": [
+          "\u2581payoff"
+        ],
+        "general": [
+          "\u2581pay",
+          "off"
+        ],
+        "gpt2": [
+          "\u2581payoff"
+        ]
+      },
+      {
+        "term": "modification",
+        "cfpb": [
+          "\u2581modification"
+        ],
+        "general": [
+          "\u2581mod",
+          "ification"
+        ],
+        "gpt2": [
+          "\u2581modification"
+        ]
+      }
+    ]
+  },
+  "config": {
+    "sizes": [
+      1000,
+      2000,
+      4000,
+      8000,
+      16000
+    ],
+    "cfpb_hash": "2cee8bcf4a6d6ba18280e8287d0118de47134808b9ac79b0e234a3dfbdd1bb99",
+    "general_hash": "03ba9d751987b1dcf421cc4d2d84e64e23d222384602c353a02e2933b8dccb5f"
+  },
+  "config_hash": "f1f3633ac338",
+  "git_sha": "8139b0f",
+  "written_at": "2026-10-22T14:32:40+00:00"
+}

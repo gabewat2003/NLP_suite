@@ -1,0 +1,1627 @@
+{
+  "name": "w2v_neighbors",
+  "metrics": {
+    "neighbors_mine": {
+      "garnish": [
+        [
+          "wages",
+          0.8353991508483887
+        ],
+        [
+          "garnishing",
+          0.7579085826873779
+        ],
+        [
+          "garnished",
+          0.7220517992973328
+        ],
+        [
+          "garnishment",
+          0.7178871631622314
+        ],
+        [
+          "garnishments",
+          0.6260417699813843
+        ]
+      ],
+      "repossess": [
+        [
+          "repossessing",
+          0.664375901222229
+        ],
+        [
+          "repossessed",
+          0.6577028036117554
+        ],
+        [
+          "reposes",
+          0.617931604385376
+        ],
+        [
+          "repo",
+          0.6046627759933472
+        ],
+        [
+          "repossession",
+          0.5839297771453857
+        ]
+      ],
+      "autopay": [
+        [
+          "auto-pay",
+          0.7084139585494995
+        ],
+        [
+          "autopayment",
+          0.6846474409103394
+        ],
+        [
+          "auto-payment",
+          0.6696444749832153
+        ],
+        [
+          "ebills",
+          0.6634216904640198
+        ],
+        [
+          "automatic",
+          0.647921621799469
+        ]
+      ],
+      "collections": [
+        [
+          "collection",
+          0.6835494637489319
+        ],
+        [
+          "bonneville",
+          0.6051098704338074
+        ],
+        [
+          "alco",
+          0.6029297113418579
+        ],
+        [
+          "delmarva",
+          0.5876302719116211
+        ],
+        [
+          "athens",
+          0.5875718593597412
+        ]
+      ],
+      "escrow": [
+        [
+          "shortage",
+          0.7696263790130615
+        ],
+        [
+          "analysis",
+          0.7436816692352295
+        ],
+        [
+          "taxes",
+          0.7089781761169434
+        ],
+        [
+          "escrowed",
+          0.707202672958374
+        ],
+        [
+          "projected",
+          0.679137110710144
+        ]
+      ],
+      "forbearance": [
+        [
+          "deferment",
+          0.793144702911377
+        ],
+        [
+          "forebearance",
+          0.7634581327438354
+        ],
+        [
+          "deferral",
+          0.6942437291145325
+        ],
+        [
+          "forebarance",
+          0.667773962020874
+        ],
+        [
+          "cares",
+          0.658663272857666
+        ]
+      ],
+      "garnishment": [
+        [
+          "wage",
+          0.7520105838775635
+        ],
+        [
+          "wages",
+          0.7429640889167786
+        ],
+        [
+          "garnished",
+          0.7327027916908264
+        ],
+        [
+          "garnish",
+          0.7178871631622314
+        ],
+        [
+          "garnishing",
+          0.7162217497825623
+        ]
+      ],
+      "repossession": [
+        [
+          "repossessed",
+          0.7069981098175049
+        ],
+        [
+          "repo",
+          0.6607277393341064
+        ],
+        [
+          "vehicle",
+          0.615330696105957
+        ],
+        [
+          "repossess",
+          0.5839297771453857
+        ],
+        [
+          "repossessing",
+          0.5772506594657898
+        ]
+      ],
+      "delinquent": [
+        [
+          "delinquency",
+          0.5873959064483643
+        ],
+        [
+          "delinquencies",
+          0.54900723695755
+        ],
+        [
+          "overdue",
+          0.5361731648445129
+        ],
+        [
+          "late",
+          0.5228484869003296
+        ],
+        [
+          "31-60",
+          0.4949305057525635
+        ]
+      ],
+      "chargeback": [
+        [
+          "merchant",
+          0.6615031957626343
+        ],
+        [
+          "charge-back",
+          0.5856156945228577
+        ],
+        [
+          "rebilled",
+          0.5496894121170044
+        ],
+        [
+          "decisioned",
+          0.5248317718505859
+        ],
+        [
+          "acquirer",
+          0.5092843770980835
+        ]
+      ],
+      "charge-off": [
+        [
+          "chargeoff",
+          0.6432093381881714
+        ],
+        [
+          "cls",
+          0.5350797176361084
+        ],
+        [
+          "chargeoffs",
+          0.5303765535354614
+        ],
+        [
+          "updatedxx",
+          0.5054577589035034
+        ],
+        [
+          "90-119",
+          0.5052915811538696
+        ]
+      ],
+      "reinvestigation": [
+        [
+          "reinvestigations",
+          0.6717315316200256
+        ],
+        [
+          "re-investigation",
+          0.6154329776763916
+        ],
+        [
+          "iteam",
+          0.5219512581825256
+        ],
+        [
+          "investigation",
+          0.5215864181518555
+        ],
+        [
+          "results",
+          0.5131164789199829
+        ]
+      ],
+      "fcra": [
+        [
+          "frca",
+          0.6428602337837219
+        ],
+        [
+          "623",
+          0.6237474083900452
+        ],
+        [
+          "609",
+          0.601395845413208
+        ],
+        [
+          "fcpa",
+          0.5840235948562622
+        ],
+        [
+          "31st",
+          0.5734388828277588
+        ]
+      ],
+      "fdcpa": [
+        [
+          "809b",
+          0.6830345392227173
+        ],
+        [
+          "fdcra",
+          0.6473649144172668
+        ],
+        [
+          "806",
+          0.6341551542282104
+        ],
+        [
+          "809",
+          0.6220179200172424
+        ],
+        [
+          "15usc1692g",
+          0.6123740673065186
+        ]
+      ],
+      "overdraft": [
+        [
+          "overdrafts",
+          0.7669832706451416
+        ],
+        [
+          "overdrawn",
+          0.7438708543777466
+        ],
+        [
+          "overdrafted",
+          0.7204657196998596
+        ],
+        [
+          "nsf",
+          0.7113122940063477
+        ],
+        [
+          "overdrawing",
+          0.6967309713363647
+        ]
+      ],
+      "foreclosure": [
+        [
+          "foreclose",
+          0.6924217939376831
+        ],
+        [
+          "foreclosing",
+          0.6911123991012573
+        ],
+        [
+          "forclosure",
+          0.6836777925491333
+        ],
+        [
+          "pre-foreclosure",
+          0.6816139221191406
+        ],
+        [
+          "foreclosed",
+          0.6545124650001526
+        ]
+      ],
+      "servicer": [
+        [
+          "servicers",
+          0.6685970425605774
+        ],
+        [
+          "servicing",
+          0.6666365265846252
+        ],
+        [
+          "mortgaging",
+          0.5983682870864868
+        ],
+        [
+          "subservicer",
+          0.592441201210022
+        ],
+        [
+          "non-agency",
+          0.5769457817077637
+        ]
+      ],
+      "furnisher": [
+        [
+          "623",
+          0.5708663463592529
+        ],
+        [
+          "furnishers",
+          0.5546291470527649
+        ],
+        [
+          "learns",
+          0.5527887344360352
+        ],
+        [
+          "reinvestigations",
+          0.537341296672821
+        ],
+        [
+          "completeness",
+          0.5059310793876648
+        ]
+      ],
+      "deferment": [
+        [
+          "forbearance",
+          0.793144702911377
+        ],
+        [
+          "in-school",
+          0.7147290706634521
+        ],
+        [
+          "deferrment",
+          0.6578781604766846
+        ],
+        [
+          "deferments",
+          0.6553771495819092
+        ],
+        [
+          "forebarance",
+          0.6410232186317444
+        ]
+      ],
+      "arbitration": [
+        [
+          "arbitrator",
+          0.6367932558059692
+        ],
+        [
+          "arbitrate",
+          0.5878728628158569
+        ],
+        [
+          "arbitrators",
+          0.5797303318977356
+        ],
+        [
+          "prevails",
+          0.5343688726425171
+        ],
+        [
+          "replaces",
+          0.5270044803619385
+        ]
+      ]
+    },
+    "neighbors_gensim": {
+      "garnish": [
+        [
+          "wages",
+          0.8456728458404541
+        ],
+        [
+          "garnishing",
+          0.7312372326850891
+        ],
+        [
+          "garnished",
+          0.7070919275283813
+        ],
+        [
+          "garnishments",
+          0.6898878812789917
+        ],
+        [
+          "garnishment",
+          0.6780658960342407
+        ]
+      ],
+      "repossess": [
+        [
+          "repossessing",
+          0.6876076459884644
+        ],
+        [
+          "repossessed",
+          0.6315411329269409
+        ],
+        [
+          "reposes",
+          0.604478120803833
+        ],
+        [
+          "repo",
+          0.5984570980072021
+        ],
+        [
+          "reposed",
+          0.5872589945793152
+        ]
+      ],
+      "autopay": [
+        [
+          "auto-pay",
+          0.7468309998512268
+        ],
+        [
+          "automatic",
+          0.6475238800048828
+        ],
+        [
+          "auto-payment",
+          0.6381473541259766
+        ],
+        [
+          "autopayments",
+          0.6270643472671509
+        ],
+        [
+          "autopayment",
+          0.6248428821563721
+        ]
+      ],
+      "collections": [
+        [
+          "collection",
+          0.6928343772888184
+        ],
+        [
+          "athens",
+          0.5685579776763916
+        ],
+        [
+          "alco",
+          0.5679765939712524
+        ],
+        [
+          "delmarva",
+          0.5612266063690186
+        ],
+        [
+          "bonneville",
+          0.5590640306472778
+        ]
+      ],
+      "escrow": [
+        [
+          "shortage",
+          0.7747235298156738
+        ],
+        [
+          "analysis",
+          0.7505209445953369
+        ],
+        [
+          "escrowed",
+          0.7093642354011536
+        ],
+        [
+          "shortages",
+          0.7028692364692688
+        ],
+        [
+          "taxes",
+          0.6882493495941162
+        ]
+      ],
+      "forbearance": [
+        [
+          "forebearance",
+          0.7926489114761353
+        ],
+        [
+          "deferment",
+          0.7744118571281433
+        ],
+        [
+          "deferral",
+          0.7085109353065491
+        ],
+        [
+          "post-forbearance",
+          0.6576827168464661
+        ],
+        [
+          "forebarance",
+          0.6482254266738892
+        ]
+      ],
+      "garnishment": [
+        [
+          "wage",
+          0.794448971748352
+        ],
+        [
+          "garnishments",
+          0.7472273707389832
+        ],
+        [
+          "wages",
+          0.7271901369094849
+        ],
+        [
+          "garnished",
+          0.7180887460708618
+        ],
+        [
+          "garnishing",
+          0.6788005232810974
+        ]
+      ],
+      "repossession": [
+        [
+          "repossessed",
+          0.6906956434249878
+        ],
+        [
+          "repo",
+          0.663133978843689
+        ],
+        [
+          "vehicle",
+          0.6139497756958008
+        ],
+        [
+          "repossessing",
+          0.5979435443878174
+        ],
+        [
+          "reposed",
+          0.5716473460197449
+        ]
+      ],
+      "delinquent": [
+        [
+          "delinquency",
+          0.6058732867240906
+        ],
+        [
+          "late",
+          0.5468664169311523
+        ],
+        [
+          "overdue",
+          0.5330096483230591
+        ],
+        [
+          "dofds",
+          0.5240576267242432
+        ],
+        [
+          "delinquencies",
+          0.5110186338424683
+        ]
+      ],
+      "chargeback": [
+        [
+          "merchant",
+          0.6564986705780029
+        ],
+        [
+          "charge-back",
+          0.5656424760818481
+        ],
+        [
+          "rebilled",
+          0.5589315891265869
+        ],
+        [
+          "rebill",
+          0.5480079054832458
+        ],
+        [
+          "re-charge",
+          0.5401135683059692
+        ]
+      ],
+      "charge-off": [
+        [
+          "chargeoff",
+          0.6450477838516235
+        ],
+        [
+          "charged-off",
+          0.5651980638504028
+        ],
+        [
+          "chargeoffs",
+          0.5455755591392517
+        ],
+        [
+          "charge-offs",
+          0.5400212407112122
+        ],
+        [
+          "90-119",
+          0.5204658508300781
+        ]
+      ],
+      "reinvestigation": [
+        [
+          "re-investigation",
+          0.6412893533706665
+        ],
+        [
+          "reinvestigations",
+          0.6365938186645508
+        ],
+        [
+          "1681i",
+          0.5271168947219849
+        ],
+        [
+          "results",
+          0.511736273765564
+        ],
+        [
+          "15days",
+          0.5114201307296753
+        ]
+      ],
+      "fcra": [
+        [
+          "frca",
+          0.6696332097053528
+        ],
+        [
+          "623",
+          0.6363336443901062
+        ],
+        [
+          "violation",
+          0.5987957715988159
+        ],
+        [
+          "609",
+          0.5974507331848145
+        ],
+        [
+          "fcpa",
+          0.5902875065803528
+        ]
+      ],
+      "fdcpa": [
+        [
+          "809b",
+          0.680220365524292
+        ],
+        [
+          "fcdpa",
+          0.6727118492126465
+        ],
+        [
+          "806",
+          0.6641672849655151
+        ],
+        [
+          "fdcp",
+          0.6418359875679016
+        ],
+        [
+          "15usc1692g",
+          0.6382699012756348
+        ]
+      ],
+      "overdraft": [
+        [
+          "overdrafts",
+          0.771381139755249
+        ],
+        [
+          "overdrawn",
+          0.7306817173957825
+        ],
+        [
+          "od",
+          0.7254037857055664
+        ],
+        [
+          "nsf",
+          0.7173489928245544
+        ],
+        [
+          "overdrafted",
+          0.7162061333656311
+        ]
+      ],
+      "foreclosure": [
+        [
+          "pre-foreclosure",
+          0.7127045392990112
+        ],
+        [
+          "foreclose",
+          0.7057169675827026
+        ],
+        [
+          "foreclosing",
+          0.6694176197052002
+        ],
+        [
+          "foreclosed",
+          0.6672042608261108
+        ],
+        [
+          "forclosure",
+          0.6650683879852295
+        ]
+      ],
+      "servicer": [
+        [
+          "servicers",
+          0.6633304357528687
+        ],
+        [
+          "servicing",
+          0.6568201780319214
+        ],
+        [
+          "mortgaging",
+          0.5813206434249878
+        ],
+        [
+          "subservicing",
+          0.5673642158508301
+        ],
+        [
+          "sub-servicer",
+          0.566444456577301
+        ]
+      ],
+      "furnisher": [
+        [
+          "learns",
+          0.5923510789871216
+        ],
+        [
+          "furnishers",
+          0.5669550895690918
+        ],
+        [
+          "623",
+          0.5591944456100464
+        ],
+        [
+          "metro2",
+          0.5403128862380981
+        ],
+        [
+          "reinvestigations",
+          0.5305154919624329
+        ]
+      ],
+      "deferment": [
+        [
+          "forbearance",
+          0.7744118571281433
+        ],
+        [
+          "in-school",
+          0.7064077854156494
+        ],
+        [
+          "deferement",
+          0.6606845259666443
+        ],
+        [
+          "forebearance",
+          0.6521193981170654
+        ],
+        [
+          "deferral",
+          0.6510446071624756
+        ]
+      ],
+      "arbitration": [
+        [
+          "arbitrator",
+          0.6198476552963257
+        ],
+        [
+          "arbitrators",
+          0.5506852865219116
+        ],
+        [
+          "arbitrate",
+          0.5335378050804138
+        ],
+        [
+          "replaces",
+          0.5171818733215332
+        ],
+        [
+          "prevails",
+          0.49749404191970825
+        ]
+      ]
+    },
+    "polysemy": {
+      "charge": [
+        [
+          "charges",
+          0.7251765727996826
+        ],
+        [
+          "charged",
+          0.696443498134613
+        ],
+        [
+          "recharged",
+          0.5574686527252197
+        ],
+        [
+          "rebill",
+          0.5270308256149292
+        ],
+        [
+          "dicover",
+          0.5266807079315186
+        ],
+        [
+          "re-charged",
+          0.5250284075737
+        ],
+        [
+          "reaccuring",
+          0.5137222409248352
+        ],
+        [
+          "comentiy",
+          0.5134943723678589
+        ],
+        [
+          "rebilling",
+          0.508185625076294
+        ],
+        [
+          "transaction",
+          0.5054246187210083
+        ]
+      ],
+      "balance": [
+        [
+          "updatedxxxx",
+          0.6777634024620056
+        ],
+        [
+          "<AMT>",
+          0.6664431095123291
+        ],
+        [
+          "updatedxx",
+          0.6594589948654175
+        ],
+        [
+          "termsna",
+          0.6495426297187805
+        ],
+        [
+          "balnce",
+          0.6269374489784241
+        ],
+        [
+          "accountxxxx",
+          0.621841549873352
+        ],
+        [
+          "amount",
+          0.621062159538269
+        ],
+        [
+          "statusclosed",
+          0.6180431842803955
+        ],
+        [
+          "typesecured",
+          0.6044715642929077
+        ],
+        [
+          "statuspaid",
+          0.6022660136222839
+        ]
+      ],
+      "dispute": [
+        [
+          "disputes",
+          0.7099043130874634
+        ],
+        [
+          "disputed",
+          0.5974667072296143
+        ],
+        [
+          "dipute",
+          0.5922916531562805
+        ],
+        [
+          "re-dispute",
+          0.5661281943321228
+        ],
+        [
+          "re-disputed",
+          0.5621722936630249
+        ],
+        [
+          "desputed",
+          0.5509188175201416
+        ],
+        [
+          "disputing",
+          0.549387514591217
+        ],
+        [
+          "redispute",
+          0.5372917652130127
+        ],
+        [
+          "iteam",
+          0.532060980796814
+        ],
+        [
+          "reinvestigating",
+          0.5313661098480225
+        ]
+      ],
+      "interest": [
+        [
+          "prinicpal",
+          0.6796266436576843
+        ],
+        [
+          "accruing",
+          0.6794675588607788
+        ],
+        [
+          "accrues",
+          0.663184642791748
+        ],
+        [
+          "proportionally",
+          0.6588146686553955
+        ],
+        [
+          "accrued",
+          0.655360221862793
+        ],
+        [
+          "rate",
+          0.6507855653762817
+        ],
+        [
+          "interst",
+          0.6482892036437988
+        ],
+        [
+          "consol",
+          0.6475521922111511
+        ],
+        [
+          "accruements",
+          0.6414326429367065
+        ],
+        [
+          "capitalizes",
+          0.6397420167922974
+        ]
+      ]
+    },
+    "subword": [
+      {
+        "correct": "forbearance",
+        "misspelled": "forbaerance",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "forbarance",
+          "fora",
+          "fortiva",
+          "forbidding",
+          "forbids"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "garnishment",
+        "misspelled": "garnsihment",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "rsi",
+          "hhs",
+          "thsi",
+          "bsi",
+          "phhs"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "garnish",
+        "misspelled": "ganrish",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "vanish",
+          "spanish",
+          "gsmr",
+          "gibberish",
+          "banana"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "repossession",
+        "misspelled": "reposesssion",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "reposessed",
+          "repos",
+          "reposession",
+          "repossed",
+          "repossessing"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "repossess",
+        "misspelled": "repsosess",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "reprints",
+          "wsfs",
+          "nslds",
+          "msgs",
+          "depts"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "amortization",
+        "misspelled": "amortziation",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "amortization",
+          "amortized",
+          "amortize",
+          "amortizing",
+          "myutilzationof"
+        ],
+        "hit": true
+      },
+      {
+        "correct": "delinquent",
+        "misspelled": "deliqnuent",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "eqiufax",
+          "dlucns",
+          "fluent",
+          "constituent",
+          "fruadlent"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "delinquency",
+        "misspelled": "deliqnuency",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "deliquency",
+          "deliquencies",
+          "eqiufax",
+          "frequency",
+          "dlucns"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "chargeback",
+        "misspelled": "charegback",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "piggyback",
+          "chamber",
+          "chips",
+          "rtg",
+          "chagrin"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "escrow",
+        "misspelled": "esrcow",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "fcrpa",
+          "srvc",
+          "fcr",
+          "ucrb",
+          "ocr"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "autopay",
+        "misspelled": "auotpay",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "au",
+          "aug",
+          "august",
+          "auctions",
+          "ao"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "experian",
+        "misspelled": "expreian",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "explore",
+          "expirian",
+          "explorer",
+          "exploit",
+          "exp"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "transunion",
+        "misspelled": "tranusnion",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "tran",
+          "tranaction",
+          "tranunion",
+          "tranactions",
+          "transuion"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "reinvestigation",
+        "misspelled": "reinvetsigation",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "shouldve",
+          "paints",
+          "reinserting",
+          "lve",
+          "slots"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "validation",
+        "misspelled": "valiadtion",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "triad",
+          "siad",
+          "leiu",
+          "yiu",
+          "railroad"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "usury",
+        "misspelled": "uusry",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "ministry",
+          "jus",
+          "uboc",
+          "cuss",
+          "fuss"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "foreclosure",
+        "misspelled": "forelcosure",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "colclough",
+          "foreberrance",
+          "excel",
+          "forethought",
+          "barrel"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "refinance",
+        "misspelled": "refniance",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "defiance",
+          "governance",
+          "alliance",
+          "pennsylvanias",
+          "allegiance"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "overdraft",
+        "misspelled": "ovedrraft",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "ocr",
+          "oocr",
+          "od",
+          "odometer",
+          "odor"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "collections",
+        "misspelled": "collcetions",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "colllections",
+          "deletions",
+          "bracelet",
+          "faucet",
+          "conceals"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "collector",
+        "misspelled": "colelctor",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "color",
+          "colorful",
+          "colors",
+          "col",
+          "colorado"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "creditor",
+        "misspelled": "creidtor",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "creidit",
+          "creidt",
+          "cre",
+          "rapid",
+          "candidates"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "furnisher",
+        "misspelled": "furinsher",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "fur",
+          "furthers",
+          "furthered",
+          "furlough",
+          "furthest"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "bankruptcy",
+        "misspelled": "bankurptcy",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "bankrupcy",
+          "bankrutcy",
+          "bankrutpcy",
+          "subchapt",
+          "chpt"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "settlement",
+        "misspelled": "settelment",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "movement",
+          "sets",
+          "set",
+          "paytment",
+          "establishment"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "arbitration",
+        "misspelled": "arbirtation",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "arbor",
+          "celebration",
+          "tabulation",
+          "arbitritation",
+          "encumbrance"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "servicer",
+        "misspelled": "serivcer",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "serivce",
+          "pacer",
+          "cancer",
+          "disconcerting",
+          "derivative"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "deferment",
+        "misspelled": "defrement",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "deferement",
+          "deferrement",
+          "underemployment",
+          "derelict",
+          "deflated"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "forgiveness",
+        "misspelled": "forgvieness",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "lateness",
+          "rudeness",
+          "appropriateness",
+          "latenesses",
+          "defenseless"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "principal",
+        "misspelled": "pricnipal",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "picnic",
+          "ethnic",
+          "suicidal",
+          "ethnicity",
+          "forensic"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "interest",
+        "misspelled": "intreest",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "xrequesting",
+          "int",
+          "intension",
+          "infrequently",
+          "comprehension"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "balance",
+        "misspelled": "baalnce",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "bana",
+          "forbarence",
+          "cbna",
+          "bnb",
+          "bnk"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "charge",
+        "misspelled": "chrage",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "chagrin",
+          "chrome",
+          "christmas",
+          "chages",
+          "mvr"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "fraud",
+        "misspelled": "farud",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "far",
+          "farm",
+          "hud",
+          "freud",
+          "farther"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "identity",
+        "misspelled": "idetnity",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "ideninity",
+          "idenitity",
+          "paternity",
+          "indemnity",
+          "ethnicity"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "unauthorized",
+        "misspelled": "unautohrized",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "unautorized",
+          "scrutinized",
+          "scrutinize",
+          "scrutiny",
+          "bankrutcy"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "inquiry",
+        "misspelled": "inuqiry",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "inq",
+          "inquries",
+          "eqiufax",
+          "inqury",
+          "expiry"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "tradeline",
+        "misspelled": "traedline",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "trashed",
+          "trumped",
+          "trapped",
+          "trauma",
+          "traced"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "lender",
+        "misspelled": "ledner",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "led",
+          "runner",
+          "scanner",
+          "vulnerable",
+          "winner"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "payoff",
+        "misspelled": "paoyff",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "mccoy",
+          "cooley",
+          "annoy",
+          "lloyd",
+          "xyo"
+        ],
+        "hit": false
+      },
+      {
+        "correct": "modification",
+        "misspelled": "modifciation",
+        "word_level_has_vector": false,
+        "bpe_top5": [
+          "modifcation",
+          "moderate",
+          "module",
+          "financier",
+          "fiduciary"
+        ],
+        "hit": false
+      }
+    ],
+    "missing_probes": [],
+    "subword_hit_at_5": 0.024390243902439025,
+    "precision_at_5": {
+      "mine": 0.93,
+      "gensim": 0.97
+    }
+  },
+  "config": {
+    "probes": [
+      "garnish",
+      "repossess",
+      "autopay",
+      "collections",
+      "escrow",
+      "forbearance",
+      "garnishment",
+      "repossession",
+      "delinquent",
+      "chargeback",
+      "charge-off",
+      "reinvestigation",
+      "fcra",
+      "fdcpa",
+      "overdraft",
+      "foreclosure",
+      "servicer",
+      "furnisher",
+      "deferment",
+      "arbitration"
+    ]
+  },
+  "config_hash": "7e1a4b91e0c7",
+  "git_sha": "d7959dd",
+  "written_at": "2026-10-22T17:48:28+00:00"
+}
