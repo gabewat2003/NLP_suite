@@ -1,0 +1,19 @@
+{
+  "name": "bpe_eval",
+  "metrics": {
+    "fertility": 1.205716030797255,
+    "bytes_per_token": 4.735722883688505,
+    "term_fertility": 1.16,
+    "unk_rate": 0.0,
+    "redaction_integrity": 1.0,
+    "vocab_size": 8000
+  },
+  "config": {
+    "tokenizer": "bpe/artifacts/cfpb_8k",
+    "split": "test",
+    "corpus_hash": "2cee8bcf4a6d6ba18280e8287d0118de47134808b9ac79b0e234a3dfbdd1bb99"
+  },
+  "config_hash": "bca0790df090",
+  "git_sha": "8139b0f",
+  "written_at": "2026-10-22T14:32:45+00:00"
+}

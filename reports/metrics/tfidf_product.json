@@ -1,0 +1,83 @@
+{
+  "name": "tfidf_product",
+  "metrics": {
+    "chosen_C": 3.0,
+    "val_macro_f1": 0.7640331763327957,
+    "test": {
+      "macro_f1": 0.7568609473753848,
+      "accuracy": 0.84265,
+      "per_class_f1": {
+        "Checking or savings account": 0.810432912073138,
+        "Credit card or prepaid card": 0.7769750640876253,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0.9093003167290526,
+        "Debt collection": 0.7323615160349854,
+        "Money transfer, virtual currency, or money service": 0.7046215673141326,
+        "Mortgage": 0.8956140350877193,
+        "Payday loan, title loan, or personal loan": 0.46060606060606063,
+        "Student loan": 0.8484136310223267,
+        "Vehicle loan or lease": 0.6734234234234234
+      }
+    },
+    "majority_test": {
+      "macro_f1": 0.07555056871933646,
+      "accuracy": 0.5151,
+      "per_class_f1": {
+        "Checking or savings account": 0.0,
+        "Credit card or prepaid card": 0.0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0.6799551184740281,
+        "Debt collection": 0.0,
+        "Money transfer, virtual currency, or money service": 0.0,
+        "Mortgage": 0.0,
+        "Payday loan, title loan, or personal loan": 0.0,
+        "Student loan": 0.0,
+        "Vehicle loan or lease": 0.0
+      }
+    },
+    "top_confusions": [
+      {
+        "true": "Credit reporting, credit repair services, or other personal consumer reports",
+        "pred": "Debt collection",
+        "count": 511
+      },
+      {
+        "true": "Debt collection",
+        "pred": "Credit reporting, credit repair services, or other personal consumer reports",
+        "count": 473
+      },
+      {
+        "true": "Credit card or prepaid card",
+        "pred": "Credit reporting, credit repair services, or other personal consumer reports",
+        "count": 254
+      },
+      {
+        "true": "Credit reporting, credit repair services, or other personal consumer reports",
+        "pred": "Credit card or prepaid card",
+        "count": 155
+      },
+      {
+        "true": "Money transfer, virtual currency, or money service",
+        "pred": "Checking or savings account",
+        "count": 150
+      }
+    ],
+    "n_labels": 9
+  },
+  "config": {
+    "ngram": [
+      1,
+      2
+    ],
+    "min_df": 3,
+    "max_features": 300000,
+    "C_grid": [
+      0.3,
+      1.0,
+      3.0,
+      10.0
+    ],
+    "fit_ids_hash": "2cee8bcf4a6d6ba18280e8287d0118de47134808b9ac79b0e234a3dfbdd1bb99"
+  },
+  "config_hash": "68c5ec1fa4d3",
+  "git_sha": "7d4c565",
+  "written_at": "2026-10-22T14:57:25+00:00"
+}

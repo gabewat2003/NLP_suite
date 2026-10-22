@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nlp-suite"
+version = "0.1.0"
+description = "From-scratch BPE, word2vec and seq2seq on CFPB consumer complaint narratives"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+
+[tool.setuptools]
+py-modules = ["config"]
+packages = { find = { include = ["corpus*", "bpe*", "word2vec*", "seq2seq*", "eval*"] } }
+
+[tool.pytest.ini_options]
+addopts = "-q --import-mode=importlib"
+testpaths = ["tests", "corpus/tests", "bpe/tests", "word2vec/tests", "seq2seq/tests"]

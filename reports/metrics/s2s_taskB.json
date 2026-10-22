@@ -1,0 +1,191 @@
+{
+  "name": "s2s_taskB",
+  "metrics": {
+    "greedy": {
+      "accuracy": {
+        "mean": 0.5093666666666666,
+        "sd": 0.03844809271385686,
+        "n": 3,
+        "values": [
+          0.4967,
+          0.47885,
+          0.55255
+        ]
+      },
+      "macro_f1": {
+        "mean": 0.36014001183834243,
+        "sd": 0.01424972747577027,
+        "n": 3,
+        "values": [
+          0.35529341710279405,
+          0.34894576086819107,
+          0.3761808575440421
+        ]
+      },
+      "invalid_rate": {
+        "mean": 3.3333333333333335e-05,
+        "sd": 2.8867513459481293e-05,
+        "n": 3,
+        "values": [
+          5e-05,
+          0.0,
+          5e-05
+        ]
+      }
+    },
+    "beam": {
+      "accuracy": {
+        "mean": 0.51295,
+        "sd": 0.03866364571532282,
+        "n": 3,
+        "values": [
+          0.4999,
+          0.4825,
+          0.55645
+        ]
+      },
+      "macro_f1": {
+        "mean": 0.36331342343016876,
+        "sd": 0.01389424857841368,
+        "n": 3,
+        "values": [
+          0.3588177556298791,
+          0.35222364615623786,
+          0.3788988685043893
+        ]
+      },
+      "invalid_rate": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "n": 3,
+        "values": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "beam_trie": {
+      "accuracy": {
+        "mean": 0.51295,
+        "sd": 0.03866364571532282,
+        "n": 3,
+        "values": [
+          0.4999,
+          0.4825,
+          0.55645
+        ]
+      },
+      "macro_f1": {
+        "mean": 0.36331342343016876,
+        "sd": 0.01389424857841368,
+        "n": 3,
+        "values": [
+          0.3588177556298791,
+          0.35222364615623786,
+          0.3788988685043893
+        ]
+      },
+      "invalid_rate": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "n": 3,
+        "values": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "head_vs_tail_seed0": {
+      "head_acc": 0.5220273442894627,
+      "tail_acc": 0.441826748822037,
+      "head_labels": [
+        "Checking or savings account | Managing an account",
+        "Credit card or prepaid card | Problem with a purchase shown on your statement",
+        "Credit reporting, credit repair services, or other personal consumer reports | Improper use of your report",
+        "Credit reporting, credit repair services, or other personal consumer reports | Incorrect information on your report",
+        "Credit reporting, credit repair services, or other personal consumer reports | Problem with a credit reporting company's investigation into an existing problem",
+        "Debt collection | Attempts to collect debt not owed",
+        "Debt collection | Took or threatened to take negative or legal action",
+        "Debt collection | Written notification about debt",
+        "Mortgage | Trouble during payment process",
+        "Other | Other"
+      ]
+    },
+    "top_confusions_seed0": [
+      {
+        "true": "Credit reporting, credit repair services, or other personal consumer reports | Improper use of your report",
+        "pred": "Credit reporting, credit repair services, or other personal consumer reports | Problem with a credit reporting company's investigation into an existing problem",
+        "count": 1524
+      },
+      {
+        "true": "Credit reporting, credit repair services, or other personal consumer reports | Problem with a credit reporting company's investigation into an existing problem",
+        "pred": "Credit reporting, credit repair services, or other personal consumer reports | Incorrect information on your report",
+        "count": 906
+      },
+      {
+        "true": "Credit reporting, credit repair services, or other personal consumer reports | Incorrect information on your report",
+        "pred": "Credit reporting, credit repair services, or other personal consumer reports | Problem with a credit reporting company's investigation into an existing problem",
+        "count": 749
+      },
+      {
+        "true": "Credit reporting, credit repair services, or other personal consumer reports | Improper use of your report",
+        "pred": "Credit reporting, credit repair services, or other personal consumer reports | Incorrect information on your report",
+        "count": 491
+      },
+      {
+        "true": "Credit reporting, credit repair services, or other personal consumer reports | Incorrect information on your report",
+        "pred": "Credit reporting, credit repair services, or other personal consumer reports | Improper use of your report",
+        "count": 208
+      },
+      {
+        "true": "Debt collection | Attempts to collect debt not owed",
+        "pred": "Credit reporting, credit repair services, or other personal consumer reports | Incorrect information on your report",
+        "count": 183
+      },
+      {
+        "true": "Debt collection | Attempts to collect debt not owed",
+        "pred": "Debt collection | Written notification about debt",
+        "count": 140
+      },
+      {
+        "true": "Checking or savings account | Problem with a lender or other company charging your account",
+        "pred": "Checking or savings account | Managing an account",
+        "count": 138
+      }
+    ],
+    "majority": {
+      "macro_f1": 0.005640364014748251,
+      "accuracy": 0.18755
+    },
+    "tfidf": {
+      "accuracy": 0.4827,
+      "macro_f1": 0.3647926621450831
+    },
+    "n_labels": 56,
+    "other_share_test": 0.0216
+  },
+  "config": {
+    "cfg": {
+      "tokenizer": "cfpb",
+      "L": 256,
+      "attention": true,
+      "init": "word2vec",
+      "tf_final": null,
+      "hid": 256,
+      "emb": 300
+    },
+    "epochs": 4,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "beam_alpha": 0.0,
+    "fit_ids_hash": "2cee8bcf4a6d6ba18280e8287d0118de47134808b9ac79b0e234a3dfbdd1bb99"
+  },
+  "config_hash": "b1914e6aa9f7",
+  "git_sha": "d2bf497",
+  "written_at": "2026-10-22T22:55:13+00:00"
+}

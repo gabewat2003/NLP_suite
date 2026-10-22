@@ -1,0 +1,101 @@
+{
+  "name": "s2s_taskB_ablations",
+  "metrics": {
+    "table": [
+      {
+        "knob": "base",
+        "value": null,
+        "mean": 0.4358666666666667,
+        "sd": 0.0058705479585242516,
+        "n": 3,
+        "values": [
+          0.4353,
+          0.4303,
+          0.442
+        ]
+      },
+      {
+        "knob": "attention",
+        "value": false,
+        "mean": 0.4402,
+        "sd": 0.0,
+        "n": 1,
+        "values": [
+          0.4402
+        ]
+      },
+      {
+        "knob": "L",
+        "value": 64,
+        "mean": 0.41725,
+        "sd": 0.0,
+        "n": 1,
+        "values": [
+          0.41725
+        ]
+      },
+      {
+        "knob": "L",
+        "value": 256,
+        "mean": 0.44825,
+        "sd": 0.0,
+        "n": 1,
+        "values": [
+          0.44825
+        ]
+      },
+      {
+        "knob": "init",
+        "value": "word2vec",
+        "mean": 0.47675,
+        "sd": 0.0,
+        "n": 1,
+        "values": [
+          0.47675
+        ]
+      },
+      {
+        "knob": "tokenizer",
+        "value": "general",
+        "mean": 0.3775,
+        "sd": 0.0,
+        "n": 1,
+        "values": [
+          0.3775
+        ]
+      },
+      {
+        "knob": "tf_final",
+        "value": 0.5,
+        "mean": 0.432,
+        "sd": 0.0,
+        "n": 1,
+        "values": [
+          0.432
+        ]
+      }
+    ],
+    "chosen": {
+      "L": 256,
+      "init": "word2vec"
+    }
+  },
+  "config": {
+    "train_subset": 50000,
+    "epochs": 2,
+    "val_n": 4000,
+    "metric": "val exact match",
+    "base": {
+      "tokenizer": "cfpb",
+      "L": 128,
+      "attention": true,
+      "init": "random",
+      "tf_final": null,
+      "hid": 256,
+      "emb": 300
+    }
+  },
+  "config_hash": "5f1799963d7c",
+  "git_sha": "8f77f0a",
+  "written_at": "2026-10-22T18:49:17+00:00"
+}

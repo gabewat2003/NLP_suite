@@ -1,0 +1,137 @@
+{
+  "name": "w2v_classify",
+  "metrics": {
+    "rows": {
+      "majority": {
+        "macro_f1": 0.07555056871933646,
+        "accuracy": 0.5151,
+        "per_class_f1": {
+          "Checking or savings account": 0.0,
+          "Credit card or prepaid card": 0.0,
+          "Credit reporting, credit repair services, or other personal consumer reports": 0.6799551184740281,
+          "Debt collection": 0.0,
+          "Money transfer, virtual currency, or money service": 0.0,
+          "Mortgage": 0.0,
+          "Payday loan, title loan, or personal loan": 0.0,
+          "Student loan": 0.0,
+          "Vehicle loan or lease": 0.0
+        }
+      },
+      "mine": {
+        "macro_f1": {
+          "mean": 0.7363688706841843,
+          "sd": 0.003709999638410045,
+          "n": 3,
+          "values": [
+            0.7398285991118219,
+            0.7324511292520898,
+            0.7368268836886414
+          ]
+        },
+        "accuracy": {
+          "mean": 0.8305833333333333,
+          "sd": 0.0012662279942148088,
+          "n": 3,
+          "values": [
+            0.83195,
+            0.82945,
+            0.83035
+          ]
+        }
+      },
+      "random": {
+        "macro_f1": {
+          "mean": 0.6073673225571233,
+          "sd": 0.0009071752574779875,
+          "n": 3,
+          "values": [
+            0.6079982459380172,
+            0.6063276932663508,
+            0.6077760284670021
+          ]
+        },
+        "accuracy": {
+          "mean": 0.7594500000000001,
+          "sd": 0.002610076627227605,
+          "n": 3,
+          "values": [
+            0.76245,
+            0.7577,
+            0.7582
+          ]
+        }
+      },
+      "gensim": {
+        "macro_f1": {
+          "mean": 0.732171155940874,
+          "sd": 0.0013553827238860642,
+          "n": 3,
+          "values": [
+            0.7337332431528684,
+            0.7314736287093275,
+            0.7313065959604259
+          ]
+        },
+        "accuracy": {
+          "mean": 0.8291333333333334,
+          "sd": 0.0003883726732577206,
+          "n": 3,
+          "values": [
+            0.8287,
+            0.82945,
+            0.82925
+          ]
+        }
+      },
+      "tfidf": {
+        "macro_f1": 0.7568609473753848,
+        "accuracy": 0.84265
+      }
+    },
+    "mine_per_class_f1_seed0": {
+      "Checking or savings account": 0.7771520514883347,
+      "Credit card or prepaid card": 0.7413793103448276,
+      "Credit reporting, credit repair services, or other personal consumer reports": 0.9057020704232118,
+      "Debt collection": 0.7303863002787734,
+      "Money transfer, virtual currency, or money service": 0.692,
+      "Mortgage": 0.8904287570376787,
+      "Payday loan, title loan, or personal loan": 0.40784313725490196,
+      "Student loan": 0.8619528619528619,
+      "Vehicle loan or lease": 0.6516129032258065
+    },
+    "mine_top_confusions_seed0": [
+      {
+        "true": "Debt collection",
+        "pred": "Credit reporting, credit repair services, or other personal consumer reports",
+        "count": 485
+      },
+      {
+        "true": "Credit reporting, credit repair services, or other personal consumer reports",
+        "pred": "Debt collection",
+        "count": 460
+      },
+      {
+        "true": "Credit card or prepaid card",
+        "pred": "Credit reporting, credit repair services, or other personal consumer reports",
+        "count": 278
+      },
+      {
+        "true": "Credit reporting, credit repair services, or other personal consumer reports",
+        "pred": "Credit card or prepaid card",
+        "count": 186
+      },
+      {
+        "true": "Checking or savings account",
+        "pred": "Credit card or prepaid card",
+        "count": 184
+      }
+    ]
+  },
+  "config": {
+    "split": "test",
+    "task": "product"
+  },
+  "config_hash": "a1ad7d409a1b",
+  "git_sha": "d7959dd",
+  "written_at": "2026-10-22T17:19:55+00:00"
+}

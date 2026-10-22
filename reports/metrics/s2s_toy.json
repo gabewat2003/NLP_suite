@@ -1,0 +1,17 @@
+{
+  "name": "s2s_toy",
+  "metrics": {
+    "copy_test_em": 1.0,
+    "reverse_test_em": 0.999,
+    "reverse_antidiagonal_mean_weight": 0.8023406267166138,
+    "overfit32_em": 1.0,
+    "overfit32_final_loss": 0.00020704595954157412,
+    "gates_passed": true
+  },
+  "config": {
+    "seed": 0
+  },
+  "config_hash": "de7d7744ccd7",
+  "git_sha": "7d4c565",
+  "written_at": "2026-10-22T14:54:20+00:00"
+}

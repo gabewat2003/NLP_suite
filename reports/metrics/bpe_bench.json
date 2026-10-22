@@ -1,0 +1,47 @@
+{
+  "name": "bpe_bench",
+  "metrics": {
+    "rows": [
+      {
+        "docs": 1000,
+        "unique_pretokens": 9775,
+        "merges": 7737,
+        "incremental_s": 0.62,
+        "naive_s": 124.5,
+        "naive_projected": false,
+        "naive_merges_run": 7737,
+        "speedup": 199.7
+      },
+      {
+        "docs": 10000,
+        "unique_pretokens": 28655,
+        "merges": 7737,
+        "incremental_s": 1.99,
+        "naive_s": 523.5,
+        "naive_projected": true,
+        "naive_merges_run": 4434,
+        "speedup": 262.6
+      },
+      {
+        "docs": 100000,
+        "unique_pretokens": 85531,
+        "merges": 7737,
+        "incremental_s": 9.09,
+        "naive_s": 1894.0,
+        "naive_projected": true,
+        "naive_merges_run": 1226,
+        "speedup": 208.3
+      }
+    ],
+    "encode_complaints_per_s": 3545.3,
+    "peak_rss_mb": 733,
+    "hardware": "arm64 Darwin 26.2, Python 3.12.15"
+  },
+  "config": {
+    "vocab_size": 8000,
+    "budget_s": 300.0
+  },
+  "config_hash": "f3b40d074622",
+  "git_sha": "b7e21e1",
+  "written_at": "2026-10-22T18:01:27+00:00"
+}
