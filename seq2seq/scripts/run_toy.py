@@ -42,7 +42,7 @@ def run_digits(kind, seed):
     em = float(np.mean([p == t for p, (_, t) in zip(preds, te)]))
     print(f"{kind}: test exact match {em:.4f}")
     if kind == "reverse":
-        model.eval()
+        model.cpu().eval()  # the probe batch is built on CPU; training may have used a GPU
         ex = [vocab.encode(list("3141592653"))]
         src, src_len = pad_batch(ex)
         out, attn = model.greedy(src, src_len, 11, return_attn=True)

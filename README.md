@@ -11,6 +11,20 @@ Each one is measured against a plain baseline, so the results say what these met
 
 **Stack:** Python · NumPy · PyTorch (seq2seq only) · `regex` · scikit-learn (baselines only) · pytest · hypothesis · (cross-checks only) gensim, tiktoken
 
+> **Status (2026-10-29): second run in progress.** The numbers below come from the first run (Apple M1 Pro laptop). The pipeline is being rerun on a desktop GPU (RTX 3060) to finish what that run cut short:
+>
+> | Piece | State |
+> |---|---|
+> | Data, splits | Rebuilt here; train-split hash identical to the first run |
+> | BPE tokenizers | Retrained here; merges and vocabularies byte-identical to the committed ones |
+> | word2vec, toy gates, Task A | Rerunning (CPU / GPU) |
+> | TF-IDF baseline | Rerun pending: fixed a bug where the warm-started C=3 fit did 0 iterations |
+> | **Task B (seq2seq)** | **Pending**: rerun at a larger budget (4-epoch ablations incl. hidden size 128/512; up to 10-epoch final runs with early stopping; 5 seeds instead of 3) |
+> | **Task B, encoder + classification head** | **New, pending results**: code and tests are in (`seq2seq/classifier.py`, `seq2seq/scripts/run_taskB_cls.py`); no numbers yet |
+> | Not rerun | word2vec ablations (the chosen config is reused), BPE trainer benchmark |
+>
+> This box goes away when the Task B rerun lands and the tables below are regenerated.
+
 ---
 
 ## 1. Why this exists
