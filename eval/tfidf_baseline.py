@@ -31,11 +31,17 @@ def run(task, train, val, test, Xtr, Xva, Xte, seed):
     ytr, yva, yte = (labels(d, task, keep) for d in (train, val, test))
     best = None
     # C ascending with warm starts: each fit starts from the previous (more regularized) solution,
-    # which cuts the 56-class fit from hours to minutes. Same optimum, faster path.
+    # which cuts the 56-class fit from hours to minutes. lbfgs can stop at 0 iterations from a warm
+    # start (it happened at C=3, which then just repeated C=1's scores), so a 0-iteration fit is
+    # redone from scratch: every C in the grid gets a real fit.
     clf = LogisticRegression(max_iter=1000, random_state=seed, warm_start=True)
     for C in C_GRID:
         clf.set_params(C=C)
         clf.fit(Xtr, ytr)
+        if clf.n_iter_[0] == 0:
+            print(f"  {task} C={C}: warm start did 0 iterations, refitting from scratch", flush=True)
+            clf = LogisticRegression(max_iter=1000, random_state=seed, warm_start=True, C=C)
+            clf.fit(Xtr, ytr)
         f1 = scores(yva, clf.predict(Xva))["macro_f1"]
         print(f"  {task} C={C}: val macro-F1 {f1:.4f}  ({clf.n_iter_[0]} iterations)", flush=True)
         if best is None or f1 > best[0]:

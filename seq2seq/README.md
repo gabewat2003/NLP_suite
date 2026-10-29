@@ -186,7 +186,7 @@ The labels are picked from a menu by consumers, and one complaint often fits all
 
 Each ablation changes one knob at a time from the base config: CFPB BPE, L=128, attention, random embedding init, teacher forcing 1.0, hidden 256, embedding 300 (to match the chosen word2vec dimension). Each config trains on the first 50,000 train complaints for 2 epochs and is scored by **val** exact match (greedy, 4,000 val complaints). The base config runs 3 seeds, and each knob runs 1 seed. A change is adopted only if it beats the base mean by more than one base standard deviation.
 
-**Reduced compute budget.** Everything here trains on a laptop CPU, so Task B runs on a trimmed schedule. Ablations get 2 epochs, with 1 seed per knob (the base config keeps 3 seeds for its standard deviation). Final models get 4 epochs with 3 seeds. The planned hidden-size ablation (128 / 512) was dropped. With one seed per knob, an ablation can only flag a large effect; small differences are within seed noise. The Task B models are therefore likely under-trained relative to what a GPU budget would allow. The comparison with TF-IDF should be read with that in mind: the gap is an upper bound on how far seq2seq trails, not a settled verdict.
+**Reduced compute budget.** These runs trained on a laptop's integrated GPU (Apple M1 Pro, MPS), so Task B runs on a trimmed schedule. Ablations get 2 epochs, with 1 seed per knob (the base config keeps 3 seeds for its standard deviation). Final models get 4 epochs with 3 seeds. The planned hidden-size ablation (128 / 512) was dropped. With one seed per knob, an ablation can only flag a large effect; small differences are within seed noise. The Task B models are therefore likely under-trained relative to what a GPU budget would allow. The comparison with TF-IDF should be read with that in mind: the gap is an upper bound on how far seq2seq trails, not a settled verdict.
 
 | Change from base | Val exact match | Seeds | Adopted |
 |---|---:|---:|---|
@@ -276,7 +276,7 @@ The seq2seq model does exactly what the mechanism allows and no more. It solves 
 - Task B labels are consumer-chosen and overlap (`Incorrect information on your report` vs `Problem with a credit reporting company's investigation into an existing problem`), so accuracy has a ceiling below 100% that no model could cross.
 - These are from-scratch models on a modest corpus, so they say nothing about what pretrained transformers achieve.
 - Seed variance on small data is real. Differences smaller than the ± sd aren't reported as wins.
-- Task B ran on a reduced CPU budget (2-epoch, 1-seed-per-knob ablations; 4-epoch final models; no hidden-size ablation), so its numbers likely understate what the architecture can reach.
+- Task B ran on a reduced laptop-GPU budget (2-epoch, 1-seed-per-knob ablations; 4-epoch final models; no hidden-size ablation), so its numbers likely understate what the architecture can reach.
 
 Observed while running it:
 - **The output template trap (Task A):** the model generalizes the shape of the outputs it saw, not the rule, so any test of extrapolation needs inputs outside the training *output* shapes too.

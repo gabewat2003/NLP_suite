@@ -1,5 +1,9 @@
 # Every target runs from a clean clone on fixed seeds (config.SEED / config.SEEDS).
+ifeq ($(OS),Windows_NT)
+PY ?= .venv/Scripts/python.exe
+else
 PY ?= .venv/bin/python
+endif
 
 .PHONY: data tokenizer baselines embeddings seq2seq eval test smoke all
 

@@ -19,16 +19,18 @@ def set_seed(seed):
 
 
 def device():
-    """Training device: NLP_SUITE_DEVICE if set, else Apple-silicon GPU (MPS) when available, else CPU.
+    """Training device: NLP_SUITE_DEVICE if set, else CUDA, else Apple-silicon GPU (MPS), else CPU.
 
     Measured for Task B (batch 64, 128 tokens, hidden 256): 1,488 ms/step on CPU (2 threads) vs
     376 ms on MPS; three MPS processes share the GPU at ~550 ms/step each. Tests and decoding
-    use CPU. MPS kernels are not bit-deterministic, so GPU runs can differ slightly across reruns.
+    use CPU. GPU kernels are not bit-deterministic, so GPU runs can differ slightly across reruns.
     """
     import os
     name = os.environ.get("NLP_SUITE_DEVICE")
     if name:
         return torch.device(name)
+    if torch.cuda.is_available():
+        return torch.device("cuda")
     return torch.device("mps" if torch.backends.mps.is_available() else "cpu")
 
 

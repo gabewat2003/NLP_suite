@@ -16,6 +16,9 @@ FIGURES = REPORTS / "figures"
 
 SEED = 0
 SEEDS = (0, 1, 2)  # seeds used for every mean ± sd number
+# Task B final runs (seq2seq and classification head) use 5 seeds: with 3, the seed spread was
+# as large as the gap to the TF-IDF baseline.
+TASKB_SEEDS = (0, 1, 2, 3, 4)
 
 # Time window and split boundaries (Date received). Chosen in corpus/split.py
 # from the label-stability table; see data/SOURCES.md for the reasoning.

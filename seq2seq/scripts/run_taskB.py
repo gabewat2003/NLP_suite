@@ -28,12 +28,14 @@ BASE = dict(tokenizer="cfpb", L=128, attention=True, init="random", tf_final=Non
             emb=json.loads((W2V_ART / "chosen_config.json").read_text())["config"].get("dim", 100)
             if (W2V_ART / "chosen_config.json").exists() else 100)
 ABLATIONS = [("attention", False), ("L", 64), ("L", 256), ("init", "word2vec"), ("tokenizer", "general"),
-             ("tf_final", 0.5)]
-# Reduced compute budget (CPU only): hidden-size ablations dropped, 2-epoch ablations, 4-epoch final runs.
-ABL_TRAIN, ABL_EPOCHS, FINAL_EPOCHS, VAL_N = 50_000, 2, 4, 4000
+             ("tf_final", 0.5), ("hid", 128), ("hid", 512)]
+# Budget defaults; override on the command line (see main).
+# The first (M1 laptop) run used 2-epoch ablations with 1 seed per knob and 4-epoch final runs.
+ABL_TRAIN, ABL_EPOCHS, FINAL_EPOCHS, VAL_N = 50_000, 4, 12, 4000
 # Ablations are for choosing a config only: the base config gets 3 seeds (its sd sets the
-# adoption threshold), each knob 1 seed. Final runs use all 3 seeds.
-ABL_KNOB_SEEDS = (0,)
+# adoption threshold). Final runs use config.TASKB_SEEDS and stop early on val (PATIENCE epochs).
+ABL_KNOB_SEEDS = (0, 1, 2)
+PATIENCE = 2
 INVALID = "<invalid>"
 # Beam ranking for Task B: total log-prob (no length normalization). Picking a label means
 # wanting argmax P(label); chosen on held-out val (0.453 vs 0.430 with per-token normalization).
@@ -80,22 +82,22 @@ def build(cfg, seed, limit_train):
     return task, model, cover
 
 
-def fit(cfg, seed, limit_train, epochs, tag):
+def fit(cfg, seed, limit_train, epochs, tag, patience=None):
     torch.set_num_threads(2)
     task, model, cover = build(cfg, seed, limit_train)
     val_src, val_lab = task.data["val"][:VAL_N], task.labels["val"][:VAL_N]
     val_fn = lambda m: float(np.mean([p == g for p, g in zip(predict_labels(task, m, val_src, "greedy"), val_lab)]))
     model, hist = train(model, task.pairs("train"), None, epochs=epochs, batch_size=64, seed=seed,
-                        tf_final=cfg["tf_final"], val_fn=val_fn, log=lambda m: print(f"[{tag}] {m}", flush=True))
+                        tf_final=cfg["tf_final"], val_fn=val_fn, patience=patience, log=lambda m: print(f"[{tag}] {m}", flush=True))
     return task, model, hist, cover
 
 
 def ablate_one(args):
     torch.set_num_threads(2)
-    knob, value, seed = args
+    knob, value, seed, epochs = args
     cfg = dict(BASE, **({knob: value} if knob else {}))
     tag = f"abl_{knob or 'base'}_{value}_s{seed}"
-    _, _, hist, _ = fit(cfg, seed, ABL_TRAIN, ABL_EPOCHS, tag)
+    _, _, hist, _ = fit(cfg, seed, ABL_TRAIN, epochs, tag)
     return knob, value, seed, max(h["val"] for h in hist), hist[-1]["seconds"]
 
 
@@ -118,9 +120,9 @@ def evaluate_seed(task, model, seed, hist=None):
 
 
 def final_one(args):
-    cfg, seed = args
+    cfg, seed, epochs, patience = args
     tag = f"taskB_seed{seed}"
-    task, model, hist, cover = fit(cfg, seed, None, FINAL_EPOCHS, tag)
+    task, model, hist, cover = fit(cfg, seed, None, epochs, tag, patience)
     model.cpu()
     save_run(tag, model, {"cfg": cfg, "seed": seed, "history": hist, "w2v_coverage": cover})
     return seed, evaluate_seed(task, model, seed, hist)
@@ -171,16 +173,22 @@ def main():
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--resume-log", help="reuse ablation runs that finished in an earlier (interrupted) log")
     ap.add_argument("--decode-only", action="store_true", help="re-run test decoding for saved final models")
+    ap.add_argument("--abl-epochs", type=int, default=ABL_EPOCHS)
+    ap.add_argument("--abl-knob-seeds", type=int, nargs="+", default=list(ABL_KNOB_SEEDS))
+    ap.add_argument("--final-epochs", type=int, default=FINAL_EPOCHS, help="upper bound; early stop on val")
+    ap.add_argument("--patience", type=int, default=PATIENCE, help="0 disables early stopping")
+    ap.add_argument("--seeds", type=int, nargs="+", default=list(config.TASKB_SEEDS), help="final-run seeds")
     args = ap.parse_args()
+    seeds = tuple(args.seeds)
     from seq2seq.data_taskB import encoded_split
     for tk in ("cfpb", "general"):  # build caches once, before workers start
         for sp in ("train", "val", "test"):
             encoded_split(tk, sp)
     if args.ablate:
-        jobs = [(None, None, s) for s in config.SEEDS] + [(k, v, s) for k, v in ABLATIONS for s in ABL_KNOB_SEEDS]
+        jobs = [(None, None, s) for s in config.SEEDS] + [(k, v, s) for k, v in ABLATIONS for s in args.abl_knob_seeds]
         done = parse_log(args.resume_log) if args.resume_log else {}
         res = [(k, v, s, done[(k, v, s)], None) for k, v, s in jobs if (k, v, s) in done]
-        todo = [j for j in jobs if j not in done]
+        todo = [(*j, args.abl_epochs) for j in jobs if j not in done]
         print(f"reusing {len(res)} finished runs, running {len(todo)}", flush=True)
         with ProcessPoolExecutor(args.workers) as ex:
             res += list(ex.map(ablate_one, todo))
@@ -198,27 +206,27 @@ def main():
         RUNS.mkdir(parents=True, exist_ok=True)
         (RUNS / "taskB_chosen.json").write_text(json.dumps(cfg))
         write_metrics("s2s_taskB_ablations", {"table": table, "chosen": cfg},
-                      {"train_subset": ABL_TRAIN, "epochs": ABL_EPOCHS, "val_n": VAL_N, "metric": "val exact match",
-                       "base_seeds": len(config.SEEDS), "knob_seeds": len(ABL_KNOB_SEEDS),
+                      {"train_subset": ABL_TRAIN, "epochs": args.abl_epochs, "val_n": VAL_N, "metric": "val exact match",
+                       "base_seeds": len(config.SEEDS), "knob_seeds": len(args.abl_knob_seeds),
                        "base": BASE})
         for r in sorted(table, key=lambda r: -r["mean"]):
             print(f"{r['knob']:>10} {str(r['value']):>8}  {r['mean']:.4f} ± {r['sd']:.4f}")
         print("chosen:", cfg)
         return
     cfg = dict(BASE, **chosen())
-    with ProcessPoolExecutor(min(args.workers, len(config.SEEDS))) as ex:
+    with ProcessPoolExecutor(min(args.workers, len(seeds))) as ex:
         if args.decode_only:
-            results = dict(ex.map(decode_one, config.SEEDS))
+            results = dict(ex.map(decode_one, seeds))
         else:
-            results = dict(ex.map(final_one, [(cfg, s) for s in config.SEEDS]))
+            results = dict(ex.map(final_one, [(cfg, s, args.final_epochs, args.patience or None) for s in seeds]))
     from seq2seq.data_taskB import TaskB
     task = TaskB(cfg["tokenizer"], cfg["L"])
     gold, train_lab = task.labels["test"], task.labels["train"]
     res = {}
     for mode in ("greedy", "beam", "beam_trie"):
-        res[mode] = {m: summarize([results[s][mode][m] for s in config.SEEDS])
+        res[mode] = {m: summarize([results[s][mode][m] for s in seeds])
                      for m in ("accuracy", "macro_f1", "invalid_rate")}
-    pred0 = results[config.SEEDS[0]]["preds_beam_trie"]
+    pred0 = results[seeds[0]]["preds_beam_trie"]
     freq = {l: c for l, c in zip(*np.unique(train_lab, return_counts=True))}
     head = set(sorted(freq, key=lambda l: -freq[l])[:10])
     res["head_vs_tail_seed0"] = {
@@ -234,7 +242,9 @@ def main():
     res["n_labels"] = len(task.label_ids)
     res["other_share_test"] = float(np.mean([g == OTHER for g in gold]))
     (RUNS / "taskB_test_preds_seed0.json").write_text(json.dumps(pred0))
-    write_metrics("s2s_taskB", res, {"cfg": cfg, "epochs": FINAL_EPOCHS, "seeds": list(config.SEEDS),
+    write_metrics("s2s_taskB", res, {"cfg": cfg, "max_epochs": args.final_epochs, "patience": args.patience,
+                                      "epochs_run": {s: len(results[s]["history"] or []) for s in seeds},
+                                      "seeds": list(seeds),
                                       "beam_alpha": BEAM_ALPHA,
                                       "fit_ids_hash": json.loads((config.PROCESSED / "split_meta.json").read_text())
                                       ["splits"]["train"]["ids_hash"]})
