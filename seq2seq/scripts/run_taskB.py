@@ -172,6 +172,8 @@ def main():
     ap.add_argument("--ablate", action="store_true")
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--resume-log", help="reuse ablation runs that finished in an earlier (interrupted) log")
+    ap.add_argument("--skip-knobs", nargs="+", default=[],
+                    help="leave these ablation knobs out (partial pass: no table or chosen config is written)")
     ap.add_argument("--decode-only", action="store_true", help="re-run test decoding for saved final models")
     ap.add_argument("--abl-epochs", type=int, default=ABL_EPOCHS)
     ap.add_argument("--abl-knob-seeds", type=int, nargs="+", default=list(ABL_KNOB_SEEDS))
@@ -188,10 +190,13 @@ def main():
         jobs = [(None, None, s) for s in config.SEEDS] + [(k, v, s) for k, v in ABLATIONS for s in args.abl_knob_seeds]
         done = parse_log(args.resume_log) if args.resume_log else {}
         res = [(k, v, s, done[(k, v, s)], None) for k, v, s in jobs if (k, v, s) in done]
-        todo = [(*j, args.abl_epochs) for j in jobs if j not in done]
+        todo = [(*j, args.abl_epochs) for j in jobs if j not in done and j[0] not in args.skip_knobs]
         print(f"reusing {len(res)} finished runs, running {len(todo)}", flush=True)
         with ProcessPoolExecutor(args.workers) as ex:
             res += list(ex.map(ablate_one, todo))
+        if args.skip_knobs:
+            print(f"partial pass, skipped {args.skip_knobs}: rerun with --resume-log on this log to finish", flush=True)
+            return
         rows = {}
         for k, v, s, val, secs in res:
             rows.setdefault((k, v), []).append(val)
