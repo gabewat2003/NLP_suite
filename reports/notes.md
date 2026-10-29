@@ -104,3 +104,7 @@ Observations recorded while running the pipeline, in the order they came up. The
 - GPU calibration (batch 64, L = 256, measured while other jobs shared the GPU and CPU): seq2seq hidden 256
   198 ms/step (7.7 min per 150k epoch), hidden 512 233 ms/step, classification head 99 ms/step. One Task B
   worker holds ~1.6 GB of token cache plus the CUDA context, so 16 GB of RAM caps concurrency at ~5 workers.
+- Toy gates + Task A rerun on CUDA (toy 6.5 min, Task A 13 min with 3 workers): every gate passes and the Task A
+  verdict is unchanged (1-4 digits 1.00, 5-7 digits 0.00, all 900 extrapolation outputs 4 dollar digits).
+  Small shifts from GPU non-determinism: reverse anti-diagonal weight 0.745 (was 0.802), reverse exact match
+  1.000 (was 0.999), last-three-dollar-digits 99.4% (was 99.2%).
