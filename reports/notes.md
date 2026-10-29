@@ -88,3 +88,19 @@ Observations recorded while running the pipeline, in the order they came up. The
 - Final test result (beam 5, total log-prob): accuracy 0.513 ± 0.039 vs TF-IDF 0.483; macro-F1 0.363 ± 0.014 vs
   0.365. Seed spread (0.483-0.557) is as large as the gap. Attention concentrates on evidence words (`furnish`
   38x its frequency, `erroneous`, `consent`) and gives redaction tokens a fifth of their share.
+
+## Second run (desktop: i7-11700F, 16 GB RAM, RTX 3060 12 GB, Windows 11, Python 3.13)
+- Goal: rerun Task B at the budget the first run couldn't afford, and add the encoder + classification-head
+  variant. Everything upstream is rerun first as a reproducibility check.
+- Data rebuilt from the same pinned mirror revision: train-split ID hash identical to the first run
+  (`2cee8bcf...`). Data stage took ~10 min including the download.
+- BPE retrained: merges and vocabularies for all four tokenizers byte-identical to the committed artifacts
+  (only `train_seconds` differs). Fertility metrics unchanged.
+- Windows: Python's default text encoding there is cp1252, so every run uses `PYTHONUTF8=1`.
+- `seq2seq.train.device()` never picked CUDA; fixed (CUDA, then MPS, then CPU). `run_toy` built its
+  attention-probe batch on CPU while the model sat on the GPU; it only worked before because the toy
+  gates ran on CPU.
+- TF-IDF fix: when a warm-started lbfgs fit stops after 0 iterations, refit that C from scratch.
+- GPU calibration (batch 64, L = 256, measured while other jobs shared the GPU and CPU): seq2seq hidden 256
+  198 ms/step (7.7 min per 150k epoch), hidden 512 233 ms/step, classification head 99 ms/step. One Task B
+  worker holds ~1.6 GB of token cache plus the CUDA context, so 16 GB of RAM caps concurrency at ~5 workers.
