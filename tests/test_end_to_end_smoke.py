@@ -41,3 +41,13 @@ def test_pipeline(processed_dir, tmp_path, monkeypatch):
                      log=lambda *_: None)
     preds = predict_labels(task, model, task.data["test"][:5], "beam_trie", Trie(task.label_ids.values()))
     assert all(p in task.label_ids for p in preds)  # constrained decoding only emits valid labels
+
+    # classification head on the same encoder
+    from seq2seq.classifier import EncoderClassifier, predict, train_classifier
+    label_list = sorted(task.label_ids)
+    idx = {l: i for i, l in enumerate(label_list)}
+    clf = EncoderClassifier(task.src_vocab_size, len(label_list), emb=16, hid=32, att=32)
+    clf, _ = train_classifier(clf, task.data["train"], [idx[l] for l in task.labels["train"]],
+                              task.data["val"][:20], [idx.get(l, -1) for l in task.labels["val"][:20]],
+                              epochs=1, batch_size=32, max_steps=5, log=lambda *_: None)
+    assert all(0 <= i < len(label_list) for i in predict(clf, task.data["test"][:5]))
