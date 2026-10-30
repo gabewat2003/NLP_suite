@@ -1,0 +1,139 @@
+{
+  "name": "s2s_taskB_cls",
+  "metrics": {
+    "test": {
+      "accuracy": {
+        "mean": 0.52142,
+        "sd": 0.013041501063911335,
+        "n": 5,
+        "values": [
+          0.5371,
+          0.5156,
+          0.53365,
+          0.51225,
+          0.5085
+        ]
+      },
+      "macro_f1": {
+        "mean": 0.3686175092250278,
+        "sd": 0.014340001740528229,
+        "n": 5,
+        "values": [
+          0.3830610986646721,
+          0.36682314664349447,
+          0.3707598925542476,
+          0.3454622638747717,
+          0.37698114438795327
+        ]
+      }
+    },
+    "per_seed": {
+      "0": {
+        "macro_f1": 0.3830610986646721,
+        "accuracy": 0.5371
+      },
+      "1": {
+        "macro_f1": 0.36682314664349447,
+        "accuracy": 0.5156
+      },
+      "2": {
+        "macro_f1": 0.3707598925542476,
+        "accuracy": 0.53365
+      },
+      "3": {
+        "macro_f1": 0.3454622638747717,
+        "accuracy": 0.51225
+      },
+      "4": {
+        "macro_f1": 0.37698114438795327,
+        "accuracy": 0.5085
+      }
+    },
+    "head_vs_tail_seed0": {
+      "head_acc": 0.5710537218616213,
+      "tail_acc": 0.4479884015947807
+    },
+    "top_confusions_seed0": [
+      {
+        "true": "Credit reporting, credit repair services, or other personal consumer reports | Incorrect information on your report",
+        "pred": "Credit reporting, credit repair services, or other personal consumer reports | Problem with a credit reporting company's investigation into an existing problem",
+        "count": 915
+      },
+      {
+        "true": "Credit reporting, credit repair services, or other personal consumer reports | Improper use of your report",
+        "pred": "Credit reporting, credit repair services, or other personal consumer reports | Problem with a credit reporting company's investigation into an existing problem",
+        "count": 831
+      },
+      {
+        "true": "Credit reporting, credit repair services, or other personal consumer reports | Problem with a credit reporting company's investigation into an existing problem",
+        "pred": "Credit reporting, credit repair services, or other personal consumer reports | Incorrect information on your report",
+        "count": 713
+      },
+      {
+        "true": "Credit reporting, credit repair services, or other personal consumer reports | Improper use of your report",
+        "pred": "Credit reporting, credit repair services, or other personal consumer reports | Incorrect information on your report",
+        "count": 450
+      },
+      {
+        "true": "Credit reporting, credit repair services, or other personal consumer reports | Incorrect information on your report",
+        "pred": "Credit reporting, credit repair services, or other personal consumer reports | Improper use of your report",
+        "count": 314
+      },
+      {
+        "true": "Credit reporting, credit repair services, or other personal consumer reports | Problem with a credit reporting company's investigation into an existing problem",
+        "pred": "Credit reporting, credit repair services, or other personal consumer reports | Improper use of your report",
+        "count": 192
+      },
+      {
+        "true": "Debt collection | Attempts to collect debt not owed",
+        "pred": "Credit reporting, credit repair services, or other personal consumer reports | Incorrect information on your report",
+        "count": 180
+      },
+      {
+        "true": "Checking or savings account | Problem with a lender or other company charging your account",
+        "pred": "Checking or savings account | Managing an account",
+        "count": 125
+      }
+    ],
+    "majority": {
+      "macro_f1": 0.005640364014748251,
+      "accuracy": 0.18755
+    },
+    "tfidf": {
+      "accuracy": 0.501,
+      "macro_f1": 0.3614294165122174
+    },
+    "n_labels": 56
+  },
+  "config": {
+    "cfg": {
+      "tokenizer": "cfpb",
+      "L": 256,
+      "attention": true,
+      "init": "word2vec",
+      "tf_final": null,
+      "hid": 256,
+      "emb": 300
+    },
+    "max_epochs": 10,
+    "patience": 2,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "epochs_run": {
+      "0": 5,
+      "1": 4,
+      "2": 5,
+      "3": 3,
+      "4": 6
+    },
+    "fit_ids_hash": "2cee8bcf4a6d6ba18280e8287d0118de47134808b9ac79b0e234a3dfbdd1bb99"
+  },
+  "config_hash": "066955213e62",
+  "git_sha": "2a36358",
+  "written_at": "2026-10-30T20:47:52+00:00"
+}
