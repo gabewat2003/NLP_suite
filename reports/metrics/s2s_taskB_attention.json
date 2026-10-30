@@ -4,63 +4,63 @@
     "top_lift": [
       [
         "\u2581furnish",
-        "38.24"
-      ],
-      [
-        "\u2581erroneous",
-        "17.53"
+        "35.97"
       ],
       [
         "\u2581belong",
-        "14.57"
+        "18.61"
       ],
       [
         "\u2581unauthorized",
-        "13.36"
-      ],
-      [
-        "\u2581consent",
-        "13.07"
-      ],
-      [
-        "\u2581fraudulent",
-        "11.73"
-      ],
-      [
-        "\u2581privacy",
-        "11.35"
+        "14.33"
       ],
       [
         "\u2581investigation",
-        "11.09"
+        "12.65"
       ],
       [
-        "\u2581bankruptcy",
-        "10.88"
-      ],
-      [
-        "\u2581investigate",
-        "10.79"
-      ],
-      [
-        "\u2581investigated",
-        "10.76"
-      ],
-      [
-        "\u2581inquiries",
-        "10.73"
+        "\u2581erroneous",
+        "12.61"
       ],
       [
         "\u2581escrow",
-        "10.43"
+        "11.5"
       ],
       [
-        "\u2581authorized",
-        "9.76"
+        "\u2581inquiries",
+        "11.23"
+      ],
+      [
+        "\u2581consent",
+        "10.98"
+      ],
+      [
+        "\u2581mine",
+        "10.72"
+      ],
+      [
+        "\u2581fraudulent",
+        "10.67"
+      ],
+      [
+        "\u2581inquiry",
+        "10.56"
+      ],
+      [
+        "\u2581investigate",
+        "10.17"
+      ],
+      [
+        "\u2581investigated",
+        "9.9"
       ],
       [
         "\u2581forbearance",
-        "9.65"
+        "9.88"
+      ],
+      [
+        "\u2581close",
+        "9.8"
       ]
     ],
     "bottom_lift": [
@@ -69,27 +69,11 @@
         "0.0"
       ],
       [
-        "\u2581AND",
-        "0.0"
-      ],
-      [
-        "\u2581so",
-        "0.0"
-      ],
-      [
         "\u2581(",
         "0.0"
       ],
       [
-        "\u2581needed",
-        "0.0"
-      ],
-      [
-        "\u2581I",
-        "0.0"
-      ],
-      [
-        "\u2581could",
+        "\u2581E",
         "0.0"
       ],
       [
@@ -97,49 +81,65 @@
         "0.0"
       ],
       [
-        "\u2581TO",
-        "0.0"
-      ],
-      [
         "\u2581After",
         "0.0"
       ],
       [
-        "\u2581next",
+        "able",
         "0.0"
       ],
       [
-        "\u2581H",
-        "0.0"
+        "/",
+        "0.01"
       ],
       [
-        "\u2581around",
-        "0.0"
+        "\u2581So",
+        "0.01"
       ],
       [
-        ",",
-        "0.0"
+        "\u2581TO",
+        "0.01"
       ],
       [
-        "\u2581;",
-        "0.0"
+        "\u2581At",
+        "0.01"
+      ],
+      [
+        "\u2581again",
+        "0.01"
+      ],
+      [
+        "\u2581)",
+        "0.01"
+      ],
+      [
+        "\u2581because",
+        "0.01"
+      ],
+      [
+        "\u25815",
+        "0.01"
+      ],
+      [
+        "ED",
+        "0.01"
       ]
     ],
     "groups": {
       "<REDACTED>": {
-        "attention_share": "0.0063781077",
+        "attention_share": "0.0018146037",
         "token_share": 0.03049226716104796
       },
       "<DATE>": {
-        "attention_share": "0.0013803625",
+        "attention_share": "0.0003104245",
         "token_share": 0.008310159210290937
       },
       "<AMT>": {
-        "attention_share": "0.0013625914",
+        "attention_share": "0.0004803649",
         "token_share": 0.004680359727439788
       },
       "punctuation": {
-        "attention_share": "0.0045396267",
+        "attention_share": "0.0050384984",
         "token_share": 0.1344684587988486
       }
     },
@@ -151,35 +151,35 @@
         "top_tokens": [
           [
             "\u2581reinvestigation",
-            0.094
-          ],
-          [
-            "form",
-            0.079
-          ],
-          [
-            "report",
-            0.074
+            0.136
           ],
           [
             "\u25811681",
-            0.07
-          ],
-          [
-            "\u2581off",
-            0.06
+            0.077
           ],
           [
             "\u25811681",
-            0.048
+            0.065
           ],
           [
-            "\u2581charge",
-            0.032
+            "ft",
+            0.058
+          ],
+          [
+            "\u2581accounts",
+            0.055
+          ],
+          [
+            "\u2581principal",
+            0.054
           ],
           [
             "raud",
-            0.032
+            0.054
+          ],
+          [
+            "\u2581accounts",
+            0.045
           ]
         ]
       },
@@ -189,36 +189,36 @@
         "correct": true,
         "top_tokens": [
           [
-            "\u2581transunion",
-            0.08
+            "\u2581knowingly",
+            0.122
           ],
           [
-            "\u2581transunion",
-            0.071
+            "\u2581knowingly",
+            0.054
           ],
           [
-            "\u2581charging",
-            0.069
+            "\u2581FRAUD",
+            0.048
           ],
           [
-            "\u2581off",
-            0.061
-          ],
-          [
-            "\u2581charging",
-            0.055
-          ],
-          [
-            "\u2581closed",
-            0.05
-          ],
-          [
-            "\u2581repo",
-            0.041
-          ],
-          [
-            "\u2581shows",
+            "\u2581FRAUD",
             0.04
+          ],
+          [
+            "\u2581committing",
+            0.037
+          ],
+          [
+            "\u2581comply",
+            0.033
+          ],
+          [
+            "\u2581Law",
+            0.031
+          ],
+          [
+            "\u2581Equifax",
+            0.031
           ]
         ]
       },
@@ -229,35 +229,35 @@
         "top_tokens": [
           [
             "enity",
-            0.274
-          ],
-          [
-            "\u2581late",
-            0.13
+            0.247
           ],
           [
             "\u2581login",
-            0.125
+            0.163
           ],
           [
-            "\u2581account",
-            0.088
-          ],
-          [
-            "\u2581fees",
-            0.087
-          ],
-          [
-            "\u2581bank",
-            0.055
-          ],
-          [
-            "om",
-            0.048
+            "\u2581late",
+            0.159
           ],
           [
             "\u2581cards",
-            0.043
+            0.098
+          ],
+          [
+            "\u2581account",
+            0.058
+          ],
+          [
+            "om",
+            0.045
+          ],
+          [
+            "\u2581issues",
+            0.04
+          ],
+          [
+            "\u2581your",
+            0.036
           ]
         ]
       },
@@ -267,75 +267,75 @@
         "correct": true,
         "top_tokens": [
           [
-            "ending",
-            0.14
+            "\u2581happy",
+            0.397
           ],
           [
-            "\u2581\"",
-            0.069
+            "\u2581validate",
+            0.194
           ],
           [
-            "\u2581bureaus",
-            0.067
+            "\u2581receiving",
+            0.185
           ],
           [
-            "payment",
-            0.067
+            "\u2581items",
+            0.09
           ],
           [
-            "\u2581reporting",
-            0.042
+            "\u2581below",
+            0.036
           ],
           [
-            "\u2581payments",
-            0.038
-          ],
-          [
-            "\u2581payments",
+            "\u2581report",
             0.031
           ],
           [
-            "\u2581score",
-            0.03
+            "\u2581credit",
+            0.028
+          ],
+          [
+            "After",
+            0.017
           ]
         ]
       },
       {
-        "gold": "Credit card or prepaid card | Trouble using your card",
-        "pred": "Credit card or prepaid card | Trouble using your card",
+        "gold": "Credit reporting, credit repair services, or other personal consumer reports | Problem with a credit reporting company's investigation into an existing problem",
+        "pred": "Credit reporting, credit repair services, or other personal consumer reports | Problem with a credit reporting company's investigation into an existing problem",
         "correct": true,
         "top_tokens": [
           [
-            "\u2581accessing",
-            0.107
+            "\u2581furnish",
+            0.443
           ],
           [
-            "\u2581locked",
-            0.064
+            "\u2581rights",
+            0.075
           ],
           [
-            "\u2581payment",
-            0.063
+            "\u25811681",
+            0.062
           ],
           [
-            "\u2581late",
-            0.051
+            "\u2581account",
+            0.061
           ],
           [
-            "\u2581product",
-            0.047
+            "\u2581privacy",
+            0.055
           ],
           [
-            "\u2581tickets",
-            0.04
+            "\u2581accordance",
+            0.053
           ],
           [
-            "\u2581withdrawals",
-            0.035
+            "\u25811681",
+            0.048
           ],
           [
-            "\u2581remove",
-            0.033
+            "\u2581violated",
+            0.023
           ]
         ]
       },
@@ -345,35 +345,35 @@
         "correct": false,
         "top_tokens": [
           [
-            "\u2581disputing",
-            0.188
-          ],
-          [
-            "\u25812",
-            0.155
+            "\u2581avail",
+            0.243
           ],
           [
             "\u2581accounts",
-            0.14
-          ],
-          [
-            "\u2581fraudulent",
-            0.072
-          ],
-          [
-            "\u2581disputed",
-            0.055
+            0.127
           ],
           [
             "age",
-            0.043
-          ],
-          [
-            "\u2581avail",
-            0.039
+            0.077
           ],
           [
             "\u2581dispute",
+            0.061
+          ],
+          [
+            "\u2581disputed",
+            0.057
+          ],
+          [
+            "\u2581disputing",
+            0.052
+          ],
+          [
+            "\u2581fraudulent",
+            0.048
+          ],
+          [
+            "\u25812",
             0.034
           ]
         ]
@@ -384,75 +384,75 @@
         "correct": false,
         "top_tokens": [
           [
-            "\u2581theft",
-            0.128
-          ],
-          [
             "\u2581police",
-            0.117
-          ],
-          [
-            "\u2581opened",
-            0.078
-          ],
-          [
-            "\u2581alert",
-            0.067
+            0.162
           ],
           [
             "\u2581theft",
-            0.055
-          ],
-          [
-            "\u2581multiple",
-            0.055
+            0.112
           ],
           [
             "\u2581identity",
-            0.051
+            0.098
           ],
           [
-            "\u2581report",
-            0.048
+            "\u2581theft",
+            0.094
+          ],
+          [
+            "\u2581identity",
+            0.076
+          ],
+          [
+            "\u2581accounts",
+            0.065
+          ],
+          [
+            "\u2581removed",
+            0.055
+          ],
+          [
+            "\u2581help",
+            0.044
           ]
         ]
       },
       {
         "gold": "Credit reporting, credit repair services, or other personal consumer reports | Incorrect information on your report",
-        "pred": "Credit reporting, credit repair services, or other personal consumer reports | Improper use of your report",
+        "pred": "Credit reporting, credit repair services, or other personal consumer reports | Problem with a credit reporting company's investigation into an existing problem",
         "correct": false,
         "top_tokens": [
           [
-            "\u2581knowingly",
-            0.108
+            "\u2581removed",
+            0.084
           ],
           [
-            "\u2581FRAUD",
-            0.077
+            "\u2581removed",
+            0.073
           ],
           [
-            "\u25811681",
-            0.058
+            "\u2581transunion",
+            0.055
           ],
           [
-            "\u2581FRAUD",
-            0.051
+            "\u2581transunion",
+            0.049
           ],
           [
-            "\u2581Equifax",
-            0.044
+            "\u2581late",
+            0.046
           ],
           [
-            "\u2581Equifax",
+            "\u2581charging",
+            0.045
+          ],
+          [
+            "\u2581charging",
             0.042
           ],
           [
-            "\u2581Theft",
-            0.041
-          ],
-          [
-            "\u2581FRAUD",
-            0.039
+            "\u2581correct",
+            0.037
           ]
         ]
       },
@@ -462,75 +462,75 @@
         "correct": false,
         "top_tokens": [
           [
-            "\u2581opened",
-            0.095
+            "\u2581points",
+            0.133
           ],
           [
             "Account",
-            0.089
+            0.066
           ],
           [
             "\u2581promotion",
-            0.083
+            0.066
           ],
           [
-            "\u2581points",
-            0.068
+            "\u2581opened",
+            0.056
           ],
           [
-            "\u2581Terms",
-            0.06
+            "\u2581Rewards",
+            0.053
+          ],
+          [
+            "\u2581prepaid",
+            0.048
+          ],
+          [
+            "\u2581fees",
+            0.044
           ],
           [
             "\u2581spending",
             0.043
-          ],
-          [
-            "\u2581earn",
-            0.041
-          ],
-          [
-            "\u2581offer",
-            0.037
           ]
         ]
       },
       {
-        "gold": "Debt collection | Attempts to collect debt not owed",
-        "pred": "Credit reporting, credit repair services, or other personal consumer reports | Improper use of your report",
+        "gold": "Credit reporting, credit repair services, or other personal consumer reports | Incorrect information on your report",
+        "pred": "Payday loan, title loan, or personal loan | Problem when making payments",
         "correct": false,
         "top_tokens": [
           [
-            "\u2581refuse",
-            0.137
+            "ending",
+            0.07
           ],
           [
-            "\u2581privacy",
-            0.108
+            "payment",
+            0.07
           ],
           [
-            "\u2581rights",
-            0.077
+            "\u2581self",
+            0.067
           ],
           [
-            "\u25811681",
-            0.066
+            "\u2581withdrawals",
+            0.047
           ],
           [
-            "\u2581owe",
-            0.059
+            "\u2581employed",
+            0.034
           ],
           [
-            "\u258160",
-            0.049
+            "\u2581\"",
+            0.034
           ],
           [
-            "\u2581violated",
-            0.039
+            "\u2581difficult",
+            0.034
           ],
           [
-            "\u2581pay",
-            0.037
+            "\u2581mat",
+            0.033
           ]
         ]
       }
@@ -540,6 +540,6 @@
     "n_test": 2000
   },
   "config_hash": "9b4556a28fdf",
-  "git_sha": "d2bf497",
-  "written_at": "2026-10-22T22:56:00+00:00"
+  "git_sha": "8ee1d53",
+  "written_at": "2026-10-30T21:57:07+00:00"
 }

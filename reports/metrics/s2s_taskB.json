@@ -3,63 +3,63 @@
   "metrics": {
     "greedy": {
       "accuracy": {
-        "mean": 0.5093666666666666,
-        "sd": 0.03844809271385686,
+        "mean": 0.5051,
+        "sd": 0.03943985927966782,
         "n": 3,
         "values": [
-          0.4967,
-          0.47885,
-          0.55255
+          0.4923,
+          0.47365,
+          0.54935
         ]
       },
       "macro_f1": {
-        "mean": 0.36014001183834243,
-        "sd": 0.01424972747577027,
+        "mean": 0.36465722197162687,
+        "sd": 0.013813205472318839,
         "n": 3,
         "values": [
-          0.35529341710279405,
-          0.34894576086819107,
-          0.3761808575440421
+          0.36702019980767797,
+          0.34981495352861636,
+          0.3771365125785862
         ]
       },
       "invalid_rate": {
-        "mean": 3.3333333333333335e-05,
-        "sd": 2.8867513459481293e-05,
+        "mean": 4.9999999999999996e-05,
+        "sd": 8.660254037844386e-05,
         "n": 3,
         "values": [
-          5e-05,
+          0.00015,
           0.0,
-          5e-05
+          0.0
         ]
       }
     },
     "beam": {
       "accuracy": {
-        "mean": 0.51295,
-        "sd": 0.03866364571532282,
+        "mean": 0.5085666666666667,
+        "sd": 0.039469049055346275,
         "n": 3,
         "values": [
-          0.4999,
-          0.4825,
-          0.55645
+          0.49555,
+          0.47725,
+          0.5529
         ]
       },
       "macro_f1": {
-        "mean": 0.36331342343016876,
-        "sd": 0.01389424857841368,
+        "mean": 0.36858282891801913,
+        "sd": 0.014742588689040102,
         "n": 3,
         "values": [
-          0.3588177556298791,
-          0.35222364615623786,
-          0.3788988685043893
+          0.37250461071057356,
+          0.35227590575031215,
+          0.3809679702931717
         ]
       },
       "invalid_rate": {
-        "mean": 0.0,
-        "sd": 0.0,
+        "mean": 1.6666666666666667e-05,
+        "sd": 2.8867513459481293e-05,
         "n": 3,
         "values": [
-          0.0,
+          5e-05,
           0.0,
           0.0
         ]
@@ -67,23 +67,23 @@
     },
     "beam_trie": {
       "accuracy": {
-        "mean": 0.51295,
-        "sd": 0.03866364571532282,
+        "mean": 0.5085833333333333,
+        "sd": 0.039460813895982064,
         "n": 3,
         "values": [
-          0.4999,
-          0.4825,
-          0.55645
+          0.4956,
+          0.47725,
+          0.5529
         ]
       },
       "macro_f1": {
-        "mean": 0.36331342343016876,
-        "sd": 0.01389424857841368,
+        "mean": 0.3686469959989929,
+        "sd": 0.014768589010687132,
         "n": 3,
         "values": [
-          0.3588177556298791,
-          0.35222364615623786,
-          0.3788988685043893
+          0.37269711195349503,
+          0.35227590575031215,
+          0.3809679702931717
         ]
       },
       "invalid_rate": {
@@ -98,8 +98,8 @@
       }
     },
     "head_vs_tail_seed0": {
-      "head_acc": 0.5220273442894627,
-      "tail_acc": 0.441826748822037,
+      "head_acc": 0.5162960917000414,
+      "tail_acc": 0.4412830735773831,
       "head_labels": [
         "Checking or savings account | Managing an account",
         "Credit card or prepaid card | Problem with a purchase shown on your statement",
@@ -115,44 +115,44 @@
     },
     "top_confusions_seed0": [
       {
-        "true": "Credit reporting, credit repair services, or other personal consumer reports | Improper use of your report",
-        "pred": "Credit reporting, credit repair services, or other personal consumer reports | Problem with a credit reporting company's investigation into an existing problem",
-        "count": 1524
-      },
-      {
         "true": "Credit reporting, credit repair services, or other personal consumer reports | Problem with a credit reporting company's investigation into an existing problem",
         "pred": "Credit reporting, credit repair services, or other personal consumer reports | Incorrect information on your report",
-        "count": 906
+        "count": 1175
+      },
+      {
+        "true": "Credit reporting, credit repair services, or other personal consumer reports | Improper use of your report",
+        "pred": "Credit reporting, credit repair services, or other personal consumer reports | Incorrect information on your report",
+        "count": 1068
+      },
+      {
+        "true": "Credit reporting, credit repair services, or other personal consumer reports | Improper use of your report",
+        "pred": "Credit reporting, credit repair services, or other personal consumer reports | Problem with a credit reporting company's investigation into an existing problem",
+        "count": 990
       },
       {
         "true": "Credit reporting, credit repair services, or other personal consumer reports | Incorrect information on your report",
         "pred": "Credit reporting, credit repair services, or other personal consumer reports | Problem with a credit reporting company's investigation into an existing problem",
-        "count": 749
+        "count": 469
       },
       {
-        "true": "Credit reporting, credit repair services, or other personal consumer reports | Improper use of your report",
+        "true": "Debt collection | Attempts to collect debt not owed",
         "pred": "Credit reporting, credit repair services, or other personal consumer reports | Incorrect information on your report",
-        "count": 491
+        "count": 217
       },
       {
         "true": "Credit reporting, credit repair services, or other personal consumer reports | Incorrect information on your report",
         "pred": "Credit reporting, credit repair services, or other personal consumer reports | Improper use of your report",
-        "count": 208
+        "count": 205
       },
       {
-        "true": "Debt collection | Attempts to collect debt not owed",
-        "pred": "Credit reporting, credit repair services, or other personal consumer reports | Incorrect information on your report",
-        "count": 183
+        "true": "Credit reporting, credit repair services, or other personal consumer reports | Incorrect information on your report",
+        "pred": "Debt collection | Attempts to collect debt not owed",
+        "count": 163
       },
       {
-        "true": "Debt collection | Attempts to collect debt not owed",
-        "pred": "Debt collection | Written notification about debt",
-        "count": 140
-      },
-      {
-        "true": "Checking or savings account | Problem with a lender or other company charging your account",
-        "pred": "Checking or savings account | Managing an account",
-        "count": 138
+        "true": "Credit reporting, credit repair services, or other personal consumer reports | Problem with a credit reporting company's investigation into an existing problem",
+        "pred": "Credit reporting, credit repair services, or other personal consumer reports | Improper use of your report",
+        "count": 128
       }
     ],
     "majority": {
@@ -160,8 +160,8 @@
       "accuracy": 0.18755
     },
     "tfidf": {
-      "accuracy": 0.4827,
-      "macro_f1": 0.3647926621450831
+      "accuracy": 0.501,
+      "macro_f1": 0.3614294165122174
     },
     "n_labels": 56,
     "other_share_test": 0.0216
@@ -176,7 +176,13 @@
       "hid": 256,
       "emb": 300
     },
-    "epochs": 4,
+    "max_epochs": 10,
+    "patience": 2,
+    "epochs_run": {
+      "0": 6,
+      "1": 4,
+      "2": 5
+    },
     "seeds": [
       0,
       1,
@@ -185,7 +191,7 @@
     "beam_alpha": 0.0,
     "fit_ids_hash": "2cee8bcf4a6d6ba18280e8287d0118de47134808b9ac79b0e234a3dfbdd1bb99"
   },
-  "config_hash": "b1914e6aa9f7",
-  "git_sha": "d2bf497",
-  "written_at": "2026-10-22T22:55:13+00:00"
+  "config_hash": "6fa5ba2beb0f",
+  "git_sha": "8ee1d53",
+  "written_at": "2026-10-30T21:56:11+00:00"
 }
