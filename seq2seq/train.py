@@ -11,6 +11,8 @@ from torch import nn
 from seq2seq.model import Seq2Seq
 from seq2seq.vocab import BOS, EOS, PAD
 
+LOG_EVERY = 500  # training steps between progress lines
+
 
 def set_seed(seed):
     random.seed(seed)
@@ -106,6 +108,8 @@ def train(model, train_data, val_data, epochs=10, batch_size=64, lr=1e-3, clip=1
             tot += loss.item() * len(idx)
             n += len(idx)
             step += 1
+            if step % LOG_EVERY == 0:  # epochs are long; show progress so a stall is visible
+                log(f"    step {step}/{total_steps}  loss {tot / max(n, 1):.4f}  {time.perf_counter() - t0:.0f}s")
             if max_steps and step >= max_steps:
                 break
         if val_fn is not None:

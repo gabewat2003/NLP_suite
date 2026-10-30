@@ -14,7 +14,7 @@ import torch
 from torch import nn
 
 from seq2seq.model import Encoder
-from seq2seq.train import device, pad_batch, set_seed
+from seq2seq.train import LOG_EVERY, device, pad_batch, set_seed
 from seq2seq.vocab import PAD
 
 
@@ -78,6 +78,8 @@ def train_classifier(model, src, y, val_src, val_y, epochs=10, batch_size=64, lr
             tot += loss.item() * len(idx)
             n += len(idx)
             step += 1
+            if step % LOG_EVERY == 0:
+                log(f"    step {step}  loss {tot / max(n, 1):.4f}  {time.perf_counter() - t0:.0f}s")
             if max_steps and step >= max_steps:
                 break
         val = float(np.mean(np.array(predict(model, val_src, dev=dev)) == np.array(val_y)))
