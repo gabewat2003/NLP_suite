@@ -124,7 +124,8 @@ def final_one(args):
     tag = f"taskB_seed{seed}"
     task, model, hist, cover = fit(cfg, seed, None, epochs, tag, patience)
     model.cpu()
-    save_run(tag, model, {"cfg": cfg, "seed": seed, "history": hist, "w2v_coverage": cover})
+    save_run(tag, model, {"cfg": cfg, "seed": seed, "history": hist, "w2v_coverage": cover,
+                          "max_epochs": epochs, "patience": patience})
     return seed, evaluate_seed(task, model, seed, hist)
 
 
@@ -138,7 +139,9 @@ def decode_one(seed):
     model = Seq2Seq(hp["src_vocab"], hp["tgt_vocab"], emb=hp["emb"], hid=hp["hid"], att=hp["att"],
                     dropout=hp["dropout"], attention=hp["attention"])
     model.load_state_dict(torch.load(RUNS / f"taskB_seed{seed}" / "model.pt"))
-    return seed, evaluate_seed(task, model, seed, run["history"])
+    out = evaluate_seed(task, model, seed, run["history"])
+    out["max_epochs"] = run.get("max_epochs")  # training budget, so the metrics file reports it
+    return seed, out
 
 
 def parse_log(path):
@@ -224,6 +227,10 @@ def main():
             results = dict(ex.map(decode_one, seeds))
         else:
             results = dict(ex.map(final_one, [(cfg, s, args.final_epochs, args.patience or None) for s in seeds]))
+    if args.decode_only:  # report the budget the saved models were trained with, not this run's default
+        saved = {results[s].get("max_epochs") for s in seeds}
+        if len(saved) == 1 and None not in saved:
+            args.final_epochs = saved.pop()
     from seq2seq.data_taskB import TaskB
     task = TaskB(cfg["tokenizer"], cfg["L"])
     gold, train_lab = task.labels["test"], task.labels["train"]
