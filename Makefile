@@ -32,7 +32,8 @@ seq2seq:
 	$(PY) -m seq2seq.scripts.run_taskA
 	$(PY) -m seq2seq.scripts.taskA_failures
 	$(PY) -m seq2seq.scripts.run_taskB --ablate
-	$(PY) -m seq2seq.scripts.run_taskB
+	$(PY) -m seq2seq.scripts.run_taskB --workers 1
+	$(PY) -m seq2seq.scripts.run_taskB_cls --workers 1
 	$(PY) -m seq2seq.scripts.plot_attention
 
 baselines:

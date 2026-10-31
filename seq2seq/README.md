@@ -154,6 +154,8 @@ All three passed before any real data was touched. The reverse task is the class
 
 Test split: 20,000 complaints from Jul-Dec 2022, 56 labels. Final config: word2vec-initialized embeddings, L = 256, up to 10 epochs with early stopping on val (patience 2; seeds stopped after 4-6), 5 seeds. Per seed, beam 5 + trie accuracy was 0.496 / 0.477 / 0.553 / 0.502 / 0.510.
 
+![Task B per-seed accuracy](../reports/figures/s2s_taskB_models.png)
+
 - **Head vs tail** (seed 0): accuracy 0.516 on the 10 most frequent labels, 0.441 on the rest.
 - **The trie never mattered:** unconstrained beam search almost never produced an invalid label (1 in 100,000), so constraining it changed nothing.
 - **Seeds 3 and 4 were added after the first three.** Seeds 0-2 gave 0.509 ± 0.039, an sd five times the gap to TF-IDF; two more seeds narrowed it to ± 0.028 and moved the mean 0.1 points.
@@ -301,10 +303,18 @@ From the repository root, after `make data`, `make tokenizer`, `make baselines` 
 python -m seq2seq.scripts.run_toy
 python -m seq2seq.scripts.run_taskA
 python -m seq2seq.scripts.taskA_failures
-python -m seq2seq.scripts.run_taskB --ablate
-python -m seq2seq.scripts.run_taskB
+python -m seq2seq.scripts.run_taskB --ablate            # 27 runs; writes runs/taskB_chosen.json
+python -m seq2seq.scripts.run_taskB --workers 1         # 5 seeds, up to 10 epochs, early stopping
+python -m seq2seq.scripts.run_taskB_cls --workers 1     # classification head, same config and seeds
 python -m seq2seq.scripts.plot_attention
 pytest seq2seq/tests
 ```
 
-`make seq2seq` runs all of these.
+`make seq2seq` runs all of these except the tests.
+
+Useful flags on `run_taskB`:
+- `--decode-only --seeds 0 1 2 3 4` re-scores saved models on the test set without retraining.
+- `--resume-log <log>` reuses ablation runs that finished in an interrupted run.
+- `--skip-knobs` runs part of the ablation grid.
+
+Run one seq2seq and one classification-head process on a GPU at a time. On a 12 GB card under Windows, more processes ran out of system memory or slowed to a crawl (`reports/RUNTIME.md`).

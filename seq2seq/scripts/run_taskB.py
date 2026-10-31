@@ -31,7 +31,7 @@ ABLATIONS = [("attention", False), ("L", 64), ("L", 256), ("init", "word2vec"), 
              ("tf_final", 0.5), ("hid", 128), ("hid", 512)]
 # Budget defaults; override on the command line (see main).
 # The first (M1 laptop) run used 2-epoch ablations with 1 seed per knob and 4-epoch final runs.
-ABL_TRAIN, ABL_EPOCHS, FINAL_EPOCHS, VAL_N = 50_000, 4, 12, 4000
+ABL_TRAIN, ABL_EPOCHS, FINAL_EPOCHS, VAL_N = 50_000, 4, 10, 4000
 # Ablations are for choosing a config only: the base config gets 3 seeds (its sd sets the
 # adoption threshold). Final runs use config.TASKB_SEEDS and stop early on val (PATIENCE epochs).
 ABL_KNOB_SEEDS = (0, 1, 2)

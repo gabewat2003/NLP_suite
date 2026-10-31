@@ -159,6 +159,30 @@ def w2v_section():
     return out
 
 
+def taskB_figure(tb, tc):
+    """Per-seed test accuracy for the two neural models against the TF-IDF and majority lines."""
+    from eval import plotstyle
+    import matplotlib.pyplot as plt
+    plotstyle.apply()
+    fig, ax = plt.subplots(figsize=(6.4, 3.2))
+    models = [("seq2seq\n(beam 5 + trie)", tb["beam_trie"]["accuracy"], plotstyle.SERIES[0])]
+    if tc:
+        models.append(("encoder +\nclassification head", tc["test"]["accuracy"], plotstyle.SERIES[2]))
+    for y, (name, acc, color) in enumerate(models):
+        ax.scatter(acc["values"], [y] * len(acc["values"]), color=color, s=40, alpha=0.8, zorder=3)
+        ax.plot([acc["mean"]] * 2, [y - 0.25, y + 0.25], color=color, linewidth=2.5, zorder=3)
+    refs = [("TF-IDF + LR", tb["tfidf"]["accuracy"], plotstyle.SERIES[1])] if "tfidf" in tb else []
+    for name, x, color in refs:
+        ax.axvline(x, color=color, linestyle="--", linewidth=1.5)
+        ax.annotate(f"{name} {x:.3f}", (x, len(models) - 0.5), xytext=(4, 0), textcoords="offset points",
+                    fontsize=8, color=color, va="center")
+    ax.set_yticks(range(len(models)), [n for n, _, _ in models])
+    ax.set_ylim(-0.6, len(models) - 0.3)
+    ax.set_xlabel("test exact-match accuracy (dots: seeds; bar: mean)")
+    ax.set_title(f"Task B: narrative -> Product | Issue ({tb['n_labels']} labels)")
+    return plotstyle.save(fig, "s2s_taskB_models.png")
+
+
 def s2s_section():
     out = []
     toy = m("s2s_toy")
@@ -193,6 +217,8 @@ def s2s_section():
         out += table(["System", "Exact-match accuracy", "Macro-F1", "Invalid-label rate"], rows)
         h = tb["head_vs_tail_seed0"]
         out += ["", f"Head (10 most frequent labels) accuracy {h['head_acc']:.3f}; tail accuracy {h['tail_acc']:.3f} (seed 0, beam 5 + trie)."]
+        taskB_figure(tb, tc)
+        out += ["", "Figure: `reports/figures/s2s_taskB_models.png`"]
     ab = m("s2s_taskB_ablations")
     if ab:
         c = read_metrics("s2s_taskB_ablations")["config"]

@@ -271,6 +271,8 @@ Figure: `reports/figures/s2s_taskA_extrapolation.png`; failures: `reports/taskA_
 
 Head (10 most frequent labels) accuracy 0.516; tail accuracy 0.441 (seed 0, beam 5 + trie).
 
+Figure: `reports/figures/s2s_taskB_models.png`
+
 ### seq2seq Task B: ablations (val exact match, 50k-complaint subset, 4 epochs)
 
 | Knob | Value | Val exact match | Seeds |

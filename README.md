@@ -11,16 +11,11 @@ Each one is measured against a plain baseline, so the results say what these met
 
 **Stack:** Python · NumPy · PyTorch (seq2seq only) · `regex` · scikit-learn (baselines only) · pytest · hypothesis · (cross-checks only) gensim, tiktoken
 
----|---|
-> | Data, splits | Rebuilt here; train-split hash identical to the first run |
-> | BPE tokenizers | Retrained here; merges and vocabularies byte-identical to the committed ones |
-> | word2vec, toy gates, Task A | Rerunning (CPU / GPU) |
-> | TF-IDF baseline | Rerun pending: fixed a bug where the warm-started C=3 fit did 0 iterations |
-> | **Task B (seq2seq)** | **Pending**: rerun at a larger budget (4-epoch ablations incl. hidden size 128/512; up to 10-epoch final runs with early stopping; 5 seeds instead of 3) |
-> | **Task B, encoder + classification head** | **New, pending results**: code and tests are in (`seq2seq/classifier.py`, `seq2seq/scripts/run_taskB_cls.py`); no numbers yet |
-> | Not rerun | word2vec ablations (the chosen config is reused), BPE trainer benchmark |
->
-> This box goes away when the Task B rerun lands and the tables below are regenerated.
+**Findings at a glance** (details and numbers in §5):
+- **BPE wins.** A tokenizer trained on complaints needs 19% fewer tokens per word than a general one of the same size, and keeps terms like `forbearance` and `FDCPA` whole.
+- **word2vec loses to TF-IDF, usefully.** Averaged word vectors classify Product well above random vectors and on par with gensim, but a bag of n-grams still beats them.
+- **seq2seq ties TF-IDF on complaint labels, and the decoder isn't why.** Its gains come from the domain tokenizer and word2vec-initialized embeddings. The same encoder with a plain classification head does slightly better and varies less across seeds.
+- **seq2seq learns templates, not rules.** It normalizes dollar amounts perfectly up to 4 digits and gets every 5-7 digit amount wrong.
 
 ---
 
@@ -123,7 +118,7 @@ Each component works on its own. The links are ablations:
 
 1. **BPE → word2vec:** do vectors for BPE units give misspelled words a usable vector, where word-level vectors have none? **No**, with only 1 hit in 41. The domain tokenizer makes the correct terms single tokens, so misspellings share no pieces with them (`word2vec/README.md` §6.5).
 2. **word2vec → seq2seq:** encoder embeddings initialized from word2vec vs random. **The biggest Task B ablation win**: +2.7 points of val exact match (`seq2seq/README.md` §6.3).
-3. **BPE → seq2seq:** domain-trained vs general BPE at the same vocabulary size. **The domain tokenizer is better by about 6 points** (`seq2seq/README.md` §6.3).
+3. **BPE → seq2seq:** domain-trained vs general BPE at the same vocabulary size. **The domain tokenizer is better by 5.6 points** (`seq2seq/README.md` §6.3).
 
 ---
 
@@ -144,7 +139,13 @@ Every number below is copied from [`reports/summary.md`](reports/summary.md), wh
 **Where the from-scratch components were competitive, and where they weren't.**
 - **BPE: a clean win.** Trained on complaints, it compresses complaint text better than a general tokenizer of the same size and keeps finance terms whole. The win is measured with vocabulary size held fixed, so it isn't a size artifact.
 - **word2vec: a useful loss.** The vectors carry real signal (+0.13 macro-F1 over random vectors) and behave like gensim's. But averaging static vectors over a long complaint loses to a bag of n-grams, as expected.
-- **seq2seq: mixed, and the reverse of what I predicted.** Inside its training range it is perfect at amount normalization and completely fails outside it. On complaint labels it ties TF-IDF: 0.508 vs 0.501 accuracy, with five seeds spread from 0.477 to 0.553. Most of what it has comes from the other two components: word2vec-initialized embeddings were the biggest ablation win (+2.7 points), and the domain tokenizer beat the general one by 6. Dropping the decoder for a classification head on the same encoder does better (0.521 ± 0.013): generating a label token by token buys nothing on a fixed 56-label task.
+- **seq2seq: a tie, carried by the other two components.** Inside its training range it is perfect at amount normalization and completely fails outside it. On complaint labels I expected it to lose to TF-IDF; it ties: 0.508 vs 0.501 accuracy, with five seeds spread from 0.477 to 0.553. Most of what it has comes from the other two components: word2vec-initialized embeddings were the biggest ablation win (+2.7 points), and the domain tokenizer beat the general one by 5.6. Dropping the decoder for a classification head on the same encoder does better (0.521 ± 0.013): generating a label token by token buys nothing on a fixed 56-label task.
+
+![Task B: per-seed test accuracy against TF-IDF](reports/figures/s2s_taskB_models.png)
+
+| BPE: tokens per word vs vocabulary size | seq2seq Task A: in range vs extrapolation |
+|---|---|
+| ![BPE fertility](reports/figures/bpe_fertility_vs_vocab.png) | ![Task A extrapolation](reports/figures/s2s_taskA_extrapolation.png) |
 
 **Why ~50% on Product | Issue is reasonable:**
 - The target is exact match over 56 consumer-chosen labels; on Product alone, TF-IDF reaches 84%.
@@ -171,7 +172,14 @@ make eval          # reports/summary.md
 make test          # pytest: unit, property, leakage and end-to-end smoke tests
 ```
 
-Every target runs from a clean clone on fixed seeds (`config.SEED`, `config.SEEDS`). Stochastic results are mean ± sd over 3 seeds. Wall-clock times for both machines are in [`reports/RUNTIME.md`](reports/RUNTIME.md). seq2seq training uses a GPU if one is present (CUDA, else Apple MPS, else CPU; override with `NLP_SUITE_DEVICE`); everything else runs on CPU. On Windows, set `PYTHONUTF8=1`. `make test` and CI need no download: they run the whole pipeline on a small synthetic corpus (`tests/fixtures/make_fixture.py`).
+The notebooks are rebuilt and executed by script, after the targets above:
+
+```bash
+pip install -r requirements-dev.txt
+python notebooks/build.py
+```
+
+The first run's full pipeline took roughly 8-9 hours on an M1 Pro laptop, with a smaller Task B budget. The second run's larger Task B budget (27 ablation runs, 5 seq2seq and 5 classification-head seeds) took about 8 hours on an RTX 3060. Every target runs from a clean clone on fixed seeds (`config.SEED`, `config.SEEDS`). Stochastic results are mean ± sd over 3 seeds (5 for Task B). Wall-clock times for both machines are in [`reports/RUNTIME.md`](reports/RUNTIME.md). seq2seq training uses a GPU if one is present (CUDA, else Apple MPS, else CPU; override with `NLP_SUITE_DEVICE`); everything else runs on CPU. On Windows, set `PYTHONUTF8=1`. `make test` and CI need no download: they run the whole pipeline on a small synthetic corpus (`tests/fixtures/make_fixture.py`).
 
 ---
 
@@ -192,13 +200,22 @@ Hit while running it:
   - `▁1681` (the FCRA's section number) is a single BPE token.
   - `fdcpa`'s nearest word vectors are the FDCPA's own section numbers.
 - **Pasted credit reports pollute the text:** glued fragments like `statusclosed` became `balance`'s nearest neighbors.
-- **Seeds matter as much as the model for seq2seq.** Task B's five final seeds span 7.6 points of accuracy, more than any ablation knob except the tokenizer. Three seeds made it look 1.2 points ahead of TF-IDF; five put it level.
-- **Mixed hardware.** BPE, word2vec and the Task B ablations and final models come from different machines (M1 laptop for word2vec and the BPE benchmark; desktop RTX 3060 for the rest, see `reports/RUNTIME.md`). GPU kernels are not bit-deterministic, so Task B numbers are not reproducible to the last digit.
+- **Seeds matter more than most design choices for seq2seq.** Task B's five final seeds span 7.6 points of accuracy, wider than the effect of any single ablation knob. Three seeds made it look 1 point ahead of TF-IDF; five put it level.
+- **Two machines.** The word2vec models and the BPE trainer benchmark come from the first run on an M1 laptop. Everything else was rerun on a desktop RTX 3060 (BPE merges came out byte-identical), and the TF-IDF baseline and all Task B results come from that rerun (`reports/RUNTIME.md`). GPU kernels are not bit-deterministic, so Task B reruns match to within seed noise, not to the last digit.
 - **A decoder bug** (beam search stopping early) cost 20 points of Task B accuracy before a test with a known right answer caught it. It's documented in `seq2seq/README.md` §4.5.
 
 ---
 
-## 8. How this was built
+## 8. What I'd do next
+
+- **Task A with a few longer training amounts, or a copy mechanism**, to test whether place value is learnable here at all or whether the model only ever copies output shapes it has seen.
+- **A pretrained encoder on Task B** (a small BERT-style model, fine-tuned) to measure how much of the remaining gap is model capacity versus label ambiguity and 2022 drift.
+- **Merge the three credit-reporting issues that swap most**, or score them as one, to see how much of the ~50% ceiling is the label menu rather than the models.
+- **Re-time the word2vec trainer.** It ran about 3x slower per epoch on the desktop CPU than on the M1, which is worth profiling before anyone reruns it.
+
+---
+
+## 9. How this was built
 
 I chose the project, the domain and the questions each component has to answer. The component specs, code, tests, experiment runs and drafts of these READMEs were produced with help from AI assistants. Every number in this README is generated by the code in this repository and copied from `reports/summary.md`. The correctness checks are there so the results don't rest on trusting anyone's code, mine or an assistant's: round-trip and equivalence tests for BPE, the gradient check and gensim cross-check for word2vec, the toy-task gates for seq2seq.
 
