@@ -11,10 +11,7 @@ Each one is measured against a plain baseline, so the results say what these met
 
 **Stack:** Python · NumPy · PyTorch (seq2seq only) · `regex` · scikit-learn (baselines only) · pytest · hypothesis · (cross-checks only) gensim, tiktoken
 
-> **Status (2026-10-29): second run in progress.** The numbers below come from the first run (Apple M1 Pro laptop). The pipeline is being rerun on a desktop GPU (RTX 3060) to finish what that run cut short:
->
-> | Piece | State |
-> |---|---|
+---|---|
 > | Data, splits | Rebuilt here; train-split hash identical to the first run |
 > | BPE tokenizers | Retrained here; merges and vocabularies byte-identical to the committed ones |
 > | word2vec, toy gates, Task A | Rerunning (CPU / GPU) |
@@ -125,14 +122,14 @@ Each component is a flat Python package run from the repository root (`python -m
 Each component works on its own. The links are ablations:
 
 1. **BPE → word2vec:** do vectors for BPE units give misspelled words a usable vector, where word-level vectors have none? **No**, with only 1 hit in 41. The domain tokenizer makes the correct terms single tokens, so misspellings share no pieces with them (`word2vec/README.md` §6.5).
-2. **word2vec → seq2seq:** encoder embeddings initialized from word2vec vs random. **The biggest Task B ablation win**: +4 points of val exact match (`seq2seq/README.md` §6.3).
+2. **word2vec → seq2seq:** encoder embeddings initialized from word2vec vs random. **The biggest Task B ablation win**: +2.7 points of val exact match (`seq2seq/README.md` §6.3).
 3. **BPE → seq2seq:** domain-trained vs general BPE at the same vocabulary size. **The domain tokenizer is better by about 6 points** (`seq2seq/README.md` §6.3).
 
 ---
 
 ## 5. Results summary
 
-Every number below is copied from [`reports/summary.md`](reports/summary.md), which `make eval` regenerates. ± is the standard deviation over 3 seeds. Test split: 20,000 complaints from Jul-Dec 2022.
+Every number below is copied from [`reports/summary.md`](reports/summary.md), which `make eval` regenerates. ± is the standard deviation over seeds (3; 5 for Task B). Test split: 20,000 complaints from Jul-Dec 2022.
 
 | Component | Headline question | Metric | Mine | Baseline | Verdict |
 |---|---|---|---:|---|---|
@@ -141,12 +138,13 @@ Every number below is copied from [`reports/summary.md`](reports/summary.md), wh
 | word2vec (SGNS, d=300) | Do mean-pooled vectors classify Product? | macro-F1 | 0.736 ± 0.004 | **0.757** (TF-IDF + LR); 0.607 ± 0.001 (random vectors); 0.732 ± 0.001 (gensim) | **Loses to TF-IDF**, clearly beats random vectors, matches gensim |
 | word2vec | Do neighbors make domain sense? | precision@5, 20 probes, blind-scored | 0.93 | 0.97 (gensim) | Close to the reference |
 | seq2seq (GRU + attention) | Amount normalization | exact match: 1-4 digits / 5-7 digits | 1.000 / **0.000** | same with no attention | **Fails to extrapolate**: learned the `$X,XXX.XX` template, not place value |
-| seq2seq | Narrative → Product \| Issue (56 labels) | accuracy / macro-F1 | **0.513 ± 0.039** / 0.363 ± 0.014 | 0.483 / **0.365** (TF-IDF + LR); 0.188 (majority) | **Ahead on accuracy, tied on macro-F1**; seed spread as large as the gap |
+| seq2seq | Narrative → Product \| Issue (56 labels) | accuracy / macro-F1 | 0.508 ± 0.028 / 0.371 ± 0.013 | 0.501 / 0.361 (TF-IDF + LR); 0.188 (majority) | **Tied with TF-IDF**: +0.7 points of accuracy, a quarter of the seed spread |
+| seq2seq encoder + classification head | same task | accuracy / macro-F1 | **0.521 ± 0.013** / **0.369 ± 0.014** | same | **Small win**: +2 points over TF-IDF and steadier than the decoder; macro-F1 tied |
 
 **Where the from-scratch components were competitive, and where they weren't.**
 - **BPE: a clean win.** Trained on complaints, it compresses complaint text better than a general tokenizer of the same size and keeps finance terms whole. The win is measured with vocabulary size held fixed, so it isn't a size artifact.
 - **word2vec: a useful loss.** The vectors carry real signal (+0.13 macro-F1 over random vectors) and behave like gensim's. But averaging static vectors over a long complaint loses to a bag of n-grams, as expected.
-- **seq2seq: mixed, and the reverse of what I predicted.** Inside its training range it is perfect at amount normalization and completely fails outside it. On complaint labels it edges past TF-IDF on accuracy. The gain comes largely from the other two components: word2vec-initialized embeddings were the biggest ablation win (+4 points), and the domain tokenizer beat the general one by 6. It doesn't improve macro-F1, and its three seeds spread wider than its lead.
+- **seq2seq: mixed, and the reverse of what I predicted.** Inside its training range it is perfect at amount normalization and completely fails outside it. On complaint labels it ties TF-IDF: 0.508 vs 0.501 accuracy, with five seeds spread from 0.477 to 0.553. Most of what it has comes from the other two components: word2vec-initialized embeddings were the biggest ablation win (+2.7 points), and the domain tokenizer beat the general one by 6. Dropping the decoder for a classification head on the same encoder does better (0.521 ± 0.013): generating a label token by token buys nothing on a fixed 56-label task.
 
 **Why ~50% on Product | Issue is reasonable:**
 - The target is exact match over 56 consumer-chosen labels; on Product alone, TF-IDF reaches 84%.
@@ -157,7 +155,7 @@ Every number below is copied from [`reports/summary.md`](reports/summary.md), wh
 
 ## 6. Reproduce
 
-Python 3.11+ (developed on 3.12). Budget about 2.5 GB of disk for data and trained models, plus about 1 GB for the Python environment (PyTorch).
+Python 3.11+ (developed on 3.12; also run on 3.13 under Windows). Budget about 2.5 GB of disk for data and trained models, plus about 1 GB for the Python environment (PyTorch).
 
 ```bash
 git clone https://github.com/gabewat2003/NLP_suite.git && cd NLP_suite
@@ -173,7 +171,7 @@ make eval          # reports/summary.md
 make test          # pytest: unit, property, leakage and end-to-end smoke tests
 ```
 
-Every target runs from a clean clone on fixed seeds (`config.SEED`, `config.SEEDS`). Stochastic results are mean ± sd over 3 seeds. Wall-clock times and hardware are in [`reports/RUNTIME.md`](reports/RUNTIME.md); everything runs on CPU. `make test` and CI need no download: they run the whole pipeline on a small synthetic corpus (`tests/fixtures/make_fixture.py`).
+Every target runs from a clean clone on fixed seeds (`config.SEED`, `config.SEEDS`). Stochastic results are mean ± sd over 3 seeds. Wall-clock times for both machines are in [`reports/RUNTIME.md`](reports/RUNTIME.md). seq2seq training uses a GPU if one is present (CUDA, else Apple MPS, else CPU; override with `NLP_SUITE_DEVICE`); everything else runs on CPU. On Windows, set `PYTHONUTF8=1`. `make test` and CI need no download: they run the whole pipeline on a small synthetic corpus (`tests/fixtures/make_fixture.py`).
 
 ---
 
@@ -184,7 +182,7 @@ Every target runs from a clean clone on fixed seeds (`config.SEED`, `config.SEED
 - **Redaction removes information.** Dates, names and amounts are masked, so no model here can use them. Any claim about "understanding amounts" is limited to what survives redaction.
 - **Labels are consumer-chosen.** `Product` and `Issue` are picked from a menu by the complainant and are noisy ground truth with overlapping categories.
 - **The test period differs from train.** The time split is deliberate, but test-set numbers mix model quality with label drift (credit reporting grows from 39% to 52%).
-- **Small compute, small models.** These are from-scratch models on one laptop, not what a tuned pretrained model would do.
+- **Small compute, small models.** These are from-scratch models on a laptop and one desktop GPU, not what a tuned pretrained model would do.
 - **No claim of production readiness.** This is a learning-and-measurement project.
 
 Hit while running it:
@@ -194,7 +192,8 @@ Hit while running it:
   - `▁1681` (the FCRA's section number) is a single BPE token.
   - `fdcpa`'s nearest word vectors are the FDCPA's own section numbers.
 - **Pasted credit reports pollute the text:** glued fragments like `statusclosed` became `balance`'s nearest neighbors.
-- **Compute shaped the seq2seq results.** Task B ran on a reduced budget (2-epoch, 1-seed ablations; 4-epoch final models) on a laptop GPU. Its numbers likely understate the architecture.
+- **Seeds matter as much as the model for seq2seq.** Task B's five final seeds span 7.6 points of accuracy, more than any ablation knob except the tokenizer. Three seeds made it look 1.2 points ahead of TF-IDF; five put it level.
+- **Mixed hardware.** BPE, word2vec and the Task B ablations and final models come from different machines (M1 laptop for word2vec and the BPE benchmark; desktop RTX 3060 for the rest, see `reports/RUNTIME.md`). GPU kernels are not bit-deterministic, so Task B numbers are not reproducible to the last digit.
 - **A decoder bug** (beam search stopping early) cost 20 points of Task B accuracy before a test with a known right answer caught it. It's documented in `seq2seq/README.md` §4.5.
 
 ---

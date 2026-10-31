@@ -4,7 +4,7 @@ A PyTorch GRU encoder–decoder with additive attention, written from `nn.GRU`, 
 1. Converting spelled-out money amounts to digits, where length extrapolation can be tested.
 2. Mapping complaint narratives to a `Product | Issue` label string, compared against TF-IDF + logistic regression.
 
-**Result:** the model learns amount normalization perfectly up to 4 digits and gets **0%** on longer numbers: it learned the output template, not place value. On complaints, it reaches **0.513 ± 0.039** exact-match accuracy over 56 labels, against **0.483** for TF-IDF + LR. Macro-F1 is tied (0.363 vs 0.365). That beat my own prediction: I expected it to lose.
+**Result:** the model learns amount normalization perfectly up to 4 digits and gets **0%** on longer numbers: it learned the output template, not place value. On complaints, it reaches **0.508 ± 0.028** exact-match accuracy over 56 labels (5 seeds), against **0.501** for TF-IDF + LR: a tie, since the seeds spread four times wider than the gap. Macro-F1 is tied too (0.371 vs 0.361). Swapping the decoder for a classification head on the same encoder does a little better and is steadier: **0.521 ± 0.013**.
 
 **Stack:** Python · PyTorch · `num2words` (synthetic data) · scikit-learn (baseline only) · pytest · matplotlib
 
@@ -96,7 +96,7 @@ Task B is a classification problem wearing a generation costume. It is here beca
 | Gate | Pass criterion | Result |
 |---|---|---:|
 | Copy a random digit string (length 3-12) | 100% test exact match | **1.000** |
-| Reverse a random digit string | ≥ 99% exact match; attention is the anti-diagonal | **0.999**; 80% of attention weight on the anti-diagonal |
+| Reverse a random digit string | ≥ 99% exact match; attention is the anti-diagonal | **1.000**; 74.5% of attention weight on the anti-diagonal |
 | Overfit 32 Task A examples | train loss → ~0, 100% exact match | **1.000**, loss 0.0002 |
 
 All three passed before any real data was touched. The reverse task is the classic attention check: if masking, the target shift or the attention itself were wrong, the heatmap below would not be an anti-diagonal.
@@ -132,7 +132,7 @@ All three passed before any real data was touched. The reverse task is the class
 | Exact match, 5-7 digits (test-out, 900) | **0.000 ± 0.000** | 0.000 ± 0.000 |
 | Character accuracy, 1-4 digits | 1.000 | 1.000 |
 
-3 seeds each, 12 epochs, ~23 minutes per run on CPU.
+3 seeds each, 12 epochs: ~23 minutes per run on the M1 laptop's CPU, ~6 minutes on the desktop GPU (3 runs sharing it). The GPU rerun gave the same numbers.
 
 | Digits | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -141,68 +141,72 @@ All three passed before any real data was touched. The reverse task is the class
 
 ![Task A extrapolation](../reports/figures/s2s_taskA_extrapolation.png)
 
-| Metric | With attention | No attention |
-|---|---:|---:|
-| Exact match, 1-4 digits (test-in, 800) | **1.000 ± 0.001** | 1.000 ± 0.000 |
-| Exact match, 5-7 digits (test-out, 900) | **0.000 ± 0.000** | 0.000 ± 0.000 |
-| Character accuracy, 1-4 digits | 1.000 | 1.000 |
-
-3 seeds each, 12 epochs, ~23 minutes per run on CPU.
-
-| Digits | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| With attention | 1.00 | 1.00 | 1.00 | 1.00 | 0.00 | 0.00 | 0.00 |
-| No attention | 1.00 | 1.00 | 1.00 | 1.00 | 0.00 | 0.00 | 0.00 |_FAILURES
-
 ### 6.2 Task B
 
 | System | Exact-match accuracy | Macro-F1 | Invalid-label rate |
 |---|---:|---:|---:|
 | Majority label | 0.188 | 0.006 | - |
-| TF-IDF + LR (predicts label id) | 0.483 | **0.365** | - |
-| Seq2seq, greedy | 0.509 ± 0.038 | 0.360 ± 0.014 | 0.000 |
-| Seq2seq, beam 5 | **0.513 ± 0.039** | 0.363 ± 0.014 | 0.000 |
-| Seq2seq, beam 5 + trie | **0.513 ± 0.039** | 0.363 ± 0.014 | 0.000 |
+| TF-IDF + LR (predicts label id) | 0.501 | 0.361 | - |
+| Seq2seq, greedy | 0.505 ± 0.028 | 0.367 ± 0.012 | 0.000 |
+| Seq2seq, beam 5 | 0.508 ± 0.028 | **0.371 ± 0.013** | 0.000 |
+| Seq2seq, beam 5 + trie | 0.508 ± 0.028 | **0.371 ± 0.013** | 0.000 |
+| Encoder + classification head (§6.2.1) | **0.521 ± 0.013** | 0.369 ± 0.014 | 0 (by construction) |
 
-Test split: 20,000 complaints from Jul-Dec 2022, 56 labels. Final config: word2vec-initialized embeddings, L = 256, 4 epochs, 3 seeds. Per seed, beam 5 accuracy was 0.500 / 0.483 / 0.557.
+Test split: 20,000 complaints from Jul-Dec 2022, 56 labels. Final config: word2vec-initialized embeddings, L = 256, up to 10 epochs with early stopping on val (patience 2; seeds stopped after 4-6), 5 seeds. Per seed, beam 5 + trie accuracy was 0.496 / 0.477 / 0.553 / 0.502 / 0.510.
 
-- **Head vs tail** (seed 0): accuracy 0.522 on the 10 most frequent labels, 0.442 on the rest.
-- **The trie never mattered:** unconstrained beam search never produced an invalid label (rate below 0.0001), so constraining it changed nothing.
+- **Head vs tail** (seed 0): accuracy 0.516 on the 10 most frequent labels, 0.441 on the rest.
+- **The trie never mattered:** unconstrained beam search almost never produced an invalid label (1 in 100,000), so constraining it changed nothing.
+- **Seeds 3 and 4 were added after the first three.** Seeds 0-2 gave 0.509 ± 0.039, an sd five times the gap to TF-IDF; two more seeds narrowed it to ± 0.028 and moved the mean 0.1 points.
 
 **Why 51% is a reasonable number here.** Exact match over 56 Product | Issue labels is a hard target. On Product alone, TF-IDF gets 84% (see `word2vec/README.md` §6.3). Nearly all the errors stay inside one product and swap a neighboring credit-reporting issue:
 
 | Count (seed 0) | True issue → predicted issue |
 |---:|---|
-| 1,524 | Improper use of your report → Problem with a credit reporting company's investigation |
-| 906 | Problem with … investigation → Incorrect information on your report |
-| 749 | Incorrect information → Problem with … investigation |
-| 491 | Improper use → Incorrect information |
+| 1,175 | Problem with a credit reporting company's investigation → Incorrect information on your report |
+| 1,068 | Improper use of your report → Incorrect information |
+| 990 | Improper use → Problem with … investigation |
+| 469 | Incorrect information → Problem with … investigation |
 
 The labels are picked from a menu by consumers, and one complaint often fits all three. The time split adds drift on top: "Improper use of your report" is **4.1%** of training complaints but **17.5%** of test complaints (it surged in 2022). A model trained on 2018-2021 has rarely seen it, and it is the single largest source of errors for both seq2seq and TF-IDF.
 
-**The verdict, and why I got it wrong in advance.** I expected seq2seq to trail TF-IDF; instead it leads on accuracy by 3 points and ties on macro-F1. The likely reasons: word2vec-initialized embeddings (the largest ablation effect, +4 points) and a 256-token window let the GRU use word order and context that a bag of n-grams can't. But the gain is concentrated in frequent labels: macro-F1, which weights all 56 labels equally, doesn't move. The seed spread (0.48-0.56) is also as large as the gap to TF-IDF, so "better" here means "better on average over three seeds", not "reliably better". A classification head on the same encoder would be the cleaner design: same signal, no decoding, no invalid outputs to guard against.
+**The verdict.** I expected seq2seq to trail TF-IDF. With three seeds it looked 1 point ahead; with five it is level (0.508 ± 0.028 vs 0.501), and macro-F1 is level too. What it has comes mostly from the other two components: word2vec-initialized embeddings (the largest ablation effect, +2.7 points) and the domain tokenizer (+5.6 over the general one). Generating the label token by token adds nothing here: the output is one of 56 fixed labels, and greedy, beam and trie-constrained beam all land within 0.3 points of each other.
+
+#### 6.2.1 Encoder + classification head (`classifier.py`, `scripts/run_taskB_cls.py`)
+
+Same encoder, tokenizer, L = 256 and word2vec init as the final seq2seq model. Instead of a decoder, an additive attention pool over the encoder states, concatenated with the final forward/backward state, feeds one linear layer over the 56 labels, trained with cross-entropy. Up to 10 epochs with early stopping on val accuracy, 5 seeds (they stopped after 3-6).
+
+| | Seq2seq (beam 5 + trie) | Classification head |
+|---|---:|---:|
+| Test accuracy | 0.508 ± 0.028 | **0.521 ± 0.013** |
+| Test macro-F1 | 0.371 ± 0.013 | 0.369 ± 0.014 |
+| Seed range (accuracy) | 0.477-0.553 | 0.509-0.537 |
+| Prediction | beam search, ~19 min per seed on 20k complaints | one argmax |
+
+The head is 1.3 points ahead of seq2seq and 2 ahead of TF-IDF, and its seed sd is half as large. That is the expected result: same signal, without a decoder that has to learn to spell labels. Macro-F1 doesn't move for any of the three models, so none of them handles the rare labels better than the others.
 
 ### 6.3 Ablations (Task B)
 
-Each ablation changes one knob at a time from the base config: CFPB BPE, L=128, attention, random embedding init, teacher forcing 1.0, hidden 256, embedding 300 (to match the chosen word2vec dimension). Each config trains on the first 50,000 train complaints for 2 epochs and is scored by **val** exact match (greedy, 4,000 val complaints). The base config runs 3 seeds, and each knob runs 1 seed. A change is adopted only if it beats the base mean by more than one base standard deviation.
+Each ablation changes one knob at a time from the base config: CFPB BPE, L=128, attention, random embedding init, teacher forcing 1.0, hidden 256, embedding 300 (to match the chosen word2vec dimension). Each config trains on the first 50,000 train complaints for 4 epochs and is scored by **val** exact match (greedy, 4,000 val complaints), with 3 seeds per config. A change is adopted only if it beats the base mean by more than one base standard deviation.
 
-**Reduced compute budget.** These runs trained on a laptop's integrated GPU (Apple M1 Pro, MPS), so Task B runs on a trimmed schedule. Ablations get 2 epochs, with 1 seed per knob (the base config keeps 3 seeds for its standard deviation). Final models get 4 epochs with 3 seeds. The planned hidden-size ablation (128 / 512) was dropped. With one seed per knob, an ablation can only flag a large effect; small differences are within seed noise. The Task B models are therefore likely under-trained relative to what a GPU budget would allow. The comparison with TF-IDF should be read with that in mind: the gap is an upper bound on how far seq2seq trails, not a settled verdict.
+The first run (M1 laptop) could only afford 2 epochs and 1 seed per knob and dropped the hidden-size knob. This rerun on a desktop GPU (RTX 3060) restores all of that. The ranking of the knobs is nearly the same, and the same two changes are adopted.
 
-| Change from base | Val exact match | Seeds | Adopted |
-|---|---:|---:|---|
-| **Embeddings initialized from word2vec** (BPE-unit vectors, 99.2% of the vocabulary covered) | **0.477** | 1 | **yes** |
-| **L = 256** | **0.448** | 1 | **yes** |
-| No attention | 0.440 | 1 | no (within noise of base) |
-| *Base* | *0.436 ± 0.006* | *3* | |
-| Scheduled sampling (teacher forcing 1.0 → 0.5) | 0.432 | 1 | no |
-| L = 64 | 0.417 | 1 | no |
-| WikiText-trained BPE instead of CFPB-trained (same 8k size) | 0.378 | 1 | no |
+| Change from base | Val exact match (3 seeds) | Adopted |
+|---|---:|---|
+| **Embeddings initialized from word2vec** (BPE-unit vectors, 99.2% of the vocabulary covered) | **0.479 ± 0.004** | **yes** |
+| **L = 256** | **0.459 ± 0.007** | **yes** |
+| *Base* | *0.452 ± 0.002* | |
+| Scheduled sampling (teacher forcing 1.0 → 0.5) | 0.450 ± 0.004 | no |
+| Hidden 512 | 0.447 ± 0.002 | no |
+| Hidden 128 | 0.446 ± 0.002 | no |
+| No attention | 0.443 ± 0.003 | no |
+| L = 64 | 0.422 ± 0.002 | no |
+| WikiText-trained BPE instead of CFPB-trained (same 8k size) | 0.396 ± 0.002 | no |
 
 The two links between components both pay off, which is the point of building them as a suite.
-- **word2vec → seq2seq:** starting the encoder from word2vec vectors is the largest single gain (+4 points). After 2 epochs on 50k complaints, randomly initialized embeddings haven't caught up with vectors learned from 150k.
-- **BPE → seq2seq:** swapping the domain tokenizer for the general one costs about 6 points at the same vocabulary size. The general tokenizer spends more tokens per complaint, so 128 tokens cover less text, and its pieces (`for b ear ance`) carry less meaning each.
-- **Attention:** removing it is the surprise. At 2 epochs and 128 tokens, the model without attention is no worse (0.440 vs 0.436 ± 0.006). For a short classification-like output, the encoder's final state carries most of what's needed.
-- **Hidden size:** a 128/512 ablation was planned and dropped to save compute.
+- **word2vec → seq2seq:** starting the encoder from word2vec vectors is the largest single gain (+2.7 points). After 4 epochs on 50k complaints, randomly initialized embeddings haven't caught up with vectors learned from 150k.
+- **BPE → seq2seq:** swapping the domain tokenizer for the general one costs 5.6 points at the same vocabulary size. The general tokenizer spends more tokens per complaint, so 128 tokens cover less text, and its pieces (`for b ear ance`) carry less meaning each.
+- **Attention:** small but real at 4 epochs. Removing it costs 0.9 points, about four base sds; in the 2-epoch first run it looked like no effect at all. For a short, classification-like output, the encoder's final state still carries most of what's needed.
+- **Hidden size:** 128 and 512 both land just under the base 256, so the base size stays.
 
 ### 6.4 Looking inside
 
@@ -210,19 +214,19 @@ Attention heatmaps over complaint text would publish the text, so the attention 
 
 | Token group | Share of attention | Share of tokens | Lift |
 |---|---:|---:|---:|
-| `<REDACTED>` | 0.64% | 3.05% | 0.21 |
-| `<DATE>` | 0.14% | 0.83% | 0.17 |
-| `<AMT>` | 0.14% | 0.47% | 0.29 |
-| Punctuation | 0.45% | 13.4% | 0.03 |
+| `<REDACTED>` | 0.18% | 3.05% | 0.06 |
+| `<DATE>` | 0.03% | 0.83% | 0.04 |
+| `<AMT>` | 0.05% | 0.47% | 0.10 |
+| Punctuation | 0.50% | 13.4% | 0.04 |
 
-The tokens with the highest lift are `furnish` (38×), `erroneous`, `belong`, `unauthorized`, `consent`, `fraudulent`, `privacy`, `investigation`, `bankruptcy`, `inquiries`, `escrow` and `forbearance`. The lowest, near zero, are filler words: `very`, `so`, `I`, `could`, `spoke`, `After`.
+The tokens with the highest lift are `furnish` (36×), `belong`, `unauthorized`, `investigation`, `erroneous`, `escrow`, `inquiries`, `consent`, `fraudulent`, `inquiry` and `forbearance`. The lowest, near zero, are filler words: `very`, `spoke`, `After`, `So`, `because`.
 
 The attention looks like evidence, not noise. The top tokens line up with how the label menu is worded:
 - `furnish` and `erroneous` point to an inaccurate report from a data furnisher (Incorrect information).
-- `consent`, `privacy` and `unauthorized` point to a pull without permission (Improper use).
+- `consent` and `unauthorized` point to a pull without permission (Improper use).
 - `investigation` points to the bureau's handling (Problem with … investigation).
 
-Redaction tokens are almost ignored (a fifth of their frequency), and punctuation even more so. In the misclassified examples, the attended tokens are often *right but ambiguous*. One complaint labelled "Incorrect information" got attention on `FRAUD`, `knowingly` and `1681`, vocabulary that fits identity-theft or improper-use issues just as well. The model is looking at the right words; the words don't settle the label.
+Redaction tokens and punctuation are almost ignored (a tenth of their frequency or less). In the misclassified examples, the attended tokens are often *right but ambiguous*: pieces like `fraud`, `1681` (the FCRA section) and `accounts` fit identity-theft, improper-use and incorrect-information issues equally well. The model is looking at the right words; the words don't settle the label.
 
 ![Attention lift](../reports/figures/s2s_taskB_attention_lift.png)
 
@@ -240,12 +244,14 @@ seq2seq/
 ├── metrics.py          # exact match, character accuracy, per-bucket
 ├── data_taskA.py       # generator, splits, inverse parsers for tests
 ├── data_taskB.py       # BPE encoding (cached), word-safe truncation, label vocab
+├── classifier.py       # encoder + attention pool + linear head (Task B without a decoder)
 ├── common.py           # run saving, attention heatmap
 ├── scripts/
 │   ├── run_toy.py
 │   ├── run_taskA.py
 │   ├── taskA_failures.py
-│   ├── run_taskB.py    # --ablate for the val grid; no flag for the final 3-seed run
+│   ├── run_taskB.py    # --ablate for the val grid; no flag for the final 5-seed run; --decode-only re-scores saved models
+│   ├── run_taskB_cls.py # encoder + classification head, 5 seeds
 │   └── plot_attention.py
 ├── runs/               # gitignored: checkpoints, histories
 └── tests/test_seq2seq.py
@@ -257,15 +263,15 @@ seq2seq/
 
 | Item | Value |
 |---|---|
-| Toy gates | copy 1.000, reverse 0.999, overfit-32 1.000 |
+| Toy gates | copy 1.000, reverse 1.000, overfit-32 1.000 |
 | Task A exact match, 1-4 digits / 5-7 digits | 1.000 ± 0.001 / 0.000 ± 0.000 |
-| Task B accuracy: majority / TF-IDF / seq2seq | 0.188 / 0.483 / **0.513 ± 0.039** |
-| Task B macro-F1: TF-IDF / seq2seq | **0.365** / 0.363 ± 0.014 |
+| Task B accuracy: majority / TF-IDF / seq2seq / classification head | 0.188 / 0.501 / 0.508 ± 0.028 / **0.521 ± 0.013** |
+| Task B macro-F1: TF-IDF / seq2seq / classification head | 0.361 / 0.371 ± 0.013 / 0.369 ± 0.014 |
 | Final Task B config (chosen on val) | CFPB BPE 8k, L = 256, word2vec-initialized embeddings (300-d), BiGRU 256, additive attention, teacher forcing 1.0, beam 5 by total log-prob |
 | Parameters | Task A 1.6M; Task B 4.7M (2.4M of it the source embedding) |
-| Training time | Task A ~23 min per run on CPU; Task B 2.5-3.7 h per seed for 4 epochs, three seeds sharing one Apple Silicon GPU (MPS); the upper end includes a pause while the laptop slept |
+| Training time (RTX 3060) | Task A ~6 min per run; Task B seq2seq ~5 min per epoch alone (~8 min sharing the GPU), 4-6 epochs per seed, plus ~19 min of test decoding; classification head ~23 min per seed. Details in `reports/RUNTIME.md` |
 
-The seq2seq model does exactly what the mechanism allows and no more. It solves amount normalization perfectly inside its training range and fails completely outside it, because what it learned was a template. On complaints, it edges past TF-IDF on accuracy thanks to the other two components (domain BPE and word2vec initialization), and it ties on macro-F1. Most of its remaining errors are label ambiguity and 2022 drift, not misunderstanding. Next steps: swap the decoder for a classification head on the same encoder, train Task A with a few longer examples (or a copy mechanism) to test whether extrapolation is learnable at all here, and move to a pretrained encoder if accuracy were the goal.
+The seq2seq model does exactly what the mechanism allows and no more. It solves amount normalization perfectly inside its training range and fails completely outside it, because what it learned was a template. On complaints, it ties TF-IDF, and most of what it has comes from the other two components (domain BPE and word2vec initialization). A classification head on the same encoder does a little better and is steadier, so the decoder doesn't earn its keep on a fixed label set. Most of the remaining errors are label ambiguity and 2022 drift, not misunderstanding. Next steps: train Task A with a few longer examples (or a copy mechanism) to test whether extrapolation is learnable at all here, and move to a pretrained encoder if accuracy were the goal.
 
 ---
 
@@ -276,11 +282,12 @@ The seq2seq model does exactly what the mechanism allows and no more. It solves 
 - Task B labels are consumer-chosen and overlap (`Incorrect information on your report` vs `Problem with a credit reporting company's investigation into an existing problem`), so accuracy has a ceiling below 100% that no model could cross.
 - These are from-scratch models on a modest corpus, so they say nothing about what pretrained transformers achieve.
 - Seed variance on small data is real. Differences smaller than the ± sd aren't reported as wins.
-- Task B ran on a reduced laptop-GPU budget (2-epoch, 1-seed-per-knob ablations; 4-epoch final models; no hidden-size ablation), so its numbers likely understate what the architecture can reach.
+- Task B models are small and trained for at most 10 epochs; early stopping ended every seed by epoch 6, so more epochs alone would not help.
+- GPU kernels are not bit-deterministic, so rerunning Task B reproduces the numbers to within seed noise, not to the last digit.
 
 Observed while running it:
 - **The output template trap (Task A):** the model generalizes the shape of the outputs it saw, not the rule, so any test of extrapolation needs inputs outside the training *output* shapes too.
-- **Seed variance is as large as the effect:** Task B test accuracy ranges 0.483-0.557 across three seeds, as wide as the gap to TF-IDF.
+- **Seed variance is larger than the effect:** Task B test accuracy ranges 0.477-0.553 across five seeds, ten times the gap to TF-IDF. Three seeds made seq2seq look ahead; five didn't.
 - **Label drift dominates the error budget:** one issue's share quadruples between train and test.
 - **Beam search was wrong at first** (§4.5). Without a test that knows the right answer, a plausible-looking decoder can quietly cost 20 points.
 

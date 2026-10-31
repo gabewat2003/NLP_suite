@@ -108,3 +108,31 @@ Observations recorded while running the pipeline, in the order they came up. The
   verdict is unchanged (1-4 digits 1.00, 5-7 digits 0.00, all 900 extrapolation outputs 4 dollar digits).
   Small shifts from GPU non-determinism: reverse anti-diagonal weight 0.745 (was 0.802), reverse exact match
   1.000 (was 0.999), last-three-dollar-digits 99.4% (was 99.2%).
+- word2vec on this CPU is ~3x slower than on the M1 (pure-NumPy SGNS, one core per model): ~60 min per
+  epoch per word-level model, ~45 min for the BPE-unit model when it runs alone.
+- Two out-of-memory crashes. 20:19: the 4 word2vec models (one process pool) plus 2 GPU ablation workers
+  hit the Windows commit limit (RAM + pagefile); each CUDA process reserves 5-8 GB of virtual memory. One
+  failed allocation took down the whole pool. 00:04-00:13: TF-IDF + 4 word2vec processes + a game.
+  Fixes: one process per word2vec model, CPU-heavy and GPU-heavy stages not overlapped, nothing else running.
+- After the second crash Windows WMI hung, and Python 3.13's `platform` module blocks on WMI when pandas or
+  torch import. Worked around with a `sitecustomize.py` that disables the WMI query; a reboot cleared it.
+- Task B ablations ran in two passes (`--skip-knobs init`, then `--resume-log`) so the GPU could start
+  before the BPE word2vec model existed. Every knob now has 3 seeds and 4 epochs. Adopted config is the
+  same as the first run: L = 256 + word2vec init (0.479 ± 0.004 val vs base 0.452 ± 0.002). Hidden size
+  128 and 512 both land just under base.
+- TF-IDF rerun with the fix: Product | Issue test accuracy 0.483 -> 0.501, macro-F1 0.365 -> 0.361.
+- Five GPU processes on one RTX 3060 under Windows (3 seq2seq + 2 classification head) ran 8 h without
+  finishing an epoch: GPU at 38%, every worker at 100% CPU. One process per model type runs at full speed
+  (seq2seq 246 ms/step, classification head 152 ms/step with both sharing the card; seq2seq alone
+  ~145 ms/step). Training now logs every 500 steps so a stall shows up within minutes.
+- Classification head (5 seeds, up to 10 epochs, early stopping on val; 3-6 epochs used): test accuracy
+  0.521 ± 0.013, macro-F1 0.369 ± 0.014. Its seed spread is a third of the seq2seq model's.
+- Seq2seq finals: trained seeds 0-2 first (early stopping after 4-6 epochs; beam + trie accuracy
+  0.496 / 0.477 / 0.553), then seeds 3-4 because the spread (sd 0.039) was ~5x the gap to TF-IDF. All five
+  were re-scored together with `--decode-only`.
+- Five-seed result: seq2seq beam + trie test accuracy 0.508 ± 0.028 (seeds 3-4: 0.502, 0.510), macro-F1
+  0.371 ± 0.013, against TF-IDF 0.501 / 0.361 and the classification head 0.521 ± 0.013 / 0.369 ± 0.014.
+  With three seeds seq2seq looked 1 point ahead of TF-IDF; with five it is level. Verdict: the decoder adds
+  nothing on a fixed 56-label set, and the head on the same encoder is a little better and steadier.
+- `--decode-only` wrote the CLI default for `max_epochs` (12) into the metrics instead of the 10 the models
+  were trained with. `run.json` now stores the training budget and decode-only reads it back.
